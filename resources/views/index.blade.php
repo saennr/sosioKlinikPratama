@@ -15,7 +15,7 @@
   <header>
 
     <a href="#" class="logo">
-      <img src="{{ asset('img/Logo medybudy.png') }}" alt="Medybudy Logo">
+      <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="logo">KLINIK PRATAMA
     </a>
 
     <nav class="navbar">

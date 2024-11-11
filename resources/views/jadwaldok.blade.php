@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="logo"> Klinik Pratama
+            <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="logo">KLINIK PRATAMA
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klinik Pratama</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('buatjanji/buatjanji.css') }}">
+    <link rel="stylesheet" href="{{ asset('konsultasionlinne/konsultasionline.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -38,7 +39,7 @@
     </nav>
 
     <header class="header-title">
-        <h1>REGISTRASI<br>JANJI KLINIK</h1>
+        <h1>REGISTRASI<br>KONSULTASI ONLINE</h1>
     </header>
 
     <section id="buatjanji" class="py-5 bg-white">
@@ -65,28 +66,32 @@
                         <input type="text" class="input-field" placeholder="Pilih Tanggal" onfocus="(this.type='date')"
                             onblur="if(this.value===''){this.type='text'}" required />
                     </div>
-
                 </div>
                 <div class="right">
                     <label for="keluhan">Keluhan/Sakit yang dirasakan</label>
                     <textarea id="keluhan" placeholder="Jawaban Anda"></textarea>
+                    <div class="note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Konsultasi online hanya bisa di lakukan dalam waktu 10 menit</span>
+                    </div>
                     <button id="btn-submit" type="submit">Submit</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pop-up Modal -->
     <div id="popup" class="popup">
         <div class="popup-content">
             <img src="{{ asset('lg/img/envelove.png') }}" alt="Icon" class="popup-icon"> <!-- Replace with your icon path -->
             <h2>Terimakasih</h2>
             <p>Nama pasien sudah terdaftar</p>
+            <button id="open-whatsapp" type="submit">Buka Whatsapp</button>
             <span id="close-popup" class="close-popup">&times;</span>
         </div>
     </div>
 
-    <script src="{{ asset('buatjanji/buatjanji.js') }}"></script>
+    <script src="{{ asset('konsultasionline/konsultasionline.js') }}"></script>
+
 </body>
 
 </html>

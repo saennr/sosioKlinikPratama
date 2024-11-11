@@ -50,9 +50,23 @@ header {
 }
 
 
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  color: #097670;
+  text-decoration: none; 
+  font-weight: bold;
+}
+
 .logo img {
-  height: 40px;  /* Atur tinggi logo */
-  width: auto;   /* Sesuaikan lebar secara proporsional */
+  height: 40px;
+  margin-right: 10px; 
+}
+
+.logo:hover {
+  color: #097670; 
+  text-decoration: none; 
 }
 
 header .navbar a[href='#login'] {

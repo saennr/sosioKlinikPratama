@@ -17,6 +17,7 @@ body, input {
 
 .navbar-brand {
     color: #097670;
+    font-weight: bold;
 }
 .navbar-nav .nav-link {
     font-weight: 500;
