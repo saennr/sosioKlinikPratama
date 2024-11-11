@@ -42,7 +42,6 @@
             <hr>
             <div class="buttons">
                 <button class="btn logout" id="logoutBtn">Logout</button>
-                <button class="btn medical-record">Rekam Medis</button>
             </div>
         </div>
     </section>

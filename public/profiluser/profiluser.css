@@ -159,16 +159,10 @@ header {
     font-size: 12px; /* Reduced font size */
     font-weight: bold;
     cursor: pointer;
+    justify-content: center;
 }
 
 .logout {
-    background-color: #097670;
-    color: white;
-    border: 2px solid #097670; 
-    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; 
-}
-
-.medical-record {
     background-color: #097670;
     color: white;
     border: 2px solid #097670; 
@@ -180,10 +174,3 @@ header {
     color: #000;
     border: 2px solid #097670; 
 }
-
-.medical-record:hover {
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #097670; 
-}
-
