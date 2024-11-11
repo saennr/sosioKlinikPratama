@@ -149,26 +149,26 @@ header {
 .logout {
     background-color: #097670;
     color: white;
-    border: 2px solid #097670; /* Tambahkan border dengan warna yang sama seperti background */
-    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; /* Transisi untuk background, warna, dan border */
+    border: 2px solid #097670; 
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; 
 }
 
 .medical-record {
     background-color: #097670;
     color: white;
-    border: 2px solid #097670; /* Tambahkan border dengan warna yang sama seperti background */
-    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; /* Transisi untuk background, warna, dan border */
+    border: 2px solid #097670; 
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; 
 }
 
 .logout:hover {
     background-color: #ffffff;
     color: #000;
-    border-color: #097670; /* Ubah warna border saat di-hover */
+    border: 2px solid #097670; 
 }
 
 .medical-record:hover {
     background-color: #fff;
     color: #000;
-    border-color: #097670; /* Ubah warna border saat di-hover */
+    border: 2px solid #097670; 
 }
 
