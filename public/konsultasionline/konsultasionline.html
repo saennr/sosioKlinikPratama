@@ -61,10 +61,11 @@
                         <option>Select Option</option>
                     </select>
 
-                    <label for="tanggal">Pilih Tanggal</label>
-                    <select id="tanggal">
-                        <option>Select Option</option>
-                    </select>
+                    <label for="jadwal">Pilih Jadwal Dokter</label>
+                    <div class="input-wrap">
+                        <input type="text" class="input-field" placeholder="Pilih Tanggal" onfocus="(this.type='date')"
+                            onblur="if(this.value===''){this.type='text'}" required />
+                    </div>
                 </div>
                 <div class="right">
                     <label for="keluhan">Keluhan/Sakit yang dirasakan</label>
@@ -78,17 +79,18 @@
             </div>
         </div>
     </section>
-    
+
     <div id="popup" class="popup">
         <div class="popup-content">
             <img src="../lg/img/envelove.png" alt="Icon" class="popup-icon"> <!-- Replace with your icon path -->
             <h2>Terimakasih</h2>
-            <p>Nama pasien</p>
+            <p>Nama pasien sudah terdaftar</p>
+            <button id="open-whatsapp" type="submit">Buka Whatsapp</button>
             <span id="close-popup" class="close-popup">&times;</span>
         </div>
     </div>
 
-    <script src="buatjanji.js"></script>
+    <script src="konsultasionline.js"></script>
 
 </body>
 

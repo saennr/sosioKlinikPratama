@@ -116,6 +116,21 @@ textarea {
     resize: none;
 }
 
+.input-wrap {
+    position: relative;
+    margin-bottom: 1rem;
+    z-index: 1;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    pointer-events: auto;
+  }
+
 button {
     width: 100%;
     padding: 10px;
