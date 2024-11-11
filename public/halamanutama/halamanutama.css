@@ -3,7 +3,7 @@ body, input {
   }
 .navbar {
     padding: 0.3rem 1rem;
-    background-color: #E1DFDF;
+    background-color: #d8c4c4;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -63,7 +63,7 @@ body, input {
     padding: 50px;
     border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: -200px;
+    margin-top: 200px;
     text-align: center;
 }
 
