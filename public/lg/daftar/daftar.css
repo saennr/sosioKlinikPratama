@@ -1,4 +1,4 @@
-/* Nunito */
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
 
@@ -28,7 +28,7 @@ main {
   width: 100%;
   max-width: 1020px;
   height: 640px;
-  background-color: #ffff;
+  background-color: #ffffff;
   border-radius: 2rem;
   box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
   overflow: hidden;
@@ -39,7 +39,7 @@ main {
   position: relative;
   width: 40%;
   height: 100%;
-  background-image: url(../img/Rectangle\ 9.png), url(../img/Frame\ 25.png);
+  background-image: url('../img/Rectangle\ 9.png'), url('../img/Frame\ 25.png');
   background-repeat: no-repeat;
   background-position: center, center;
   background-size: cover, center;
@@ -53,27 +53,27 @@ main {
 }
 
 .forms-wrap {
-    position: absolute;
-    height: 80%;
-    width: 40%; 
-    top: 0;
-    left: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 3rem 2rem;
-    background-color: #ffffff; /* Background putih sesuai gambar */
-  }
+  position: absolute;
+  height: 80%;
+  width: 40%;
+  top: 0;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+}
 
 form {
-    max-width: 320px; /* Increased max-width */
-    width: 100%;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
+  max-width: 320px;
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .heading h2 {
@@ -102,6 +102,24 @@ form {
   background-color: #E1DFDF;
   border-radius: 5px;
   pointer-events: auto;
+}
+
+.note {
+  font-size: 0.7rem;
+  color: #ff9800;
+  margin-top: 0.2rem;
+  display: block;
+}
+
+.note::before {
+  content: '';
+  display: inline-block;
+  width: 18px; /* Sesuaikan ukuran ikon */
+  height: 18px;
+  background-image: url('../img/warning-circle_svgrepo.com.png'); /* Lokasi gambar */
+  background-size: cover;
+  margin-right: 0.3rem;
+  vertical-align: middle;
 }
 
 .sign-btn {
@@ -137,54 +155,58 @@ form {
 .to-signup a:hover {
   text-decoration: underline;
 }
+
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  margin-top: 80px; 
+}
   
 .logo img {
-    width: 80px; /* Adjust size based on your logo dimensions */
-    height: 80px;
+  width: 80px;
+  height: 80px;
 }
 
 .icons {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .icons::before {
-    content: '';
-    position: absolute;
-    bottom: 10%; 
-    left: 85%; 
-    width: 140px;
-    height: 140px;
-    background-image: url('../img/Vector.png'); 
-    background-size: contain;
-    background-repeat: no-repeat;
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: 85%;
+  width: 140px;
+  height: 140px;
+  background-image: url('../img/Vector.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
   
 .icons::after {
-    content: '';
-    position: absolute;
-    top: 15%; 
-    width: 120px; 
-    height: 120px;
-    background-image: url('../img/Vector2.png'); /* Path ke gambar orang */
-    background-size: contain;
-    background-repeat: no-repeat;
+  content: '';
+  position: absolute;
+  top: 15%;
+  width: 120px;
+  height: 120px;
+  background-image: url('../img/Vector2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
+
 .to-signup .toggle {
-    position: relative;
+  position: relative;
   z-index: 1;
   text-decoration: underline;
   color: #097670;
   cursor: pointer;
-  }
-  .actual-form {
-    position: relative;
-    z-index: 1;
-  }
-  
+}
+
+.actual-form {
+  position: relative;
+  z-index: 1;
+}

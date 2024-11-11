@@ -15,8 +15,22 @@ header {
     padding: 15px 20px;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  color: #097670;
+  text-decoration: none; 
+}
+
 .logo img {
-    height: 40px;
+  height: 40px;
+  margin-right: 10px; 
+}
+
+.logo:hover {
+  color: #097670; 
+  text-decoration: none; 
 }
 
 .navbar a {

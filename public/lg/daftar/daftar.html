@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar/klinik pratama</title>
+  <title>Daftar Klinik Pratama</title>
   <link rel="stylesheet" href="daftar.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
       <div class="inner-box">
         <div class="forms-wrap">
           <div class="logo">
-            <img src="../img/Logo UIN.png" alt="Medical+">
+            <img src="../img/Logo UIN.png">
           </div>
           <form class="sign-up-form" onsubmit="redirectToLogin(event)">
             <div class="heading">
@@ -23,7 +23,7 @@
 
             <div class="actual-form">
               <div class="input-wrap">
-                <input type="tel" class="input-field" required placeholder="Nomor Telepon" />
+                <input type="text" class="input-field" required placeholder="Nama" />
               </div>
 
               <div class="input-wrap">
@@ -33,6 +33,20 @@
               <div class="input-wrap">
                 <input type="password" class="input-field" required placeholder="Password" />
               </div>
+
+              <div class="input-wrap">
+                <input type="tel" class="input-field" required placeholder="Nomor Telepon" />
+                <small class="note">Nomor WhatsApp aktif</small>
+              </div>
+
+              <div class="input-wrap">
+                <input type="text" class="input-field" required placeholder="Nomor Identitas" />
+                <small class="note">NIM, NIP atau NIK (Masukan salah satu)</small>
+              </div>
+
+              <div class="input-wrap">
+                <input type="text" class="input-field" placeholder="Tanggal Lahir" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}" required />
+              </div>              
 
               <button type="submit" class="sign-btn">Sign Up</button>
 
