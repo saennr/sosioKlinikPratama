@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="buatjanji.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                             <p class="mb-0">Tuan Zidni Nurfauzi</p>
                             <img src="../lg/img/Ellipse 8.png" class="rounded-circle user-icon ms-2">
                         </a>
-                    </li>                
+                    </li>
                 </ul>
             </div>
         </div>
@@ -68,12 +69,23 @@
                 <div class="right">
                     <label for="keluhan">Keluhan/Sakit yang dirasakan</label>
                     <textarea id="keluhan" placeholder="Jawaban Anda"></textarea>
-                    <button type="submit">Submit</button>
+                    <button id="btn-submit" type="submit">Submit</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Pop-up Modal -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <img src="../lg/img/envelove.png" alt="Icon" class="popup-icon"> <!-- Replace with your icon path -->
+            <h2>Terimakasih</h2>
+            <p>Nama pasien sudah terdaftar</p>
+            <span id="close-popup" class="close-popup">&times;</span>
+        </div>
+    </div>
+
+    <script src="buatjanji.js"></script>
 </body>
 
 </html>

@@ -29,7 +29,6 @@ buatJanji.addEventListener("click", () => {
 });
 
 cekLab.addEventListener("click", showPopup);
-konsultasiOnline.addEventListener("click", showPopup);
 cekRadiologi.addEventListener("click", showPopup);
 
 jadwalDokter.addEventListener("click", () => {
@@ -40,4 +39,5 @@ jadwalDokter.addEventListener("click", () => {
 closePopup.addEventListener("click", () => {
   popup.style.display = "none";
 });
+
 
