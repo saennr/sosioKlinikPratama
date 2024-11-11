@@ -193,6 +193,7 @@ header {
   color: #097670; /* Title color */
   font-size: 2em;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .popup p {
