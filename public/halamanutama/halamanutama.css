@@ -1,0 +1,368 @@
+body, input {
+    font-family: 'Poppins', sans-serif;
+  }
+.navbar {
+    padding: 0.3rem 1rem;
+    background-color: #E1DFDF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.navbar-brand {
+    color: #097670;
+}
+.navbar-nav .nav-link {
+    font-weight: 500;
+    margin-right: 1.5rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #097670;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Home Section */
+#home {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 50px;
+    overflow: hidden;
+}
+
+#home h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+#home p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Section Layanan */
+#layanan {
+    position: relative;
+    z-index: 1;
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: -200px;
+    text-align: center;
+}
+
+.icon-box {
+    display: flex;             /* Mengaktifkan Flexbox */
+    align-items: center;       /* Menyelaraskan ikon dan teks di tengah secara vertikal */
+    text-align: left; 
+}
+
+.icon-box img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column; /* Menyusun judul dan teks paragraf secara vertikal */
+}
+
+.text-content h4 {
+    margin-left: 1rem; /* Menghapus margin atas pada judul */
+    font-size: 1.25rem;
+}
+
+.text-content p {
+    margin-left: 1rem;
+    color: #717171;
+    text-align: justify;
+}
+
+/* Section Informasi */
+#informasi {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#informasi h2 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+/* Kontak Section */
+/* Main container styling */
+
+#kontak {
+    background-color: #ffffff;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    border: 2px solid #63C4AB;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden; /* Menghilangkan area putih yang tersisa */
+}
+
+/* Contact Info Styling */
+.contact-info {
+    background-color: #63C4AB;
+    height: 100%;
+    padding: 20px;
+}
+.contact-item img {
+    width: 40px; /* Sesuaikan ukuran gambar */
+    height: auto; /* Menjaga rasio aspek gambar */
+    margin-right: 10px; /* Spasi antara gambar dan teks */
+}
+
+/* Mengatur container teks agar rata kiri */
+.contact-item div {
+    text-align: left;
+}
+/* Membuat kotak untuk setiap item kontak */
+/* Mengatur ukuran kotak untuk setiap item kontak */
+.contact-item {
+    background-color: #4BB599; /* Warna latar belakang kotak */
+    padding: 20px; /* Padding dalam kotak */
+    border-radius: 8px; /* Membuat sudut membulat */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; /* Mengatur lebar kotak mengikuti kontainer */
+    max-width: 250px; /* Sesuaikan lebar kotak sesuai kebutuhan */
+}
+
+/* Mengatur ukuran ikon atau gambar di dalam kotak */
+.contact-icon {
+    width: 30px; /* Sesuaikan ukuran ikon/gambar */
+    height: 30px; /* Menjaga proporsi */
+    margin-right: 15px; /* Jarak antara ikon/gambar dan teks */
+}
+
+/* Mengatur ukuran teks di dalam kotak */
+.contact-item p {
+    font-size: 10px; /* Ukuran teks deskripsi */
+    margin: 0;
+    color: #717171; /* Warna teks */
+}
+
+.contact-item .fw-bold {
+    font-size: 14px; /* Ukuran teks judul seperti 'Lokasi', 'Email', 'Telepon' */
+    color: #000; /* Warna teks */
+}
+
+
+.form-section {
+    padding: 20px;
+}
+
+/* Form Styling */
+.form-section .form-control {
+    background-color: #E1DFDF;
+    border-radius: 6px;
+    border: none;
+}
+
+.btn-submit {
+    background-color: #097670;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    padding: 8px 16px; /* Mengurangi padding untuk memperkecil tombol */
+    border-radius: 6px;
+    font-size: 14px; /* Mengurangi ukuran font */
+    width: auto; /* Mengatur lebar sesuai konten, atau bisa gunakan nilai lain */
+    max-width: 300px; /* Batas lebar maksimal */
+}
+
+.btn-submit:hover {
+    background-color: #004c4c;
+}
+
+/* Pastikan row menggunakan tinggi penuh */
+.row.g-0 {
+    height: 100%;
+}
+
+/* Tombol Panah */
+.arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #097670;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 30px;
+    bottom: -25px;
+    cursor: pointer;
+}
+
+.article-header {
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 2px solid #63C4AB;
+    margin-bottom: 2rem;
+}
+
+.article-header p {
+    padding: 1rem;
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: #717171;
+}
+.article-header h1 {
+    font-size: 2rem;
+    color: #097670;
+}
+
+/* Divider Line */
+hr {
+    border: 0;
+    height: 2px;
+    background: #e0e0e0;
+    width: 80%;
+    margin: auto;
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    #home {
+        padding-top: 100px;
+    }
+
+    .navbar-nav .nav-link {
+        margin-right: 1rem;
+    }
+
+    .article-header {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    #layanan {
+        margin-top: 0;
+        padding: 30px;
+    }
+
+    .user-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+h2{
+    text-align: center;
+    color: #097670; /* Customize color for Informasi */
+    font-family: 'Poppins', sans-serif; /* Example font, can be adjusted */
+    font-size: 25px; /* Adjust as needed */
+    font-weight: bold;
+}
+/* Container */
+.container {
+    padding: 20px;
+}
+
+/* Info Sections */
+.info-section {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns content to the left */
+    text-align: left;
+}
+
+/* Info Image */
+.info-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Title and Text */
+.info-content {
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to take available space */
+}
+
+.info-title{
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
+}
+
+.info-text {
+    color: #717171;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left; /* Ensures text is left-aligned */
+}
+
+/* Read More Button */
+.btn-read-more {
+    background-color: #097670;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    margin-top: auto; /* Pushes button to the bottom */
+    width: 100%; /* Makes the button width equal to the image width */
+    text-align: center;
+}
+.btn-read-more:hover {
+    background-color: #26A072;
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: flex-end; /* Align right */
+    margin-top: 30px;
+}
+
+.arrow-button {
+    font-size: 24px;
+    color: #097670;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid #097670;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.arrow-button:hover {
+    color: #fff;
+    border-color: #097670;
+    background-color: #097670;
+}

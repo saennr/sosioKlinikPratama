@@ -1,0 +1,190 @@
+/* Nunito */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, input {
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
+  background-color: #E1DFDF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  position: relative;
+  width: 100%;
+  max-width: 1020px;
+  height: 640px;
+  background-color: #ffff;
+  border-radius: 2rem;
+  box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+  overflow: hidden;
+  display: flex;
+}
+
+.carousel {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  background-image: url(../img/Rectangle\ 9.png), url(../img/Frame\ 25.png);
+  background-repeat: no-repeat;
+  background-position: center, center;
+  background-size: cover, center;
+}
+
+.inner-box {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forms-wrap {
+    position: absolute;
+    height: 80%;
+    width: 40%; 
+    top: 0;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background-color: #ffffff; /* Background putih sesuai gambar */
+  }
+
+form {
+    max-width: 320px; /* Increased max-width */
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.heading h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #097670;
+  margin-bottom: 0.5rem;
+}
+
+.heading p {
+  font-size: 0.85rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.input-wrap {
+  position: relative;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #E1DFDF;
+  background-color: #E1DFDF;
+  border-radius: 5px;
+  pointer-events: auto;
+}
+
+.sign-btn {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #097670;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.sign-btn:hover {
+  background-color: #065e55;
+}
+
+.to-signup {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.to-signup a {
+  color: #097670;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.to-signup a:hover {
+  text-decoration: underline;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+.logo img {
+    width: 80px; /* Adjust size based on your logo dimensions */
+    height: 80px;
+}
+
+.icons {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+.icons::before {
+    content: '';
+    position: absolute;
+    bottom: 10%; 
+    left: 85%; 
+    width: 140px;
+    height: 140px;
+    background-image: url('../img/Vector.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+  
+.icons::after {
+    content: '';
+    position: absolute;
+    top: 15%; 
+    width: 120px; 
+    height: 120px;
+    background-image: url('../img/Vector2.png'); /* Path ke gambar orang */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.to-signup .toggle {
+    position: relative;
+  z-index: 1;
+  text-decoration: underline;
+  color: #097670;
+  cursor: pointer;
+  }
+  .actual-form {
+    position: relative;
+    z-index: 1;
+  }
+  

@@ -1,0 +1,202 @@
+/* Nunito */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:wght@300;400&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+
+body,
+input{
+  font-family: 'Nunito', sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forms-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem;
+  background: #fff;
+}
+
+.container::before{
+  content: '';
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top:-10%;
+  right:48%;
+  background-image: linear-gradient(-45deg, #20dbc2 0%, #00bfa6 100%);
+}
+
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5rem;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.tittle{
+  font-size: 2rem;
+  color: #63C4AB;
+  margin-bottom: .5rem;
+  margin-right: 18rem;
+}
+
+.google-signin{
+  border: 1px;
+  background-color: #E1DFDF;
+  margin-bottom: 1rem;
+  margin-right: 12rem;
+  padding: .5rem;
+  border-radius: 10px;
+}
+
+form p{
+  margin-bottom: .6rem;
+  margin-right: 9rem;
+
+}
+
+.google-signin a{
+  text-decoration: none;
+  color: #333;
+}
+
+.google-signin i{
+  margin-right: .3rem;
+  margin-left: .2rem;
+  color : blue;
+}
+
+
+.login-text{
+  margin-bottom: 0rem;
+  margin-right: 14rem;
+}
+
+.input-field{
+  display: grid;
+  max-width: 380px;
+  width: 100%;
+  height: 55px;
+  background-color: #E1DFDF;
+  margin: 10px 0;
+  border-radius: 10px;
+  grid-template-columns: 15% 85%;
+  padding-right: 2rem;
+  position: relative;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color:#E1DFDF;
+}
+
+.input-field input{
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color:#333;
+}
+
+
+.forgot{
+  margin-right: 16rem;
+  color:black;
+}
+
+.forgot a{
+  color:black;
+}
+
+.btn {
+  width: 91%;
+  background-color: #63C4AB;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.to-signup {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.to-signup a {
+  color: #63C4AB;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-signin p{
+  margin-right: 10.5rem;
+}
+
+.to-signin {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.signin-signup{
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+form.sign-in-form{
+  z-index: 2;
+}
+
+form.sign-up-form{
+  z-index: 1;
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
