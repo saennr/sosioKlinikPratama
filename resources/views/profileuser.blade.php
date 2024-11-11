@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="profiluser.css">
+    <link rel="stylesheet" href="{{ asset('profileuser/profiluser.css') }}">
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <a href="#" class="logo">
-          <img src="../lg/img/Logo medybudy.png" alt="Logo">
+          <img src="{{ asset('lg/img/Logo medybudy.png') }}" alt="Logo">
         </a>
         <nav class="navbar">
-          <a href="../halamanutama/halamanutama.html#home" class="active">Beranda</a>
-          <a href="../halamanutama/halamanutama.html#artikel">Artikel</a>
-          <a href="../service/service.html">Layanan</a>
-          <a href="../halamanutama/halamanutama.html#kontak">Kontak</a>
+          <a href="{{ url('/halamanutama#home') }}" class="active">Beranda</a>
+          <a href="{{ url('/halamanutama#artikel') }}">Artikel</a>
+          <a href="{{ url('/service') }}">Layanan</a>
+          <a href="{{ url('/halamanutama#kontak') }}">Kontak</a>
         </nav>
         <div class="user-profile">
           <span>Tuan Zidni Nurfauzi</span>
-          <img src="../lg/img/Ellipse 8.png" alt="User Profile Picture">
+          <img src="{{ asset('lg/img/Ellipse 8.png') }}" alt="User Profile Picture">
         </div>
     </header>
 
@@ -31,10 +31,10 @@
     </section>
 
     <!-- Profile Section -->
-    <section class="profile-container" class="py-5 bg-white">
+    <section class="profile-container py-5 bg-white">
         <div class="profile-content">
             <div class="profile-image">
-                <img src="../lg/img/Ellipse 8.png" alt="Profile Photo">
+                <img src="{{ asset('lg/img/Ellipse 8.png') }}" alt="Profile Photo">
             </div>
             <h2>Zidni Nurfauzi Mahen</h2>
             <p>Tanggal Registrasi 18 Maret 2024</p>
@@ -47,6 +47,6 @@
         </div>
     </section>
 
-    <script src="profiluser.js"></script>
+    <script src="{{ asset('profileuser/profiluser.js') }}"></script>
 </body>
 </html>

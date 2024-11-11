@@ -25,7 +25,7 @@ function showPopup() {
 
 // Add event listeners
 buatJanji.addEventListener("click", () => {
-  window.location.href = "../buatjanji/buatjanji.html"; // Update this URL
+  window.location.href = '{{ route("buatjanji") }}';
 });
 
 cekLab.addEventListener("click", showPopup);
@@ -33,7 +33,7 @@ konsultasiOnline.addEventListener("click", showPopup);
 cekRadiologi.addEventListener("click", showPopup);
 
 jadwalDokter.addEventListener("click", () => {
-  window.location.href = "../jadwaldok/jadwaldok.html"; // Update this URL
+  window.location.href = '{{ route("jadwaldok") }}';
 });
 
 // Close pop-up when clicking on the close button
