@@ -13,7 +13,7 @@
   <!-- Header section -->
   <header>
     <a href="#" class="logo">
-      <img src="{{ asset('lg/img/Logo medybudy.png') }}" alt="Logo">
+      <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="logo">KLINIK PRATAMA
     </a>
     <nav class="navbar">
       <a href="{{ url('/halamanutama#home') }}" class="active">Beranda</a>
