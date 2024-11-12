@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -13,14 +12,31 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_user';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = true;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
-        'password',
+        'pw',
+        'no_identitas',
+        'tgl_lahir',
+        'no_hp',
     ];
 
     /**
@@ -29,7 +45,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'pw',
         'remember_token',
     ];
 
@@ -40,6 +56,25 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    /**
+     * Mutator to hash password when setting.
+     *
+     * @param string $value
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['pw'] = bcrypt($value);
+    }
+
+    /**
+     * Accessor to use 'pw' as the password attribute for Auth.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->pw;
+    }
 }

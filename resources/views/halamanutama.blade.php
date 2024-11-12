@@ -23,7 +23,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
                 <li class="nav-item"><a class="nav-link" href="#artikel">Artikel</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">Layanan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('layanan') }}">Layanan</a></li>
                 <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center" href="{{ url('/profileuser') }}">

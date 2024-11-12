@@ -28,7 +28,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('/service') }}">Layanan</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('/halamanutama#kontak') }}">Kontak</a></li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center" href="{{ url('/profiluser') }}">
+                        <a class="nav-link d-flex align-items-center" href="{{ url('/profileuser') }}">
                             <p class="mb-0">Tuan Zidni Nurfauzi</p>
                             <img src="{{ asset('lg/img/Ellipse 8.png') }}" class="rounded-circle user-icon ms-2">
                         </a>

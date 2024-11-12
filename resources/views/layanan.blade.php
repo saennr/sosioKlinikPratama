@@ -7,7 +7,7 @@
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('service/service.css') }}">
+  <link rel="stylesheet" href="{{ asset('lg/service/service.css') }}">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
     </nav>
     <div class="user-profile">
       <!-- Membungkus elemen profil dengan tag <a> tanpa merubah tampilannya -->
-      <a href="{{ url('/profiluser') }}" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+      <a href="{{ url('/profileuser') }}" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
         <span>Tuan Zidni Nurfauzi</span>
         <img src="{{ asset('lg/img/Ellipse 8.png') }}" alt="User Profile Picture">
       </a>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Klinik Pratama</title>
-  <link rel="stylesheet" href="{{ asset('daftar/daftar.css') }}">
+  <link rel="stylesheet" href="{{ asset('lg/daftar/daftar.css') }}">
 </head>
 <body>
   <main>
@@ -24,7 +24,7 @@
 
             <div class="actual-form">
               <div class="input-wrap">
-                <input type="text" name="name" class="input-field" value="{{ old('name') }}" required placeholder="Nama" />
+                <input type="text" name="nama" class="input-field" value="{{ old('name') }}" required placeholder="Nama" />
                 @error('name') <small class="error">{{ $message }}</small> @enderror
               </div>
 
@@ -34,22 +34,22 @@
               </div>
 
               <div class="input-wrap">
-                <input type="password" name="password" class="input-field" required placeholder="Password" />
+                <input type="password" name="pw" class="input-field" required placeholder="Password" />
                 @error('password') <small class="error">{{ $message }}</small> @enderror
               </div>
 
               <div class="input-wrap">
-                <input type="tel" name="phone" class="input-field" value="{{ old('phone') }}" required placeholder="Nomor Telepon" />
+                <input type="tel" name="no_hp" class="input-field" value="{{ old('phone') }}" required placeholder="Nomor Telepon" />
                 <small class="note">Nomor WhatsApp aktif</small>
               </div>
 
               <div class="input-wrap">
-                <input type="text" name="identity_number" class="input-field" value="{{ old('identity_number') }}" required placeholder="Nomor Identitas" />
+                <input type="text" name="no_identitas" class="input-field" value="{{ old('identity_number') }}" required placeholder="Nomor Identitas" />
                 <small class="note">NIM, NIP atau NIK (Masukan salah satu)</small>
               </div>
 
               <div class="input-wrap">
-                <input type="text" name="birth_date" class="input-field" value="{{ old('birth_date') }}" placeholder="Tanggal Lahir" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}" required />
+                <input type="text" name="tgl_lahir" class="input-field" value="{{ old('birth_date') }}" placeholder="Tanggal Lahir" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}" required />
               </div>              
 
               <button type="submit" class="sign-btn">Sign Up</button>

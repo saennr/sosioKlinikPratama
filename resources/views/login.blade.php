@@ -14,22 +14,34 @@
           <div class="logo">
             <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Logo UIN">
           </div>
-          <form class="sign-in-form" onsubmit="redirectToMain(event)">
+          <form class="sign-in-form" action="{{ route('login.proses') }}" method="POST">
+            @csrf <!-- Token CSRF untuk keamanan -->
+            
             <div class="heading">
+            @if ($errors->has('login_failed'))
+              <p style="color: red; font-size: 18px; font-weight: bold; margin-top: 10px;">
+                {{ $errors->first('login_failed') }}
+              </p>
+            @endif
+
               <h2>Masuk</h2>
             </div>
+
             <p class="text">Untuk keamanan Masuk dengan</p>
+            
             <div class="google-login" onclick="signInWithGoogle()">
               <img src="{{ asset('lg/img/google.png') }}" alt="Google Icon"> Sign in with Google
             </div>
+
             <p class="text">Atau gunakan Email</p>
+
             <div class="actual-form">
               <div class="input-wrap">
                 <input 
                   type="email" 
                   class="input-field"
+                  name="email"
                   autocomplete="off"
-                  id="email"
                   required
                   placeholder="Email"
                 />
@@ -39,8 +51,8 @@
                   type="password" 
                   minlength="4"
                   class="input-field"
+                  name="password" 
                   autocomplete="off"
-                  id="pass"
                   required
                   placeholder="Password"
                 />
@@ -50,10 +62,12 @@
               </p>
               <input type="submit" value="Log In" class="sign-btn">
               <div class="to-signup">
-                <p>Belum punya akun? <a href="{{ url('/daftar') }}" class="toggle">Daftar disini!</a></p>
+                <!-- Ini gatau kenapa, jadi harus dipanggil dlu -->
+                <a href="{{ route('register') }}" class="toggle"></a>
+                <p>Belum punya akun? <a href="{{ route('register') }}" class="toggle">Daftar disini!</a></p>
               </div>
             </div>
-          </form>
+        </form>
         </div>
       </div>
       <div class="icons"></div>

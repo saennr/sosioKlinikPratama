@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('profileuser/profiluser.css') }}">
+    <link rel="stylesheet" href="{{ asset('lg/profileuser/profileuser.css') }}">
 </head>
 <body>
     <!-- Header Section -->
@@ -41,7 +41,10 @@
             <p>0001266 - 22 Maret 2004</p>
             <hr>
             <div class="buttons">
-                <button class="btn logout" id="logoutBtn">Logout</button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn logout">Logout</button>
+                </form>
             </div>
         </div>
     </section>
