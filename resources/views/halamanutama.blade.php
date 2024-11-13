@@ -1,4 +1,4 @@
-@extends("layouts.views")
+@extends("layouts.frontend")
 @section("content")
 <!-- Home Section with Carousel -->
 <section id="home">
@@ -103,11 +103,13 @@
     <section class="services" id="services">
   <h1>We offer several services <br>To Improve Your Health</h1>
   <div class="services-container">
+    <a href="{{ url('/janji') }}" style="text-decoration: none; color: inherit;">
     <div class="service-box" id="buat-janji">
       <img src="{{ asset('lg/img/janjidok.png') }}" alt="Buat Janji Klinik">
       <h3>Buat Janji Klinik</h3>
       <p>Buat janji dengan mudah dan bebas antre</p>
     </div>
+    </a>
     <div class="service-box" id="cek-lab">
       <img src="{{ asset('lg/img/ceklab.png') }}" alt="Cek Laboratorium">
       <h3>Cek Laboratorium</h3>
@@ -123,11 +125,13 @@
       <h3>Cek Radiologi</h3>
       <p>Cek Radiologi dengan hasil yang akurat</p>
     </div>
+    <a href="{{ url('/jadwal') }}" style="text-decoration: none; color: inherit;">
     <div class="service-box" id="jadwal-dokter">
       <img src="{{ asset('lg/img/jadwaldok.png') }}" alt="Jadwal Dokter">
       <h3>Jadwal Dokter</h3>
       <p>Lorem Ipsum.</p>
     </div>
+    </a>
   </div>
 </section>
 

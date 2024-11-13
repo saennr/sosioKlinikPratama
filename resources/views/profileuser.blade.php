@@ -1,4 +1,4 @@
-@extends("layouts.views")
+@extends("layouts.frontend")
 @section("content")
 
     <!-- Home Section with Background Image -->
