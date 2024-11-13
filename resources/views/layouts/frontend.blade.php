@@ -1,9 +1,8 @@
     {{-- header --}}
-    @include("components.header")
+    @include("components.frontend.header")
     {{-- navbar --}}
-    @include("components.navbar")
+    @include("components.frontend.navbar")
     {{-- content --}}
     @yield("content")
-    {{-- footer --}}
-    @include("components.footer")
+
     
