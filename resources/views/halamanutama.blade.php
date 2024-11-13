@@ -1,4 +1,4 @@
-@extends("layouts.frontend")
+@extends("layouts.views")
 @section("content")
 <!-- Home Section with Carousel -->
 <section id="home">
@@ -100,7 +100,7 @@
     </section>
 
     <!--Servis Section-->
-    <section class="services" id="layanan">
+    <section class="services" id="services">
   <h1>We offer several services <br>To Improve Your Health</h1>
   <div class="services-container">
     <div class="service-box" id="buat-janji">
