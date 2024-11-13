@@ -1,41 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinik Pratama</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('halamanutama/halamanutama.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="logo"> KLINIK PRATAMA
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#artikel">Artikel</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('layanan') }}">Layanan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" href="{{ url('/profileuser') }}">
-                        <p class="mb-0">Tuan Zidni Nurfauzi</p>
-                        <img src="{{ asset('lg/img/Ellipse 8.png') }}" class="rounded-circle user-icon ms-2">
-                    </a>
-                </li>                
-            </ul>
-        </div>
-    </div>
-</nav>
-
+@extends("layouts.frontend")
+@section("content")
 <!-- Home Section with Carousel -->
 <section id="home">
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -134,6 +98,50 @@
             </div>
         </div>
     </section>
+
+    <!--Servis Section-->
+    <section class="services" id="layanan">
+  <h1>We offer several services <br>To Improve Your Health</h1>
+  <div class="services-container">
+    <div class="service-box" id="buat-janji">
+      <img src="{{ asset('lg/img/janjidok.png') }}" alt="Buat Janji Klinik">
+      <h3>Buat Janji Klinik</h3>
+      <p>Buat janji dengan mudah dan bebas antre</p>
+    </div>
+    <div class="service-box" id="cek-lab">
+      <img src="{{ asset('lg/img/ceklab.png') }}" alt="Cek Laboratorium">
+      <h3>Cek Laboratorium</h3>
+      <p>Cek lab tanpa ribet hanya dengan beberapa ketukan jari</p>
+    </div>
+    <div class="service-box" id="konsultasi-online">
+      <img src="{{ asset('lg/img/konsul.png') }}" alt="Konsultasi Online">
+      <h3>Konsultasi Online</h3>
+      <p>Konsultasi dengan dokter hanya dengan handphone</p>
+    </div>
+    <div class="service-box" id="cek-radiologi">
+      <img src="{{ asset('lg/img/cekradio.png') }}" alt="Cek Radiologi">
+      <h3>Cek Radiologi</h3>
+      <p>Cek Radiologi dengan hasil yang akurat</p>
+    </div>
+    <div class="service-box" id="jadwal-dokter">
+      <img src="{{ asset('lg/img/jadwaldok.png') }}" alt="Jadwal Dokter">
+      <h3>Jadwal Dokter</h3>
+      <p>Lorem Ipsum.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pop-up Modal -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <img src="{{ asset('lg/img/comingson.png') }}" alt="Icon" class="popup-icon">
+    <h2>Coming Soon</h2>
+    <p>Mohon maaf untuk sekarang fasilitas ini belum tersedia</p>
+    <span id="close-popup" class="close-popup">&times;</span>
+  </div>
+</div>
+
+
     <h2 class="text-center mb-4 kontak-title">Kontak Kami</h2>
     <section id="kontak">
         <div class="row g-0">
@@ -185,8 +193,5 @@
         </div>
     </section>
 </section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="{{ asset('halamanutama/halamanutama.js') }}"></script>
 </body>
-</html>
+@endsection

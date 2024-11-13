@@ -52,41 +52,6 @@
     </div>
   </section>
 
-  <br>
-  <br>
-  <br>
-
-  <section class="services" id="layanan">
-    <h1>We offer several services <br>To Improve Your Health</h1>
-    <div class="services-container">
-      <div class="service-box" id="buat-janji">
-        <img src="{{ asset('lg/img/janjidok.png') }}" alt="Buat Janji Klinik">
-        <h3>Buat Janji Klinik</h3>
-        <p>Buat janji dengan mudah dan bebas antre</p>
-      </div>
-      <div class="service-box" id="cek-lab">
-        <img src="{{ asset('lg/img/ceklab.png') }}" alt="Cek Laboratorium">
-        <h3>Cek Laboratorium</h3>
-        <p>Cek lab tanpa ribet hanya dengan beberapa ketukan jari</p>
-      </div>
-      <div class="service-box" id="konsultasi-online">
-        <img src="{{ asset('lg/img/konsul.png') }}" alt="Konsultasi Online">
-        <h3>Konsultasi Online</h3>
-        <p>Konsultasi dengan dokter hanya dengan handphone</p>
-      </div>
-      <div class="service-box" id="cek-radiologi">
-        <img src="{{ asset('lg/img/cekradio.png') }}" alt="Cek Radiologi">
-        <h3>Cek Radiologi</h3>
-        <p>Cek Radiologi dengan hasil yang akurat</p>
-      </div>
-      <div class="service-box" id="jadwal-dokter">
-        <img src="{{ asset('lg/img/jadwaldok.png') }}" alt="Jadwal Dokter">
-        <h3>Jadwal Dokter</h3>
-        <p>Lorem Ipsum.</p>
-      </div>
-    </div>
-  </section>
-
   <script src="{{ asset('lg/script.js') }}"></script>
 </body>
 </html>
