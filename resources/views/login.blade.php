@@ -15,7 +15,7 @@
             <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Logo UIN">
           </div>
           <form class="sign-in-form" action="{{ route('login.proses') }}" method="POST">
-            @csrf <!-- Token CSRF untuk keamanan -->
+            @csrf 
             
             <div class="heading">
             @if ($errors->has('login_failed'))
@@ -26,14 +26,7 @@
 
               <h2>Masuk</h2>
             </div>
-
-            <p class="text">Untuk keamanan Masuk dengan</p>
-            
-            <div class="google-login" onclick="signInWithGoogle()">
-              <img src="{{ asset('lg/img/google.png') }}" alt="Google Icon"> Sign in with Google
-            </div>
-
-            <p class="text">Atau gunakan Email</p>
+            <p class="text">Gunakan Email yang terdaftar</p>
 
             <div class="actual-form">
               <div class="input-wrap">

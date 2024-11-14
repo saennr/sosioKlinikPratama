@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Klinik Pratama</title>
   <link rel="stylesheet" href="daftar.css">
 </head>
+
 <body>
   <main>
     <div class="box">
@@ -23,7 +25,10 @@
 
             <div class="actual-form">
               <div class="input-wrap">
-                <input type="text" class="input-field" required placeholder="Nama" />
+                <input type="text" class="input-field" required placeholder="Nama Depan" />
+              </div>
+              <div class="input-wrap">
+                <input type="text" class="input-field" required placeholder="Nama Belakang" />
               </div>
 
               <div class="input-wrap">
@@ -45,8 +50,9 @@
               </div>
 
               <div class="input-wrap">
-                <input type="text" class="input-field" placeholder="Tanggal Lahir" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}" required />
-              </div>              
+                <input type="text" class="input-field" placeholder="Tanggal Lahir" onfocus="(this.type='date')"
+                  onblur="if(this.value===''){this.type='text'}" required />
+              </div>
 
               <button type="submit" class="sign-btn">Sign Up</button>
 
@@ -63,4 +69,5 @@
 
   <script src="daftar.js"></script>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-body, input {
+/* body, input {
     font-family: 'Poppins', sans-serif;
   }
 .navbar {
@@ -33,7 +33,7 @@ body, input {
     height: 30px;
     margin-left: 5px;
     vertical-align: middle;
-}
+} */
 
 /* Home Section */
 #home {
@@ -128,11 +128,10 @@ body, input {
 
 .services-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    max-width: 800px;
+    max-width: 500px;
     margin: 0 auto;
-
 }
 
 /* Adjust specific layout for service boxes */
@@ -200,7 +199,7 @@ body, input {
 /* Specific grid layout */
 @media (min-width: 768px) {
     .services-container {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr, 1fr;
     }
 }
 
@@ -365,7 +364,7 @@ body, input {
 }
 
 .btn-submit {
-    background-color: #097670;
+    background-color: #097670 !important;
     color: #ffffff;
     border: none;
     font-weight: bold;
@@ -493,7 +492,7 @@ h2{
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Allows content to take available space */
+    flex-grow: 1; 
 }
 
 .info-title{
@@ -520,7 +519,7 @@ h2{
     padding: 10px 15px;
     color: white;
     text-decoration: none;
-    margin-top: auto; /* Pushes button to the bottom */
+    margin-top: auto; 
     width: 100%; /* Makes the button width equal to the image width */
     text-align: center;
 }

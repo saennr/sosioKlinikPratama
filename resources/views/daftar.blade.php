@@ -6,6 +6,7 @@
   <title>Daftar Klinik Pratama</title>
   <link rel="stylesheet" href="{{ asset('lg/daftar/daftar.css') }}">
 </head>
+
 <body>
   <main>
     <div class="box">
@@ -24,7 +25,11 @@
 
             <div class="actual-form">
               <div class="input-wrap">
-                <input type="text" name="nama" class="input-field" value="{{ old('name') }}" required placeholder="Nama" />
+                <input type="text" name="namadepan" class="input-field" value="{{ old('name') }}" required placeholder="Nama Depan" />
+                @error('name') <small class="error">{{ $message }}</small> @enderror
+              </div>
+              <div class="input-wrap">
+                <input type="text" name="namadepan" class="input-field" value="{{ old('name') }}" required placeholder="Nama Belakang" />
                 @error('name') <small class="error">{{ $message }}</small> @enderror
               </div>
 

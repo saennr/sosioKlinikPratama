@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="{{ asset('lg/service/service.css') }}">
 </head>
 <body>
-
+  
   <!-- header section -->
   <header>
   <a href="#" class="logo">

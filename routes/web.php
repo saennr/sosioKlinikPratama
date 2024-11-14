@@ -19,6 +19,9 @@ use App\Http\Controllers\JadwalController;
 |
 */
 
+
+
+
 Route::get('/', function () {
     return view('index');
 });

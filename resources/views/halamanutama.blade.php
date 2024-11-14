@@ -1,5 +1,21 @@
+
 @extends("layouts.frontend")
 @section("content")
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klinik Pratama</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset ('halamanutama/halamanutama.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="{{asset ('service/service.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="halamanutama.js"></script>
+    <script src="service.js"></script>
+</head>
 <!-- Home Section with Carousel -->
 <section id="home">
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -71,24 +87,24 @@
                     <img src="{{ asset('lg/img/Rectangle 18.png') }}" class="info-image" alt="Info 1">
                     <div class="info-content">
                         <h5 class="info-title">Patah Tulang Panggul pada Lanjut Usia...</h5>
-                        <a href="#" class="btn-read-more">Baca lebih lanjut</a>
                     </div>
+                    <div class="btn-read-more">Baca lebih lanjut</div>
                 </div>
                 <!-- Section 2 -->
                 <div class="col-md-4 info-section">
                     <img src="{{ asset('lg/img/Rectangle 19.png') }}" class="info-image" alt="Info 2">
                     <div class="info-content">
                         <h5 class="info-title">Flu Singapura</h5>
-                        <a href="#" class="btn-read-more">Baca lebih lanjut</a>
                     </div>
+                    <div class="btn-read-more">Baca lebih lanjut</div>
                 </div>
                 <!-- Section 3 -->
                 <div class="col-md-4 info-section">
                     <img src="{{ asset('lg/img/Rectangle 20.png') }}" class="info-image" alt="Info 3">
                     <div class="info-content">
                         <h5 class="info-title">Ambulatory Blood Pressure Monitoring...</h5>
-                        <a href="#" class="btn-read-more">Baca lebih lanjut</a>
                     </div>
+                    <div class="btn-read-more">Baca lebih lanjut</div>
                 </div>
             </div>
             <div class="arrow-container">
@@ -115,11 +131,11 @@
       <h3>Cek Laboratorium</h3>
       <p>Cek lab tanpa ribet hanya dengan beberapa ketukan jari</p>
     </div>
-    <div class="service-box" id="konsultasi-online">
+    <!-- <div class="service-box" id="konsultasi-online">
       <img src="{{ asset('lg/img/konsul.png') }}" alt="Konsultasi Online">
       <h3>Konsultasi Online</h3>
       <p>Konsultasi dengan dokter hanya dengan handphone</p>
-    </div>
+    </div> -->
     <div class="service-box" id="cek-radiologi">
       <img src="{{ asset('lg/img/cekradio.png') }}" alt="Cek Radiologi">
       <h3>Cek Radiologi</h3>
@@ -129,7 +145,7 @@
     <div class="service-box" id="jadwal-dokter">
       <img src="{{ asset('lg/img/jadwaldok.png') }}" alt="Jadwal Dokter">
       <h3>Jadwal Dokter</h3>
-      <p>Lorem Ipsum.</p>
+      <p>Sesuaikan jadwal dokter untuk waktu yang lebih pas</p>
     </div>
     </a>
   </div>

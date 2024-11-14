@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +11,6 @@
   <title>medybudy</title>
 </head>
 <body>
-
-  <!-- header section starts -->
-  <header>
-
-    <a href="#" class="logo">
-      <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="logo">KLINIK PRATAMA
-    </a>
-
-    <nav class="navbar">
-      <a href="#login">login</a>
-      <a class="active" href="#beranda">home</a>
-      <a href="#artikel">artikel</a>
-      <a href="#layanan">layanan</a>
-      <a href="#kontak">kontak</a>
-    </nav>
-
-    <div class="login">
-      <a href="{{ url('/login') }}">Login</a>
-    </div>
-    
-    <div class="menu-bars">
-      <i class="fas fa-bars" id="menu-bars"></i>
-    </div>
-
-  </header>
-  <!-- header section end -->
-  
   <section class="welcome-section" id="beranda">
     <div class="welcome-text">
       <h1>Hallo, Selamat Datang</h1>

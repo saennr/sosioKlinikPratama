@@ -1,34 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Informasi</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('halamanutama/informasi.css') }}">
-</head>
+@extends("layouts.frontend")
+@section("content")
 <body>
-
-  <!-- Header section -->
-  <header>
-    <a href="#" class="logo">
-      <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="logo">KLINIK PRATAMA
-    </a>
-    <nav class="navbar">
-      <a href="{{ url('/halamanutama#home') }}" class="active">Beranda</a>
-      <a href="{{ url('/halamanutama#artikel') }}">Artikel</a>
-      <a href="{{ url('/service') }}">Layanan</a>
-      <a href="{{ url('/halamanutama#kontak') }}">Kontak</a>
-    </nav>
-    <div class="user-profile">
-      <a href="{{ url('/profiluser') }}" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-        <span>Tuan Zidni Nurfauzi</span>
-        <img src="{{ asset('lg/img/Ellipse 8.png') }}" alt="User Profile Picture">
-      </a>
-    </div>
-  </header>
-
   <!-- Main Content Section -->
   <section id="artikel">
     <div class="container">
@@ -119,4 +91,4 @@
 
   <script src="{{ asset('halamanutama/halamanutama.js') }}"></script>
 </body>
-</html>
+@endsection
