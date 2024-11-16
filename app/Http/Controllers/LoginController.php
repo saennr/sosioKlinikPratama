@@ -15,7 +15,7 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function beranda(Request $request)
+    public function login_proses(Request $request)
 {
     // Validasi input email dan password
     $request->validate([
@@ -29,7 +29,7 @@ class LoginController extends Controller
     // Mencoba login menggunakan data yang diberikan
     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
         // Login berhasil
-        return view('halamanutama');
+        return redirect()->route('beranda');
     } else {
         // Login gagal
         return redirect()->route('login')->withErrors([
@@ -45,7 +45,8 @@ class LoginController extends Controller
     public function register_proses(Request $request) {
         // Validasi data input
         $validator = Validator::make($request->all(), [
-            'nama' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
             'email' => 'required|email|unique:users,email',
             'pw' => 'required|min:8',
             'no_hp' => 'required|string|max:15',
@@ -59,7 +60,8 @@ class LoginController extends Controller
         }
 
         // Simpan data pendaftar
-        $data['nama'] = $request->nama;
+        $data['firstName'] = $request->firstName;
+        $data['lastName'] = $request->lastName;
         $data['email'] = $request->email;
         $data['pw'] = Hash::make($request->pw);
         $data['no_hp'] = $request->no_hp;

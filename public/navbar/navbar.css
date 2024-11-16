@@ -1,9 +1,11 @@
 body, input {
     font-family: 'Poppins', sans-serif !important;
 }
-.navbar {
+
+.navbar{
     padding: 0.3rem 1rem !important;
-    background-color: #d8c4c4 !important;
+    height: 80px;
+    background-color: #ffffff !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     position: fixed !important;
     top: 0 !important;

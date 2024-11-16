@@ -26,11 +26,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/beranda', [LoginController::class, 'beranda'])->name('login.proses');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login.proses');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::get('/daftar', [LoginController::class, 'register'])->name('register');
 Route::post('daftar', [LoginController::class, 'register_proses'])->name('register.proses');
+
+Route::get('/beranda', [HalamanUtamaController::class, 'beranda'])->name('beranda');
 
 Route::get('/layanan', [ServiceController::class, 'index'])->name('layanan');
 
@@ -38,6 +40,10 @@ Route::get('/profileuser', [ProfileController::class, 'index'])->name('profileus
 Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
 
 Route::get('/janji', [JanjiController::class, 'janji'])->name('janji');
+Route::get('/getDokterBySpesialis/{idSpesialis}', [JanjiController::class, 'getDokterBySpesialis']);
+Route::get('/getJadwalByDokter/{idDokter}', [JanjiController::class, 'getJadwalByDokter']);
+Route::post('/janji', [JanjiController::class, 'storeJanji'])->name('janji');
+
 
 Route::get('/jadwal', [JadwalController::class, 'jadwal'])->name('jadwal');
 

@@ -25,11 +25,11 @@
 
             <div class="actual-form">
               <div class="input-wrap">
-                <input type="text" name="namadepan" class="input-field" value="{{ old('name') }}" required placeholder="Nama Depan" />
+                <input type="text" name="firstName" class="input-field" value="{{ old('name') }}" required placeholder="Nama Depan" />
                 @error('name') <small class="error">{{ $message }}</small> @enderror
               </div>
               <div class="input-wrap">
-                <input type="text" name="namadepan" class="input-field" value="{{ old('name') }}" required placeholder="Nama Belakang" />
+                <input type="text" name="lastName" class="input-field" value="{{ old('name') }}" required placeholder="Nama Belakang" />
                 @error('name') <small class="error">{{ $message }}</small> @enderror
               </div>
 

@@ -10,7 +10,8 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('profileuser'); // Pastikan ada view profileuser.blade.php
+        $user = Auth::user(); // Ambil data user yang sedang login
+        return view('profileuser', compact('user'));
     }
 
     public function logout(Request $request)

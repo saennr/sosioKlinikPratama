@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id('id_jadwal_dokter');
             $table->unsignedBigInteger('id_dokter');
             $table->string('nama_jadwal');
+            $table->string('hari');
+            $table->time('jam_mulai');
             $table->integer('durasi_tindakan');
             $table->timestamps();
 

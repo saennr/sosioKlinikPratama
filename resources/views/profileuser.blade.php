@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href={{url("/lg/profileuser/profileuser.css")}}>
+  <link rel="stylesheet" href="{{ asset('/lg/profileuser/profileuser.css')}}">
   
   <title>medybudy</title>
 </head>
@@ -25,9 +25,9 @@
             <div class="profile-image">
                 <img src="{{ asset('lg/img/Ellipse 8.png') }}" alt="Profile Photo">
             </div>
-            <h2>Zidni Nurfauzi Mahen</h2>
-            <p>Tanggal Registrasi 18 Maret 2024</p>
-            <p>0001266 - 22 Maret 2004</p>
+            <h2>{{ $user->firstName }} {{ $user->lastName }}</h2>
+            <p>Tanggal Registrasi {{ \Carbon\Carbon::parse($user->created_at)->format('d M Y') }}</p>
+            <p>{{ $user->no_identitas }} - {{ \Carbon\Carbon::parse($user->tgl_lahir)->format('d M Y') }}</p>
             <hr>
             <div class="buttons">
                 <form action="{{ route('logout') }}" method="POST">

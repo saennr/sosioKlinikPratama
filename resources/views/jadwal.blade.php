@@ -26,62 +26,38 @@
 
     <!-- Spesialis Doctor Card -->
     <div id="spesialis" class="doctor-category" style="display: none;">
+        @foreach ($dokterGigi as $dokter)
         <div class="doctor-card">
             <img src="{{ asset('lg/img/docter spesialis.png') }}" alt="Doctor Image">
             <div class="doctor-info">
-                <h3>drg. Nina Ayu Pebriyana</h3>
-                <p>Dokter Gigi</p>
+                <h3>{{ $dokter->nama_dokter }}</h3>
+                <p>{{ $dokter->spesialis->nama_spesialis }}</p>
                 <div class="schedule">
-                    <div class="day-time"><span>Senin</span> <span>07.30-12.00 WIB</span></div>
-                    <div class="day-time"><span>Selasa</span> <span>07.30-12.00 WIB</span></div>
-                    <div class="day-time"><span>Rabu</span> <span>07.30-12.00 WIB</span></div>
-                    <div class="day-time"><span>Kamis</span> <span>07.30-12.00 WIB</span></div>
+                    @foreach ($dokter->jadwalDokter as $jadwal)
+                        <div class="day-time"><span>{{ $jadwal->nama_jadwal }}</span> <span>{{ date('H:i', strtotime($jadwal->jam_mulai)) }} WIB</span></div>
+                    @endforeach
                 </div>
             </div>
-        </div> 
+        </div>
+        @endforeach
     </div>
 
-    <!-- Umum Doctor Cards -->
+    <!-- Umum Doctor Card -->
     <div id="umum" class="doctor-category" style="display: none;">
+        @foreach ($dokterUmum as $dokter)
         <div class="doctor-card">
             <img src="{{ asset('lg/img/docter umum.png') }}" alt="Doctor Image">
             <div class="doctor-info">
-                <h3>dr. Suwondo Ardi Nugroho</h3>
-                <p>Jadwal Praktik: Senin - Rabu</p>
+                <h3>{{ $dokter->nama_dokter }}</h3>
+                <p>{{ $dokter->spesialis->nama_spesialis }}</p>
                 <div class="schedule">
-                    <div class="day-time"><span>Senin</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Selasa</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Rabu</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Rabu</span> <span>13.00-15.00 WIB</span></div>
+                    @foreach ($dokter->jadwalDokter as $jadwal)
+                        <div class="day-time"><span>{{ $jadwal->nama_jadwal }}</span> <span>{{ date('H:i', strtotime($jadwal->jam_mulai)) }} WIB</span></div>
+                    @endforeach
                 </div>
             </div>
         </div>
-        <div class="doctor-card">
-            <img src="{{ asset('lg/img/docter umum.png') }}" alt="Doctor Image">
-            <div class="doctor-info">
-                <h3>dr. Suwondo Ardi Nugroho</h3>
-                <p>Jadwal Praktik: Senin - Rabu</p>
-                <div class="schedule">
-                    <div class="day-time"><span>Senin</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Selasa</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Rabu</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Rabu</span> <span>13.00-15.00 WIB</span></div>
-                </div>
-            </div>
-        </div>
-        <div class="doctor-card">
-            <img src="{{ asset('lg/img/docter umum.png') }}" alt="Doctor Image">
-            <div class="doctor-info">
-                <h3>dr. Suwondo Ardi Nugroho</h3>
-                <p>Jadwal Praktik: Senin - Rabu</p>
-                <div class="schedule">
-                    <div class="day-time"><span>Senin</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Selasa</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Rabu</span> <span>07.30-11.30 WIB</span></div>
-                    <div class="day-time"><span>Rabu</span> <span>13.00-15.00 WIB</span></div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </section>
 

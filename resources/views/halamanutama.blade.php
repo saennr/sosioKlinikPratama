@@ -1,6 +1,4 @@
 
-@extends("layouts.frontend")
-@section("content")
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +10,37 @@
     <link rel="stylesheet" href="{{asset ('halamanutama/halamanutama.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="{{asset ('service/service.js') }}"></script>
+    <link rel="stylesheet" href="{{ url('/navbar/navbar.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="halamanutama.js"></script>
     <script src="service.js"></script>
 </head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="navLogo"> KLINIK PRATAMA
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#artikel">Artikel</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center" href="../profileuser">
+                        <p class="mb-0">{{ Auth::user()->firstName }}</p>
+                        <img src="../lg/img/Ellipse 8.png" class="rounded-circle user-icon ms-2">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <!-- Home Section with Carousel -->
 <section id="home">
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -119,7 +144,7 @@
     <section class="services" id="services">
   <h1>We offer several services <br>To Improve Your Health</h1>
   <div class="services-container">
-    <a href="{{ url('/janji') }}" style="text-decoration: none; color: inherit;">
+    <a href="{{ route('janji') }}" style="text-decoration: none; color: inherit;">
     <div class="service-box" id="buat-janji">
       <img src="{{ asset('lg/img/janjidok.png') }}" alt="Buat Janji Klinik">
       <h3>Buat Janji Klinik</h3>
@@ -214,4 +239,4 @@
     </section>
 </section>
 </body>
-@endsection
+
