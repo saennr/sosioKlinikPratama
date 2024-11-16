@@ -69,12 +69,13 @@ class JanjiController extends Controller
 
         // Ambil jadwal dokter
         $jadwal = JadwalDokter::find($request->jadwal);
-        $durasi = $jadwal->durasi_tindakan;
         $jamMulai = Carbon::parse($jadwal->jam_mulai);
 
+        $durasiPerPasien = ($request->spesialis == 1) ? 5 : 30;
+
         // Hitung estimasi waktu mulai dan selesai
-        $estimasi_mulai = $jamMulai->addMinutes($durasi * ($no_antrian - 1));
-        $estimasi_selesai = $estimasi_mulai->copy()->addMinutes($durasi);
+        $estimasi_mulai = $jamMulai->copy()->addMinutes($durasiPerPasien * ($no_antrian - 1));
+        $estimasi_selesai = $estimasi_mulai->copy()->addMinutes($durasiPerPasien);
 
         // // Logging data yang akan disimpan
         // Log::info('Data yang akan disimpan: ', [
