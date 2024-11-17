@@ -26,7 +26,7 @@
       <!-- Membungkus elemen profil dengan tag <a> tanpa merubah tampilannya -->
       <a href="{{ url('/profileuser') }}" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
         <span>Tuan Zidni Nurfauzi</span>
-        <img src="{{ asset('lg/img/Ellipse 8.png') }}" alt="User Profile Picture">
+        <img src="{{ asset('lg/img/userprofile.png') }}" alt="User Profile Picture">
       </a>
     </div>
   </header>

@@ -27,7 +27,7 @@
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center" href="../profileuser">
                         <p class="mb-0">{{ Auth::user()->firstName }}</p>
-                        <img src="../lg/img/Ellipse 8.png" class="rounded-circle user-icon ms-2">
+                        <img src="../lg/img/userprofile.png" class="rounded-circle user-icon ms-2">
                     </a>
                 </li>
             </ul>

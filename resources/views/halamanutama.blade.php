@@ -34,7 +34,7 @@
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center" href="../profileuser">
                         <p class="mb-0">{{ Auth::user()->firstName }}</p>
-                        <img src="../lg/img/Ellipse 8.png" class="rounded-circle user-icon ms-2">
+                        <img src="../lg/img/userprofile.png" class="rounded-circle user-icon ms-2">
                     </a>
                 </li>
             </ul>
@@ -46,13 +46,19 @@
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('lg/img/Slideshow1.png') }}" class="d-block w-100 hero-image" alt="Slide 1">
+                <img src="{{ asset('lg/img/profile1.png') }}" class="d-block w-100 hero-image" alt="Slide 1">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('lg/img/Slideshow2.png') }}" class="d-block w-100 hero-image" alt="Slide 2">
+                <img src="{{ asset('lg/img/profile2.png') }}" class="d-block w-100 hero-image" alt="Slide 2">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('lg/img/Slideshow3.png') }}" class="d-block w-100 hero-image" alt="Slide 3">
+                <img src="{{ asset('lg/img/profile3.png') }}" class="d-block w-100 hero-image" alt="Slide 3">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('lg/img/profile4.png') }}" class="d-block w-100 hero-image" alt="Slide 4">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('lg/img/profile5.png') }}" class="d-block w-100 hero-image" alt="Slide 5">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
@@ -70,7 +76,7 @@
 <section id="layanan" class="py-5 bg-white">
     <div class="article-header">
         <h1>KLINIK PRATAMA</h1>
-        <p>Berawal dari langkah kecil namun penuh tekad pada tahun 1921, Klinik Pratama kini tengah melangkah menuju impian besar menjadi salah satu rumah sakit terkemuka di Jawa Barat...</p>
+        <p>Unit Pelaksana Teknis (UPT) Klinik Pratama UIN Bandung adalah salah satu fasilitas kampus yang bertujuan mendukung pelaksanaan misi Tri Dharma Perguruan Tinggi. Diresmikan pada tahun 2019, klinik ini memberikan pelayanan kesehatan tidak hanya untuk civitas akademika, tetapi juga masyarakat umum. Saat ini, Klinik Pratama UIN Bandung telah didukung oleh tenaga kesehatan yang profesional. Selain itu, tersedia fasilitas seperti layanan administrasi, ruang pemeriksaan, apotek, dan layanan kesehatan gigi.</p>
     </div>
     <div class="container">
         <div class="row text-center">
@@ -196,21 +202,21 @@
                     <img src="{{ asset('lg/img/Group 19.png') }}">
                     <div>
                         <p class="fw-bold mb-1">Lokasi</p>
-                        <p>Jl. A.H. Nasution No.105, Kota Bandung, Jawa Barat.</p>
+                        <p>Jl. A.H. Nasution No.497, Cipadung, Kec. Cibiru, Kota Bandung, Jawa Barat 40614</p>
                     </div>
                 </div>
                 <div class="contact-item mb-4 p-3 d-flex align-items-center rounded">
                     <img src="{{ asset('lg/img/Group 20.png') }}">
                     <div>
                         <p class="fw-bold mb-1">Email</p>
-                        <p>KlinikPratama@gmail.com</p>
+                        <p>klinik@uinsgd.ac.id</p>
                     </div>
                 </div>
                 <div class="contact-item p-3 d-flex align-items-center rounded">
                     <img src="{{ asset('lg/img/Group 22.png') }}">
                     <div>
                         <p class="fw-bold mb-1">Telepon</p>
-                        <p>087744374332</p>
+                        <p>085182242213</p>
                     </div>
                 </div>
             </div>

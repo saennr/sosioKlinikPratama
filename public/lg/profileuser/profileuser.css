@@ -30,16 +30,16 @@
 }
 
 .profile-content {
-    background-color: #ffffff; /* Solid white background */
+    background-color: #ffffff; 
     border-radius: 20px;
     border: 2px solid #7A7DB7;
-    padding: 80px 60px; /* Increased padding for a more spacious look */
-    width: 100%; /* Full width within container */
-    max-width: 1400px; /* Increased max-width to make the container larger */
+    padding: 80px 60px; 
+    width: 100%; 
+    max-width: 1400px; 
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     position: relative;
-    height: 100%; /* Ensure the content fills the entire height */
+    height: 100%; 
     display: flex;
     flex-direction: column;
     justify-content: center;
