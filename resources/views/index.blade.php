@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="{{ asset('lg/style.css') }}">
 
-  <title>medybudy</title>
+  <title>Klinik Pratama UIN SGD</title>
 </head>
 <body>
   <section class="welcome-section" id="beranda">
