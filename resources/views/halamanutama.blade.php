@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="{{ url('/navbar/navbar.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="halamanutama.js"></script>
-    <script src="service.js"></script>
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -157,21 +155,23 @@
       <p>Buat janji dengan mudah dan bebas antre</p>
     </div>
     </a>
-    <div class="service-box" id="cek-lab">
-      <img src="{{ asset('lg/img/ceklab.png') }}" alt="Cek Laboratorium">
-      <h3>Cek Laboratorium</h3>
-      <p>Cek lab tanpa ribet hanya dengan beberapa ketukan jari</p>
-    </div>
-    <!-- <div class="service-box" id="konsultasi-online">
-      <img src="{{ asset('lg/img/konsul.png') }}" alt="Konsultasi Online">
-      <h3>Konsultasi Online</h3>
-      <p>Konsultasi dengan dokter hanya dengan handphone</p>
-    </div> -->
-    <div class="service-box" id="cek-radiologi">
-      <img src="{{ asset('lg/img/cekradio.png') }}" alt="Cek Radiologi">
-      <h3>Cek Radiologi</h3>
-      <p>Cek Radiologi dengan hasil yang akurat</p>
-    </div>
+    
+    <button id="cek-lab-button" style="all: unset; cursor: pointer;">
+        <div class="service-box" id="cek-lab">
+            <img src="{{ asset('lg/img/ceklab.png') }}" alt="Cek Laboratorium">
+            <h3>Cek Laboratorium</h3>
+            <p>Cek lab tanpa ribet hanya dengan beberapa ketukan jari</p>
+        </div>
+    </button>
+
+    <button id="cek-radio-button" style="all: unset; cursor: pointer;">
+        <div class="service-box" id="cek-radiologi">
+            <img src="{{ asset('lg/img/cekradio.png') }}" alt="Cek Radiologi">
+            <h3>Cek Radiologi</h3>
+            <p>Cek Radiologi dengan hasil yang akurat</p>
+        </div>
+    </button>
+
     <a href="{{ url('/jadwal') }}" style="text-decoration: none; color: inherit;">
     <div class="service-box" id="jadwal-dokter">
       <img src="{{ asset('lg/img/jadwaldok.png') }}" alt="Jadwal Dokter">
@@ -183,14 +183,14 @@
 </section>
 
 <!-- Pop-up Modal -->
-<div id="popup" class="popup">
+<!-- <div id="popup" class="popup">
   <div class="popup-content">
     <img src="{{ asset('lg/img/comingson.png') }}" alt="Icon" class="popup-icon">
     <h2>Coming Soon</h2>
     <p>Mohon maaf untuk sekarang fasilitas ini belum tersedia</p>
     <span id="close-popup" class="close-popup">&times;</span>
   </div>
-</div>
+</div> -->
 
 
     <h2 class="text-center mb-4 kontak-title">Kontak Kami</h2>
@@ -244,5 +244,6 @@
         </div>
     </section>
 </section>
+<script src="halamanutama/halamanutama.js"></script>
 </body>
 

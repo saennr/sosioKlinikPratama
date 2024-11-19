@@ -1,5 +1,8 @@
 @extends("layouts.frontend")
 @section("content")
+<head>
+    <link rel="stylesheet" href="halamanutama/informasi.css">
+</head>
 <body>
   <!-- Main Content Section -->
   <section id="artikel">

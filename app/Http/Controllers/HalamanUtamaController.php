@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Hash;
 
 class HalamanUtamaController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth'); // Menerapkan middleware auth
+    }
     public function beranda() {
         return view('halamanutama');
     }

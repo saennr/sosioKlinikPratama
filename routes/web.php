@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HalamanUtamaController;
 use App\Http\Controllers\JanjiController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\InformasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,18 +33,24 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/daftar', [LoginController::class, 'register'])->name('register');
 Route::post('daftar', [LoginController::class, 'register_proses'])->name('register.proses');
 
-Route::get('/beranda', [HalamanUtamaController::class, 'beranda'])->name('beranda');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/beranda', [HalamanUtamaController::class, 'beranda'])->name('beranda');
 
-Route::get('/layanan', [ServiceController::class, 'index'])->name('layanan');
+    Route::get('/layanan', [ServiceController::class, 'index'])->name('layanan');
 
-Route::get('/profileuser', [ProfileController::class, 'index'])->name('profileuser');
-Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
+    Route::get('/profileuser', [ProfileController::class, 'index'])->name('profileuser');
+    Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
 
-Route::get('/janji', [JanjiController::class, 'janji'])->name('janji');
-Route::get('/getDokterBySpesialis/{idSpesialis}', [JanjiController::class, 'getDokterBySpesialis']);
-Route::get('/getJadwalByDokter/{idDokter}', [JanjiController::class, 'getJadwalByDokter']);
-Route::post('/janji', [JanjiController::class, 'storeJanji'])->name('janji');
+    Route::get('/janji', [JanjiController::class, 'janji'])->name('janji');
+    Route::get('/getDokterBySpesialis/{idSpesialis}', [JanjiController::class, 'getDokterBySpesialis']);
+    Route::get('/getJadwalByDokter/{idDokter}', [JanjiController::class, 'getJadwalByDokter']);
+    Route::post('/janji', [JanjiController::class, 'storeJanji'])->name('janji');
 
 
-Route::get('/jadwal', [JadwalController::class, 'jadwal'])->name('jadwal');
+    Route::get('/jadwal', [JadwalController::class, 'jadwal'])->name('jadwal');
+
+    Route::get('/informasi', [InformasiController::class, 'informasi'])->name('informasi');
+});
+
+
 
