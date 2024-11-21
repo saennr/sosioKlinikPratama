@@ -10,7 +10,14 @@ function loadDokter(idSpesialis) {
                 dokterDropdown.innerHTML += `<option value="${dokter.id_dokter}">${dokter.nama_dokter} ${dokter.hari}</option>`;
             });
         })
-        .catch(error => console.error("Fetch error in loadDokter:", error));
+        .catch(error => {
+            Swal.fire({
+                title: "Error",
+                text: "Terjadi kesalahan saat mengambil data dokter. Silakan coba lagi.",
+                icon: "error",
+            });
+            console.error("Fetch error in loadDokter:", error);
+        });
 }
 
 function loadJadwal(idDokter) {
@@ -23,47 +30,50 @@ function loadJadwal(idDokter) {
                 jadwalDropdown.innerHTML += `<option value="${jadwal.id_jadwal_dokter}" data-hari="${jadwal.hari}">${jadwal.formatted_jadwal}</option>`;
             });
 
-            // Tambahkan event listener untuk memfilter tanggal saat jadwal dipilih
             jadwalDropdown.addEventListener("change", function () {
                 const selectedOption = jadwalDropdown.options[jadwalDropdown.selectedIndex];
                 const selectedDay = selectedOption.getAttribute("data-hari");
                 if (selectedDay) {
-                    filterTanggal(selectedDay); // Panggil fungsi filter dengan hari terpilih
+                    filterTanggal(selectedDay);
                 }
             });
         })
-        .catch(error => console.error("Fetch error in loadJadwal:", error));
+        .catch(error => {
+            Swal.fire({
+                title: "Error",
+                text: "Terjadi kesalahan saat mengambil data jadwal. Silakan coba lagi.",
+                icon: "error",
+            });
+            console.error("Fetch error in loadJadwal:", error);
+        });
 }
-
 
 let currentFilterTanggalListener = null;
 
 function filterTanggal(hari) {
     const tanggalInput = document.getElementById("tanggal");
 
-    // Fungsi validasi tanggal
     const validateTanggal = () => {
         const selectedDate = new Date(tanggalInput.value);
         const dayOfWeek = selectedDate.toLocaleDateString("en-US", { weekday: 'long' });
 
         if (dayOfWeek !== hari) {
-            alert(`Harap pilih tanggal yang jatuh pada hari ${hari}`);
-            tanggalInput.value = ""; // Kosongkan input jika tanggal salah
+            Swal.fire({
+                title: "Peringatan",
+                text: `Harap pilih tanggal yang jatuh pada hari ${hari}.`,
+                icon: "error",
+            });
+            tanggalInput.value = "";
         }
     };
 
-    // Hapus listener lama jika ada
     if (currentFilterTanggalListener) {
         tanggalInput.removeEventListener("input", currentFilterTanggalListener);
     }
 
-    // Tambahkan listener baru
     currentFilterTanggalListener = validateTanggal;
     tanggalInput.addEventListener("input", currentFilterTanggalListener);
 }
-
-
-
 
 document.getElementById("btn-submit").addEventListener("click", function (event) {
     const spesialisDropdown = document.getElementById("spesialis");
@@ -72,37 +82,56 @@ document.getElementById("btn-submit").addEventListener("click", function (event)
     const tanggalInput = document.getElementById("tanggal");
     const keluhanInput = document.getElementById("keluhan");
 
-    // Validasi input sebelum pengiriman
     if (spesialisDropdown.value === "default") {
-        alert("Harap pilih spesialis dokter.");
+        Swal.fire({
+            title: "Peringatan",
+            text: "Harap pilih spesialis dokter.",
+            icon: "warning",
+        });
         spesialisDropdown.focus();
         event.preventDefault();
         return;
     }
 
     if (dokterDropdown.value === "default") {
-        alert("Harap pilih dokter.");
+        Swal.fire({
+            title: "Peringatan",
+            text: "Harap pilih dokter.",
+            icon: "warning",
+        });
         dokterDropdown.focus();
         event.preventDefault();
         return;
     }
 
     if (jadwalDropdown.value === "default") {
-        alert("Harap pilih jadwal dokter.");
+        Swal.fire({
+            title: "Peringatan",
+            text: "Harap pilih jadwal dokter.",
+            icon: "warning",
+        });
         jadwalDropdown.focus();
         event.preventDefault();
         return;
     }
 
     if (!tanggalInput.value) {
-        alert("Harap pilih tanggal.");
+        Swal.fire({
+            title: "Peringatan",
+            text: "Harap pilih tanggal.",
+            icon: "warning",
+        });
         tanggalInput.focus();
         event.preventDefault();
         return;
     }
 
     if (!keluhanInput.value.trim()) {
-        alert("Harap isi keluhan atau sakit yang dirasakan.");
+        Swal.fire({
+            title: "Peringatan",
+            text: "Harap isi keluhan atau sakit yang dirasakan.",
+            icon: "warning",
+        });
         keluhanInput.focus();
         event.preventDefault();
         return;
@@ -110,12 +139,11 @@ document.getElementById("btn-submit").addEventListener("click", function (event)
 });
 
 document.getElementById("buatJanjiForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Mencegah pengiriman form default
+    event.preventDefault();
 
     const form = event.target;
     const formData = new FormData(form);
 
-    // Kirim data ke server menggunakan AJAX
     fetch(form.action, {
         method: form.method,
         headers: {
@@ -126,21 +154,27 @@ document.getElementById("buatJanjiForm").addEventListener("submit", function (ev
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Tampilkan SweetAlert dan alihkan ke halaman utama
                 Swal.fire({
                     title: "Reservasi Berhasil!",
-                    text: "Detail Reservasi telah dikirim ke email anda",
+                    text: "Detail reservasi telah dikirim ke email Anda.",
                     icon: "success",
                 }).then(() => {
-                    window.location.href = "/beranda"; // Ubah ke route halaman utama Anda
+                    window.location.href = "/beranda";
                 });
             } else {
-                alert(data.message || "Terjadi kesalahan. Silakan coba lagi.");
+                Swal.fire({
+                    title: "Gagal",
+                    text: data.message || "Terjadi kesalahan. Silakan coba lagi.",
+                    icon: "error",
+                });
             }
         })
         .catch(error => {
+            Swal.fire({
+                title: "Error",
+                text: "Terjadi kesalahan saat mengirim data. Silakan coba lagi.",
+                icon: "error",
+            });
             console.error("Error:", error);
-            alert("Terjadi kesalahan. Silakan coba lagi.");
         });
 });
-

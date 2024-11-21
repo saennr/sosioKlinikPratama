@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route ('beranda') }}#home">
             <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="navLogo"> KLINIK PRATAMA
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">

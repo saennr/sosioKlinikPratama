@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#home">
             <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Klinik Pratama" class="navLogo"> KLINIK PRATAMA
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
@@ -108,7 +108,7 @@
         </div>
     </div>
     <section id="artikel">
-        <div class="container">
+        <div class="container-artikel">
             <h2>Informasi</h2>
             <div class="row">
                 <!-- Section 1 -->
@@ -145,7 +145,7 @@
     </section>
 
     <!--Servis Section-->
-    <section class="services" id="services">
+<section class="services" id="services">
   <h1>We offer several services <br>To Improve Your Health</h1>
   <div class="services-container">
     <a href="{{ route('janji') }}" style="text-decoration: none; color: inherit;">
@@ -192,6 +192,59 @@
   </div>
 </div> -->
 
+<section class="faq">
+            <div class="faq-container">
+                <div class="faq-label">
+                    <h2>Pertanyaan yang Sering Diajukan</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Bagaimana cara menjaga pola makan yang sehat?<span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Menjaga pola makan yang sehat melibatkan konsumsi makanan bergizi seimbang, seperti buah-buahan,
+                        sayuran, protein tanpa lemak, dan biji-bijian utuh. Hindari makanan olahan berlebihan dan
+                        perbanyak minum air putih.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Seberapa sering saya harus melakukan pemeriksaan kesehatan rutin?<span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sebagian besar orang disarankan untuk melakukan pemeriksaan kesehatan setidaknya setahun sekali.
+                        Namun, frekuensinya dapat berbeda tergantung usia, riwayat kesehatan, dan kondisi tertentu.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Apa yang harus saya lakukan untuk meningkatkan sistem kekebalan tubuh? <span>+</span></div>
+                    <div class="faq-answer">
+                        Tidur yang cukup, makan makanan bernutrisi, berolahraga secara teratur, dan mengurangi stres
+                        dapat membantu meningkatkan kekebalan tubuh. find it!
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Kapan saya harus menemui dokter?<span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Jika Anda mengalami gejala yang tidak biasa, seperti nyeri yang tidak hilang, demam tinggi, atau
+                        perubahan signifikan pada tubuh, segera konsultasikan dengan dokter. </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Apa itu hidrasi dan mengapa penting untuk tubuh? <span>+</span> </div>
+                    <div class="faq-answer">
+                        Hidrasi adalah proses menjaga kadar cairan tubuh. Penting karena tubuh membutuhkan cairan untuk
+                        fungsi organ, menjaga suhu tubuh, dan mendukung metabolisme. </div>
+                </div>
+            </div>
+        </section>
 
     <h2 class="text-center mb-4 kontak-title">Kontak Kami</h2>
     <section id="kontak">
@@ -223,24 +276,25 @@
     
             <!-- Form Section -->
             <div class="col-md-8 p-4 form-section">
-                <form>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control" placeholder="Masukan Nama">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="email" class="form-control" placeholder="Masukan Email">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Subjek">
-                    </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" rows="4" placeholder="Pesan"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark">Kirim</button>
-                </form>
+    <form>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <input type="text" class="form-control" id="nama" placeholder="Masukan Nama">
             </div>
+            <div class="col-md-6 mb-3">
+                <input type="email" class="form-control" id="email" placeholder="Masukan Email">
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="subjek" placeholder="Subjek">
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" id="pesan" rows="4" placeholder="Pesan"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark" id="btn-kirim">Kirim</button>
+    </form>
+</div>
+
         </div>
     </section>
 </section>
