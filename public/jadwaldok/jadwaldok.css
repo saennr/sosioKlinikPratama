@@ -29,13 +29,13 @@ body, input {
     position: relative;
     z-index: 1;
     background-color: #ffffff;
-    padding: 70px; /* Increase padding to make the box taller */
+    padding: 70px; 
     border-radius: 25px;
     box-shadow: 0 5px 8px #888787;
     margin-top: -100px;
     text-align: left;
     margin: auto;
-    min-height: 500px; /* Set a minimum height */
+    min-height: 500px; 
 }
 
 #jadwaldok h2 {
@@ -65,11 +65,9 @@ body, input {
     border: 2px solid #097670;
 }
 
-/* Doctor Card Styling */
-/* Doctor Card Styling */
 .doctor-card {
     display: flex;
-    align-items: stretch; /* Make the content align fully from top to bottom */
+    align-items: stretch; 
     background: #f0f4fb;
     padding: 20px;
     border-radius: 12px;
@@ -84,15 +82,15 @@ body, input {
 .doctor-card img {
     width: auto;
     max-height: 150px;
-    border-radius: 12px 0 0 12px; /* Rounded corners for left side of the image */
+    border-radius: 12px 0 0 12px; 
     margin-right: 20px;
-    object-fit: cover; /* Ensures the image scales without distorting */
+    object-fit: cover; 
     z-index: 1;
 }
 
 /* Doctor Information Styling */
 .doctor-info {
-    flex: 1; /* Makes the info section take the remaining space */
+    flex: 1; 
 }
 
 .doctor-info h3 {
