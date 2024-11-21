@@ -64,7 +64,6 @@
                         <h5 class="card-title">KLINIK PRATAMA UIN</h5>
                         <h4 class="card-subtitle">dr. Suwondo Ardi Nugroho</h4>
 
-                        <!-- Poli Section -->
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <img src="{{ asset('lg/img/poli.png') }}" alt="Poli Icon">
@@ -72,7 +71,7 @@
                             </div>
                             <p class="mb-0">Umum</p>
                         </div>
-                        <!-- Tanggal Rujukan Section -->
+
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div class="d-flex align-items-center">
                                 <img src="{{ asset('lg/img/tglrujukan.png') }}" alt="Tanggal Icon">
