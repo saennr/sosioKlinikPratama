@@ -223,24 +223,25 @@
     
             <!-- Form Section -->
             <div class="col-md-8 p-4 form-section">
-                <form>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control" placeholder="Masukan Nama">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <input type="email" class="form-control" placeholder="Masukan Email">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Subjek">
-                    </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" rows="4" placeholder="Pesan"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark">Kirim</button>
-                </form>
+    <form>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <input type="text" class="form-control" id="nama" placeholder="Masukan Nama">
             </div>
+            <div class="col-md-6 mb-3">
+                <input type="email" class="form-control" id="email" placeholder="Masukan Email">
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="subjek" placeholder="Subjek">
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" id="pesan" rows="4" placeholder="Pesan"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark" id="btn-kirim">Kirim</button>
+    </form>
+</div>
+
         </div>
     </section>
 </section>
