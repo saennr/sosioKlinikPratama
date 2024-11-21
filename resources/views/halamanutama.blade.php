@@ -108,7 +108,7 @@
         </div>
     </div>
     <section id="artikel">
-        <div class="container">
+        <div class="container-artikel">
             <h2>Informasi</h2>
             <div class="row">
                 <!-- Section 1 -->
@@ -145,7 +145,7 @@
     </section>
 
     <!--Servis Section-->
-    <section class="services" id="services">
+<section class="services" id="services">
   <h1>We offer several services <br>To Improve Your Health</h1>
   <div class="services-container">
     <a href="{{ route('janji') }}" style="text-decoration: none; color: inherit;">
@@ -192,6 +192,59 @@
   </div>
 </div> -->
 
+<section class="faq">
+            <div class="faq-container">
+                <div class="faq-label">
+                    <h2>Pertanyaan yang Sering Diajukan</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Bagaimana cara menjaga pola makan yang sehat?<span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Menjaga pola makan yang sehat melibatkan konsumsi makanan bergizi seimbang, seperti buah-buahan,
+                        sayuran, protein tanpa lemak, dan biji-bijian utuh. Hindari makanan olahan berlebihan dan
+                        perbanyak minum air putih.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Seberapa sering saya harus melakukan pemeriksaan kesehatan rutin?<span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sebagian besar orang disarankan untuk melakukan pemeriksaan kesehatan setidaknya setahun sekali.
+                        Namun, frekuensinya dapat berbeda tergantung usia, riwayat kesehatan, dan kondisi tertentu.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Apa yang harus saya lakukan untuk meningkatkan sistem kekebalan tubuh? <span>+</span></div>
+                    <div class="faq-answer">
+                        Tidur yang cukup, makan makanan bernutrisi, berolahraga secara teratur, dan mengurangi stres
+                        dapat membantu meningkatkan kekebalan tubuh. find it!
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Kapan saya harus menemui dokter?<span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Jika Anda mengalami gejala yang tidak biasa, seperti nyeri yang tidak hilang, demam tinggi, atau
+                        perubahan signifikan pada tubuh, segera konsultasikan dengan dokter. </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Apa itu hidrasi dan mengapa penting untuk tubuh? <span>+</span> </div>
+                    <div class="faq-answer">
+                        Hidrasi adalah proses menjaga kadar cairan tubuh. Penting karena tubuh membutuhkan cairan untuk
+                        fungsi organ, menjaga suhu tubuh, dan mendukung metabolisme. </div>
+                </div>
+            </div>
+        </section>
 
     <h2 class="text-center mb-4 kontak-title">Kontak Kami</h2>
     <section id="kontak">
