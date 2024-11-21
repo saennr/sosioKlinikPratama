@@ -8,7 +8,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-document.getElementById("btn-kirim").addEventListener("click", function(event) {
+document.getElementById("btn-kirim").addEventListener("click", function (event) {
     event.preventDefault();
 
     // Ambil data dari form
@@ -28,40 +28,39 @@ document.getElementById("btn-kirim").addEventListener("click", function(event) {
     }
 
     // Kirim data ke Google Apps Script
-    fetch("WEB_APP_URL", {
+    fetch("https://script.google.com/macros/s/AKfycbwTidqW_0gN4OtvWBl95C0Wg7PyCx3UuSNFCK78_r948TO755aX_v9mp7FZTwYn_q1Z6w/exec", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nama, email, subjek, pesan }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ nama, email, subjek, pesan }).toString(),
     })
-    .then((response) => response.json())
-    .then((data) => {
-        if (data.status === "success") {
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.result === "success") {
+                Swal.fire({
+                    title: "Terima Kasih!",
+                    text: "Pesan Anda telah berhasil dikirim ke klinik.",
+                    icon: "success",
+                });
+
+                // Reset form setelah berhasil
+                document.querySelector("input[placeholder='Masukan Nama']").value = "";
+                document.querySelector("input[placeholder='Masukan Email']").value = "";
+                document.querySelector("input[placeholder='Subjek']").value = "";
+                document.querySelector("textarea[placeholder='Pesan']").value = "";
+            } else {
+                Swal.fire({
+                    title: "Gagal!",
+                    text: "Pesan gagal dikirim. Silakan coba lagi.",
+                    icon: "error",
+                });
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
             Swal.fire({
-                title: "Terima Kasih!",
-                text: "Pesan Anda telah berhasil dikirim ke klinik.",
-                icon: "success",
-            });
-        } else {
-            Swal.fire({
-                title: "Gagal!",
-                text: "Pesan gagal dikirim. Silakan coba lagi.",
+                title: "Error!",
+                text: "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.",
                 icon: "error",
             });
-        }
-    })
-    .catch((error) => {
-        console.error("Error:", error);
-        Swal.fire({
-            title: "Error!",
-            text: "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.",
-            icon: "error",
         });
-    });
 });
-
-
-
-
-
-
-
