@@ -1,4 +1,5 @@
-/* body, input {
+body, input {
+    line-height: 1.6;
     font-family: 'Poppins', sans-serif;
   }
 .navbar {
@@ -33,7 +34,7 @@
     height: 30px;
     margin-left: 5px;
     vertical-align: middle;
-} */
+}
 
 /* Home Section */
 #home {
@@ -61,7 +62,7 @@
     position: relative;
     z-index: 1;
     background-color: #ffffff;
-    padding: 50px;
+    padding: 30px;
     border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
@@ -115,7 +116,7 @@
 
 /* Services Section */
 .services {
-    margin-bottom: 100px;
+    margin-bottom: 60px;
     text-align: center;
     padding: 50px 20px;
 }
@@ -288,6 +289,83 @@
   color: #fff; /* Make text white on hover */
 }
 
+
+
+/* FAQ section */
+/* FAQ Container */
+.faq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.faq-label{
+    margin-bottom: 20px;
+}
+.faq-container {
+    width: 80%; /* Lebar bisa disesuaikan */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 30px auto;
+}
+
+/* FAQ Items */
+.faq-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden; /* Untuk menyembunyikan konten di luar batas */
+    transition: all 0.3s ease;
+}
+
+/* Question Styling */
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #e6e6e6;
+}
+
+
+.faq-question span {
+    font-size: 24px;
+    transition: transform 0.4s ease;
+}
+
+.faq-question.active span {
+    transform: rotate(45deg);
+}
+
+/* Answer Container */
+.faq-answer {
+    max-height: 0; /* Awalnya disembunyikan */
+    opacity: 0;
+    overflow: hidden; 
+    padding: 0 15px; 
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #ffffff;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.6s ease;
+}
+
+/* Ketika aktif */
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    opacity: 1;
+    padding: 15px;
+}
+
+
 /* Kontak Section */
 /* Main container styling */
 
@@ -391,7 +469,6 @@
     justify-content: center;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     background-color: #097670;
     color: white;
     font-size: 1.5rem;
@@ -400,6 +477,7 @@
     bottom: -25px;
     cursor: pointer;
 }
+
 
 .article-header {
     display: flex;
@@ -466,7 +544,9 @@ h2{
 }
 /* Container */
 
-
+.container-artikel{
+    margin-top: 80px;
+}
 /* Info Sections */
 .info-section {
     margin: 20px 0;
@@ -532,11 +612,13 @@ h2{
 }
 
 .arrow-button {
-    font-size: 24px;
+    font-size: 30px;
     color: #097670;
     text-decoration: none;
-    padding: 10px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    background-clip: padding-box;
     border: 2px solid #097670;
     transition: color 0.3s ease, border-color 0.3s ease;
 }
@@ -545,4 +627,8 @@ h2{
     color: #fff;
     border-color: #097670;
     background-color: #097670;
+}
+
+[id] {
+    scroll-margin-top: 95px;
 }

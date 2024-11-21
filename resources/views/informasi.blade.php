@@ -6,7 +6,7 @@
 <body>
   <!-- Main Content Section -->
   <section id="artikel">
-    <div class="container">
+    <div class="container-artikel">
         <!-- Section Title and Description -->
         <h1 class="section-title">What’s New On Medicaly</h1>
         <p class="section-description">
