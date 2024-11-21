@@ -114,9 +114,9 @@ form {
 .note::before {
   content: '';
   display: inline-block;
-  width: 18px; /* Sesuaikan ukuran ikon */
+  width: 18px; 
   height: 18px;
-  background-image: url('../img/warning-circle_svgrepo.com.png'); /* Lokasi gambar */
+  background-image: url('../img/warning.png'); 
   background-size: cover;
   margin-right: 0.3rem;
   vertical-align: middle;

@@ -90,10 +90,10 @@
 }
 
 .btn {
-    padding: 8px 20px; /* Reduced padding */
+    padding: 8px 20px; 
     border: none;
     border-radius: 8px;
-    font-size: 12px; /* Reduced font size */
+    font-size: 12px; 
     font-weight: bold;
     cursor: pointer;
     justify-content: center;
@@ -108,6 +108,18 @@
 
 .logout:hover {
     background-color: #ffffff;
+    color: #000;
+    border: 2px solid #097670; 
+}
+.riwayat{
+    background-color: #097670;
+    color: white;
+    border: 2px solid #097670; 
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; 
+}
+
+.riwayat:hover {
+    background-color: #fff;
     color: #000;
     border: 2px solid #097670; 
 }

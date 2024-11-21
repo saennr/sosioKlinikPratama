@@ -32,7 +32,11 @@
             <div class="buttons">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn logout">Logout</button>
+                    <button type="submit" class="btn logout">LOG OUT</button>
+                </form>
+                <form action="{{ route('riwayat') }}" method="POST">
+                    @csrf
+                    <button class="btn riwayat">RIWAYAT</button>
                 </form>
             </div>
         </div>
