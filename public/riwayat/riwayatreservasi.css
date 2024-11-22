@@ -53,10 +53,9 @@ body, input {
     padding: 70px;
     border-radius: 25px;
     box-shadow: 0 -5px 8px #888787;
-    margin-top: 100px;
     text-align: left;
-    margin: auto;
     min-height: 500px;
+    margin-top: 3%;
 }
 
 .riwayat {
@@ -64,7 +63,11 @@ body, input {
     justify-content: center;
     align-items: center; 
     gap: 10px; 
-    margin-top: 20px; 
+    margin-top: 2px; 
+}
+
+.reservasi-text{
+    padding: 2%;
 }
 
 /* Button Styles */

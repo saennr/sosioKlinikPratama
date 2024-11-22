@@ -2,44 +2,76 @@ body, input {
     font-family: 'Poppins', sans-serif !important;
 }
 
-.navbar{
-    display: flex !important;
-    align-items: center !important;
-    padding: 0.3rem 1rem !important;
+/* Styling untuk Navbar */
+.navbar {
+    box-sizing: border-box; /* Pastikan padding tidak menambah ukuran elemen */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spasi antara logo dan navigasi */
+    padding: 0.3rem 1rem;
     height: 80px;
-    background-color: #ffffff !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-    position: fixed !important;
-    top: 0 !important;
-    width: 100% !important;
-    z-index: 10 !important;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Styling untuk Logo */
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Sejajarkan logo dan teks secara vertikal */
+    color: #097670 !important;
+    font-weight: bold;
 }
 
 .navbar-brand img {
-    height: 40px !important;
-    margin: 0 !important;
+    height: 40px;
+    margin: 0;
 }
 
-.navbar-brand {
-    color: #097670 !important;
-    font-weight: bold !important;
-}
-.navbar-nav{
-    display: flex !important;
-    align-items: center !important;
+/* Styling untuk Navigasi */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antar link */
 }
 
 .navbar-nav .nav-link {
-    padding: 0 !important;
+    padding: 0;
+    color: #333; /* Warna default teks link */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-size: 14px;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #097670 !important;
+    color: #097670; /* Warna saat hover */
 }
 
+/* Styling untuk Ikon Pengguna */
 .user-icon {
-    width: 30px !important;
-    height: 30px !important;
-    margin-left: 5px !important;
-    vertical-align: middle !important;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px; /* Beri jarak dari teks sebelumnya */
+    border-radius: 50%; /* Bentuk lingkaran */
+    vertical-align: middle;
+}
+
+/* Responsif untuk Layar Lebih Kecil */
+@media (max-width: 768px) {
+    .navbar {
+        height: auto; /* Biarkan tinggi navbar menyesuaikan */
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Tumpuk link secara vertikal */
+        align-items: flex-start; /* Rata kiri */
+        gap: 10px; /* Tambahkan jarak antar item */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 16px; /* Ukuran teks lebih besar untuk layar kecil */
+    }
 }

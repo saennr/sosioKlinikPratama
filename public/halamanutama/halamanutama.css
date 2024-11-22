@@ -1,10 +1,16 @@
 body, input {
-    line-height: 1.6;
-    font-family: 'Poppins', sans-serif;
-  }
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Styling untuk Navbar */
 .navbar {
+    box-sizing: border-box; /* Pastikan padding tidak menambah ukuran elemen */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spasi antara logo dan navigasi */
     padding: 0.3rem 1rem;
-    background-color: #d8c4c4;
+    height: 80px;
+    background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -12,29 +18,64 @@ body, input {
     z-index: 10;
 }
 
-.navbar-brand img {
-    height: 40px;
-}
-
+/* Styling untuk Logo */
 .navbar-brand {
+    display: flex;
+    align-items: center;
     color: #097670;
     font-weight: bold;
 }
+
+.navbar-brand img {
+    height: 40px;
+    margin: 0;
+}
+
+/* Styling untuk Navigasi */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antar link */
+}
+
 .navbar-nav .nav-link {
-    font-weight: 500;
-    margin-right: 1.5rem;
+    padding: 0;
+    color: #097670; /* Warna default teks link */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-size: 14px;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #097670;
+    color: #097670; /* Warna saat hover */
 }
 
+/* Styling untuk Ikon Pengguna */
 .user-icon {
     width: 30px;
     height: 30px;
-    margin-left: 5px;
+    margin-left: 10px; /* Beri jarak dari teks sebelumnya */
+    border-radius: 50%; /* Bentuk lingkaran */
     vertical-align: middle;
 }
+
+/* Responsif untuk Layar Lebih Kecil */
+@media (max-width: 768px) {
+    .navbar {
+        height: auto; /* Biarkan tinggi navbar menyesuaikan */
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Tumpuk link secara vertikal */
+        align-items: flex-start; /* Rata kiri */
+        gap: 10px; /* Tambahkan jarak antar item */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 16px; /* Ukuran teks lebih besar untuk layar kecil */
+    }
+}
+
 
 /* Home Section */
 #home {

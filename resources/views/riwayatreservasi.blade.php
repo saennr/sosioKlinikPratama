@@ -21,7 +21,7 @@
     <!-- Reservasi Aktif -->
     <div id="reservasi" class="riwayat-category" style="display: none;">
         @if($reservasiAktif->isEmpty())
-            <p class="text-center">Tidak ada reservasi aktif saat ini.</p>
+            <p class="reservasi-text text-center">Tidak ada reservasi aktif saat ini.</p>
         @else
             @foreach ($reservasiAktif as $reservasi)
             <div class="riwayat-card">
@@ -85,7 +85,7 @@
     <!-- Riwayat Reservasi -->
     <div id="riwayatCategory" class="riwayat-category" style="display: none;">
         @if($riwayatReservasi->isEmpty())
-            <p class="text-center">Tidak ada riwayat reservasi.</p>
+            <p class="reservasi-text text-center">Tidak ada riwayat reservasi.</p>
         @else
             @foreach ($riwayatReservasi as $reservasi)
             <div class="riwayat-card">

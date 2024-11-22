@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,140 +9,143 @@
     <link rel="stylesheet" href="riwayatreservasi.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="../lg/img/Logo UIN.png" alt="Klinik Pratama" class="logo"> Klinik Pratama
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="../halamanutama/halamanutama.html">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="../halamanutama/halamanutama.html">Artikel</a></li>
-                <li class="nav-item"><a class="nav-link" href="../service/service.html">Layanan</a></li>
-                <li class="nav-item"><a class="nav-link" href="../halamanutama/halamanutama.html#kontak">Kontak</a></li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center" href="../profiluser/profiluser.html">
-                        <p class="mb-0">Tuan Zidni Nurfauzi</p>
-                        <img src="../lg/img/userprofile.png" class="rounded-circle user-icon ms-2">
-                    </a>
-                </li>                
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<section id="riwayat" class="py-5 bg-white">
-    <div class="riwayat">
-        <button id="btnReservasiAktif" class="btn btn-category mx-2">Reservasi Aktif</button>
-        <button id="btnRiwayat" class="btn btn-category mx-2">Riwayat</button>
-    </div>
-
-    <div id="reservasi" class="riwayat-category">
-        <div class="riwayat-card">
-            <div class="icon">
-                <img src="../lg/img/riwayat.png" alt="icon">
-            </div>
-            <div class="info">
-                <p class="date">12 MARET 2024</p>
-                <h3>
-                    dr. Suwondo Ardi Nugroho
-                    <span class="department">Poli Umum</span>
-                </h3>
-            </div>
-            <button class="btn btn-success">Cek Reservasi</button>
-        </div>
-        <div class="riwayat-card">
-            <div class="icon">
-                <img src="../lg/img/riwayat.png" alt="icon">
-            </div>
-            <div class="info">
-                <p class="date">12 MARET 2024</p>
-                <h3>
-                    dr. Suwondo Ardi Nugroho
-                    <span class="department">Poli Umum</span>
-                </h3>
-            </div>
-            <button class="btn btn-success">Cek Reservasi</button>
-        </div>
-    </div>
-
-    <div id="riwayatCategory" class="riwayat-category" style="display: none;">
-        <div class="riwayat-card">
-            <div class="icon">
-                <img src="../lg/img/riwayat.png" alt="icon">
-            </div>
-            <div class="info">
-                <p class="date">10 JUNI 2023</p>
-                <h3>
-                    dr. Suwondo Ardi Nugroho
-                    <span class="department">Poli Umum</span>
-                </h3>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../lg/img/Logo UIN.png" alt="Klinik Pratama" class="logo"> Klinik Pratama
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../halamanutama/halamanutama.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../halamanutama/halamanutama.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../service/service.html">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../halamanutama/halamanutama.html#kontak">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" href="../profiluser/profiluser.html">
+                            <p class="mb-0">Tuan Zidni Nurfauzi</p>
+                            <img src="../lg/img/userprofile.png" class="rounded-circle user-icon ms-2">
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="riwayat-card">
-            <div class="icon">
-                <img src="../lg/img/riwayat.png" alt="icon">
+    </nav>
+
+    <section id="riwayat" class="container-riwayat py-5 bg-white">
+        <div class="riwayat">
+            <button id="btnReservasiAktif" class="btn btn-category mx-2">Reservasi Aktif</button>
+            <button id="btnRiwayat" class="btn btn-category mx-2">Riwayat</button>
+        </div>
+
+        <div id="reservasi" class="riwayat-category">
+            <div class="riwayat-card">
+                <div class="icon">
+                    <img src="../lg/img/riwayat.png" alt="icon">
+                </div>
+                <div class="info">
+                    <p class="date">12 MARET 2024</p>
+                    <h3>
+                        dr. Suwondo Ardi Nugroho
+                        <span class="department">Poli Umum</span>
+                    </h3>
+                </div>
+                <button class="btn btn-success">Cek Reservasi</button>
             </div>
-            <div class="info">
-                <p class="date">10 JUNI 2024</p>
-                <h3>
-                    dr. Suwondo Ardi Nugroho
-                    <span class="department">Poli Umum</span>
-                </h3>
+            <div class="riwayat-card">
+                <div class="icon">
+                    <img src="../lg/img/riwayat.png" alt="icon">
+                </div>
+                <div class="info">
+                    <p class="date">12 MARET 2024</p>
+                    <h3>
+                        dr. Suwondo Ardi Nugroho
+                        <span class="department">Poli Umum</span>
+                    </h3>
+                </div>
+                <button class="btn btn-success">Cek Reservasi</button>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Modal Structure -->
-<div class="modal fade" id="reservasiModal" tabindex="-1" aria-labelledby="reservasiModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">KLINIK PRATAMA UIN</h5>
-                        <h4 class="card-subtitle">dr. Suwondo Ardi Nugroho</h4>
+        <div id="riwayatCategory" class="riwayat-category" style="display: none;">
+            <div class="riwayat-card">
+                <div class="icon">
+                    <img src="../lg/img/riwayat.png" alt="icon">
+                </div>
+                <div class="info">
+                    <p class="date">10 JUNI 2023</p>
+                    <h3>
+                        dr. Suwondo Ardi Nugroho
+                        <span class="department">Poli Umum</span>
+                    </h3>
+                </div>
+            </div>
+            <div class="riwayat-card">
+                <div class="icon">
+                    <img src="../lg/img/riwayat.png" alt="icon">
+                </div>
+                <div class="info">
+                    <p class="date">10 JUNI 2024</p>
+                    <h3>
+                        dr. Suwondo Ardi Nugroho
+                        <span class="department">Poli Umum</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <!-- Poli Section -->
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img src="../lg/img/poli.png" alt="Poli Icon">
-                                <p class="mb-0">Poli</p>
+    <!-- Modal Structure -->
+    <div class="modal fade" id="reservasiModal" tabindex="-1" aria-labelledby="reservasiModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">KLINIK PRATAMA UIN</h5>
+                            <h4 class="card-subtitle">dr. Suwondo Ardi Nugroho</h4>
+
+                            <!-- Poli Section -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="../lg/img/poli.png" alt="Poli Icon">
+                                    <p class="mb-0">Poli</p>
+                                </div>
+                                <p class="mb-0">Umum</p>
                             </div>
-                            <p class="mb-0">Umum</p>
-                        </div>
-                        <!-- Tanggal Rujukan Section -->
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <div class="d-flex align-items-center">
-                                <img src="../lg/img/tglrujukan.png" alt="Tanggal Icon">
-                                <p class="mb-0">Tanggal Rujukan</p>
+                            <!-- Tanggal Rujukan Section -->
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="d-flex align-items-center">
+                                    <img src="../lg/img/tglrujukan.png" alt="Tanggal Icon">
+                                    <p class="mb-0">Tanggal Rujukan</p>
+                                </div>
+                                <p class="mb-0">12-03-2024</p>
                             </div>
-                            <p class="mb-0">12-03-2024</p>
-                        </div>
-                        <hr>
-                        <h6>Nomor Antrean</h6>
-                        <h6>Klinik</h6>
-                        <h2 class="text-primary">2</h2>
-                        <h6>Estimasi Dilayani</p>
-                        <p>12-03-2024 17:36</p>
-                        <div class="alert alert-info mt-3" role="alert">
-                           <i>*) Harap datang 15 menit sebelum waktu pelayanan untuk tahap administrasi.</i>
+                            <hr>
+                            <h6>Nomor Antrean</h6>
+                            <h6>Klinik</h6>
+                            <h2 class="text-primary">2</h2>
+                            <h6>Estimasi Dilayani</p>
+                                <p>12-03-2024 17:36</p>
+                                <div class="alert alert-info mt-3" role="alert">
+                                    <i>*) Harap datang 15 menit sebelum waktu pelayanan untuk tahap administrasi.</i>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="riwayatreservasi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="riwayatreservasi.js"></script>
 </body>
+
 </html>

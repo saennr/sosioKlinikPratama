@@ -30,13 +30,13 @@
             <p>{{ $user->no_identitas }} - {{ \Carbon\Carbon::parse($user->tgl_lahir)->format('d M Y') }}</p>
             <hr>
             <div class="buttons">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn logout">LOG OUT</button>
-                </form>
                 <form action="{{ route('riwayat') }}" method="GET">
                     @csrf
                     <button class="btn riwayat">RIWAYAT</button>
+                </form>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn logout">LOG OUT</button>
                 </form>
             </div>
         </div>
