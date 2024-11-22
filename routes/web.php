@@ -8,6 +8,7 @@ use App\Http\Controllers\HalamanUtamaController;
 use App\Http\Controllers\JanjiController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\InformasiController;
+use App\Http\Controllers\RiwayatReservasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/jadwal', [JadwalController::class, 'jadwal'])->name('jadwal');
 
     Route::get('/informasi', [InformasiController::class, 'informasi'])->name('informasi');
+
+    Route::get('/riwayatreservasi', [RiwayatReservasiController::class, 'riwayat'])->name('riwayat');
 });
 
 

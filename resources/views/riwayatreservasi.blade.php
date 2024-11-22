@@ -18,82 +18,92 @@
         <button id="btnRiwayat" class="btn btn-category mx-2">Riwayat</button>
     </div>
 
-    <div id="reservasi" class="riwayat-category">
-        @foreach (range(1, 2) as $i)
-        <div class="riwayat-card">
-            <div class="icon">
-                <img src="{{ asset('lg/img/riwayat.png') }}" alt="icon">
-            </div>
-            <div class="info">
-                <p class="date">12 MARET 2024</p>
-                <h3>
-                    dr. Suwondo Ardi Nugroho
-                    <span class="department">Poli Umum</span>
-                </h3>
-            </div>
-            <button class="btn btn-success">Cek Reservasi</button>
-        </div>
-        @endforeach
-    </div>
+    <!-- Reservasi Aktif -->
+    <div id="reservasi" class="riwayat-category" style="display: none;">
+        @if($reservasiAktif->isEmpty())
+            <p class="text-center">Tidak ada reservasi aktif saat ini.</p>
+        @else
+            @foreach ($reservasiAktif as $reservasi)
+            <div class="riwayat-card">
+                <div class="icon">
+                    <img src="{{ asset('lg/img/riwayat.png') }}" alt="icon">
+                </div>
+                <div class="info">
+                    <p class="date">
+                        {{ \Carbon\Carbon::parse($reservasi->tanggal)->format('Y-m-d') }}  {{ $reservasi->jadwalDokter->jam_mulai }}
+                    </p>
 
-    <div id="riwayatCategory" class="riwayat-category" style="display: none;">
-        @foreach (range(1, 2) as $i)
-        <div class="riwayat-card">
-            <div class="icon">
-                <img src="{{ asset('lg/img/riwayat.png') }}" alt="icon">
+                    <h3>
+                        {{ $reservasi->dokter->nama_dokter }}
+                        <span class="department">{{ $reservasi->dokter->spesialis->nama_spesialis }}</span>
+                    </h3>
+                </div>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reservasiModal-{{ $reservasi->id_reservasi }}">Cek Reservasi</button>
             </div>
-            <div class="info">
-                <p class="date">{{ $i === 1 ? '10 JUNI 2023' : '10 JUNI 2024' }}</p>
-                <h3>
-                    dr. Suwondo Ardi Nugroho
-                    <span class="department">Poli Umum</span>
-                </h3>
-            </div>
-        </div>
-        @endforeach
-    </div>
-</section>
 
-<!-- Modal Structure -->
-<div class="modal fade" id="reservasiModal" tabindex="-1" aria-labelledby="reservasiModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">KLINIK PRATAMA UIN</h5>
-                        <h4 class="card-subtitle">dr. Suwondo Ardi Nugroho</h4>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img src="{{ asset('lg/img/poli.png') }}" alt="Poli Icon">
-                                <p class="mb-0">Poli</p>
-                            </div>
-                            <p class="mb-0">Umum</p>
+            <!-- Modal -->
+            <div class="modal fade" id="reservasiModal-{{ $reservasi->id_reservasi }}" tabindex="-1" aria-labelledby="reservasiModalLabel" aria-hidden="true" data-bs-backdrop="false">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="reservasiModalLabel">Detail Reservasi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">KLINIK PRATAMA UIN</h5>
+                                    <h4 class="card-subtitle">{{ $reservasi->dokter->nama_dokter }}</h4>
 
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <div class="d-flex align-items-center">
-                                <img src="{{ asset('lg/img/tglrujukan.png') }}" alt="Tanggal Icon">
-                                <p class="mb-0">Tanggal Rujukan</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="mb-0">Poli</p>
+                                        <p class="mb-0">{{ $reservasi->dokter->spesialis->nama_spesialis }}</p>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <p class="mb-0">Tanggal Pemeriksaan</p>
+                                        <p class="mb-0">{{ \Carbon\Carbon::parse($reservasi->tanggal)->format('Y-m-d') }}</p>
+                                    </div>
+                                    <hr>
+                                    <h6>Nomor Antrean</h6>
+                                    <h2 class="text-primary">{{ $reservasi->no_antrian }}</h2>
+                                    <h6>Estimasi Dilayani</h6>
+                                    <p>{{ \Carbon\Carbon::parse($reservasi->tanggal)->format('Y-m-d') }} {{ \Carbon\Carbon::parse($reservasi->estimasi_mulai)->format('H:i') }}</p>
+                                    <div class="alert alert-info mt-3" role="alert">
+                                        <i>*) Harap datang 15 menit sebelum waktu pelayanan untuk tahap administrasi.</i>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="mb-0">12-03-2024</p>
-                        </div>
-                        <hr>
-                        <h6>Nomor Antrean</h6>
-                        <h6>Klinik</h6>
-                        <h2 class="text-primary">2</h2>
-                        <h6>Estimasi Dilayani</h6>
-                        <p>12-03-2024 17:36</p>
-                        <div class="alert alert-info mt-3" role="alert">
-                            <i>*) Harap datang 15 menit sebelum waktu pelayanan untuk tahap administrasi.</i>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @endforeach
+        @endif
     </div>
-</div>
+
+    <!-- Riwayat Reservasi -->
+    <div id="riwayatCategory" class="riwayat-category" style="display: none;">
+        @if($riwayatReservasi->isEmpty())
+            <p class="text-center">Tidak ada riwayat reservasi.</p>
+        @else
+            @foreach ($riwayatReservasi as $reservasi)
+            <div class="riwayat-card">
+                <div class="icon">
+                    <img src="{{ asset('lg/img/riwayat.png') }}" alt="icon">
+                </div>
+                <div class="info">
+                    <p class="date">{{ $reservasi->tanggal }}</p>
+                    <h3>
+                        {{ $reservasi->dokter->nama_dokter }}
+                        <span class="department">{{ $reservasi->dokter->spesialis->nama_spesialis }}</span>
+                    </h3>
+                </div>
+            </div>
+            @endforeach
+        @endif
+    </div>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('riwayat/riwayatreservasi.js') }}"></script>

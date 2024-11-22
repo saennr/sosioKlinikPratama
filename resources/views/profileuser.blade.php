@@ -34,7 +34,7 @@
                     @csrf
                     <button type="submit" class="btn logout">LOG OUT</button>
                 </form>
-                <form action="{{ route('riwayat') }}" method="POST">
+                <form action="{{ route('riwayat') }}" method="GET">
                     @csrf
                     <button class="btn riwayat">RIWAYAT</button>
                 </form>

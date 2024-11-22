@@ -38,3 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });  
 });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const modals = document.querySelectorAll('.modal');
+
+//     modals.forEach(modal => {
+//         modal.addEventListener('hidden.bs.modal', () => {
+//             const backdrops = document.querySelectorAll('.modal-backdrop');
+//             backdrops.forEach(backdrop => backdrop.parentNode.removeChild(backdrop));
+//             document.body.classList.remove('modal-open');
+//             document.body.style.paddingRight = '';
+//         });
+//     });
+// });
