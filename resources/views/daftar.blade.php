@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Klinik Pratama</title>
   <link rel="stylesheet" href="{{ asset('lg/daftar/daftar.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -39,8 +40,8 @@
               </div>
 
               <div class="input-wrap">
-                <input type="password" name="pw" class="input-field" required placeholder="Password" />
-                @error('password') <small class="error">{{ $message }}</small> @enderror
+                <input type="password" name="pw" id="password" class="input-field" required placeholder="Password" />
+                @error('password') <small id= "password-error" class="error">{{ $message }}</small> @enderror
               </div>
 
               <div class="input-wrap">
@@ -70,6 +71,6 @@
     </div>
   </main>
 
-  <script src="{{ asset('daftar/daftar.js') }}"></script>
+  <script src="{{ asset('lg/daftar/daftar.js') }}"></script>
 </body>
 </html>

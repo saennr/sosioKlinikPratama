@@ -93,7 +93,7 @@
                     <img src="{{ asset('lg/img/riwayat.png') }}" alt="icon">
                 </div>
                 <div class="info">
-                    <p class="date">{{ $reservasi->tanggal }}</p>
+                    <p class="date">{{ \Carbon\Carbon::parse($reservasi->tanggal)->format('Y-m-d') }} {{ $reservasi->jadwalDokter->jam_mulai }}</p>
                     <h3>
                         {{ $reservasi->dokter->nama_dokter }}
                         <span class="department">{{ $reservasi->dokter->spesialis->nama_spesialis }}</span>

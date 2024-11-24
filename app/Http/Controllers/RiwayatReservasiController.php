@@ -10,19 +10,22 @@ class RiwayatReservasiController extends Controller
 {
     public function riwayat()
     {
+        $userId = auth()->id();
         $today = now()->toDateString();
 
-        // Ambil reservasi aktif (tanggal >= hari ini)
-        $reservasiAktif = Reservasi::with(['dokter', 'jadwalDokter'])
-            ->where('tanggal', '>=', $today)
-            ->orderBy('tanggal', 'asc')
-            ->get();
+        // Ambil reservasi aktif untuk pengguna login
+        $reservasiAktif = Reservasi::with(['dokter.spesialis', 'jadwalDokter'])
+        ->where('id_user', $userId) // Filter berdasarkan user yang login
+        ->where('tanggal', '>=', $today)
+        ->orderBy('tanggal', 'asc')
+        ->get();
 
-        // Ambil riwayat reservasi (tanggal < hari ini)
-        $riwayatReservasi = Reservasi::with(['dokter', 'jadwalDokter'])
-            ->where('tanggal', '<', $today)
-            ->orderBy('tanggal', 'desc')
-            ->get();
+        // Ambil riwayat reservasi untuk pengguna login
+        $riwayatReservasi = Reservasi::with(['dokter.spesialis', 'jadwalDokter'])
+        ->where('id_user', $userId) // Filter berdasarkan user yang login
+        ->where('tanggal', '<', $today)
+        ->orderBy('tanggal', 'desc')
+        ->get();
 
         return view('riwayatreservasi', compact('reservasiAktif', 'riwayatReservasi'));
     }

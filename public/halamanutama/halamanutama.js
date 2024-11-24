@@ -23,6 +23,9 @@ document.getElementById("btn-kirim").addEventListener("click", function (event) 
             title: "Gagal!",
             text: "Semua kolom wajib diisi.",
             icon: "error",
+            customClass: {
+                confirmButton: 'custom-ok-button'
+            }
         });
         return;
     }
@@ -40,6 +43,9 @@ document.getElementById("btn-kirim").addEventListener("click", function (event) 
                     title: "Terima Kasih!",
                     text: "Pesan Anda telah berhasil dikirim ke klinik.",
                     icon: "success",
+                    customClass: {
+                        confirmButton: 'custom-ok-button'
+                    }
                 });
 
                 // Reset form setelah berhasil
@@ -52,6 +58,9 @@ document.getElementById("btn-kirim").addEventListener("click", function (event) 
                     title: "Gagal!",
                     text: "Pesan gagal dikirim. Silakan coba lagi.",
                     icon: "error",
+                    customClass: {
+                        confirmButton: 'custom-ok-button'
+                    }
                 });
             }
         })
@@ -61,6 +70,9 @@ document.getElementById("btn-kirim").addEventListener("click", function (event) 
                 title: "Error!",
                 text: "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.",
                 icon: "error",
+                customClass: {
+                    confirmButton: 'custom-ok-button'
+                }
             });
         });
 });
@@ -78,5 +90,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cekLabButton = document.getElementById("cek-lab-button");
+    const cekRadiologiButton = document.getElementById("cek-radio-button");
+    console.log("Page loaded, attaching event listeners");
+    cekLabButton.addEventListener("click", function (event) {
+        console.log("Cek Lab button clicked");
+        Swal.fire({
+            icon: 'error',
+            title: 'Coming Soon',
+            text: 'Mohon maaf, fasilitas ini belum tersedia.',
+            confirmButtonText: 'OK',
+            customClass: {
+                confirmButton: 'custom-ok-button'
+            }
+        });
+    });
+    cekRadiologiButton.addEventListener("click", function (event) {
+        console.log("Cek Lab button clicked");
+        Swal.fire({
+            icon: 'error',
+            title: 'Coming Soon',
+            text: 'Mohon maaf, fasilitas ini belum tersedia.',
+            confirmButtonText: 'OK',
+            customClass: {
+                confirmButton: 'custom-ok-button'
+            }
+        });
     });
 });

@@ -85,7 +85,7 @@
         
         <!-- Arrow button to navigate to another page -->
         <div class="arrow-container">
-            <a href="{{ url('/halamanutama#artikel') }}" class="arrow-button">
+            <a href="{{ route ('beranda') }}#artikel" class="arrow-button">
                 <span>&#10132;</span>
             </a>
         </div>

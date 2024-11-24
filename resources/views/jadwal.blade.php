@@ -19,8 +19,8 @@
 
 <section id="jadwaldok" class="py-5 bg-white">
     <div class="jadwaldok">
-        <h2 class="mb-4">Pilih Kategori Dokter</h2>
-        <button class="btn btn-category mx-2" onclick="showCategory('spesialis')">Spesialis</button>
+        <h2 class="mb-4">Pilih Poli Dokter</h2>
+        <button class="btn btn-category mx-2" onclick="showCategory('spesialis')">Gigi</button>
         <button class="btn btn-category mx-2" onclick="showCategory('umum')">Umum</button>
     </div>
 

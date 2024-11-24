@@ -163,3 +163,16 @@ button:hover {
     cursor: pointer;
     color: #333;
   }
+
+.custom-ok-button {
+    background-color: #097670 !important; /* Ubah warna tombol OK */
+    color: #fff !important;             /* Ubah warna teks */
+    border: none;                       /* Hilangkan border */
+    border-radius: 5px;                 /* Tambahkan radius pada tombol */
+    padding: 10px 20px;                 /* Sesuaikan ukuran tombol */
+    font-size: 16px;                    /* Sesuaikan ukuran font */
+}
+
+.custom-ok-button:hover {
+    background-color: #26A072 !important; /* Warna saat hover */
+}

@@ -15,6 +15,9 @@ function loadDokter(idSpesialis) {
                 title: "Error",
                 text: "Terjadi kesalahan saat mengambil data dokter. Silakan coba lagi.",
                 icon: "error",
+                customClass: {
+                    confirmButton: 'custom-ok-button'
+                }
             });
             console.error("Fetch error in loadDokter:", error);
         });
@@ -43,6 +46,9 @@ function loadJadwal(idDokter) {
                 title: "Error",
                 text: "Terjadi kesalahan saat mengambil data jadwal. Silakan coba lagi.",
                 icon: "error",
+                customClass: {
+                    confirmButton: 'custom-ok-button'
+                }
             });
             console.error("Fetch error in loadJadwal:", error);
         });
@@ -62,6 +68,9 @@ function filterTanggal(hari) {
                 title: "Peringatan",
                 text: `Harap pilih tanggal yang jatuh pada hari ${hari}.`,
                 icon: "error",
+                customClass: {
+                    confirmButton: 'custom-ok-button'
+                }
             });
             tanggalInput.value = "";
         }
@@ -87,6 +96,9 @@ document.getElementById("btn-submit").addEventListener("click", function (event)
             title: "Peringatan",
             text: "Harap pilih spesialis dokter.",
             icon: "warning",
+            customClass: {
+                confirmButton: 'custom-ok-button'
+            }
         });
         spesialisDropdown.focus();
         event.preventDefault();
@@ -98,6 +110,9 @@ document.getElementById("btn-submit").addEventListener("click", function (event)
             title: "Peringatan",
             text: "Harap pilih dokter.",
             icon: "warning",
+            customClass: {
+                confirmButton: 'custom-ok-button'
+            }
         });
         dokterDropdown.focus();
         event.preventDefault();
@@ -109,6 +124,9 @@ document.getElementById("btn-submit").addEventListener("click", function (event)
             title: "Peringatan",
             text: "Harap pilih jadwal dokter.",
             icon: "warning",
+            customClass: {
+                confirmButton: 'custom-ok-button'
+            }
         });
         jadwalDropdown.focus();
         event.preventDefault();
@@ -120,6 +138,9 @@ document.getElementById("btn-submit").addEventListener("click", function (event)
             title: "Peringatan",
             text: "Harap pilih tanggal.",
             icon: "warning",
+            customClass: {
+                confirmButton: 'custom-ok-button'
+            }
         });
         tanggalInput.focus();
         event.preventDefault();
@@ -131,6 +152,9 @@ document.getElementById("btn-submit").addEventListener("click", function (event)
             title: "Peringatan",
             text: "Harap isi keluhan atau sakit yang dirasakan.",
             icon: "warning",
+            customClass: {
+                confirmButton: 'custom-ok-button'
+            }
         });
         keluhanInput.focus();
         event.preventDefault();
@@ -156,8 +180,11 @@ document.getElementById("buatJanjiForm").addEventListener("submit", function (ev
             if (data.success) {
                 Swal.fire({
                     title: "Reservasi Berhasil!",
-                    text: "Detail reservasi telah dikirim ke email Anda.",
+                    text: "Detail reservasi bisa dicek di Profile > Riwayat.",
                     icon: "success",
+                    customClass: {
+                        confirmButton: 'custom-ok-button'
+                    }
                 }).then(() => {
                     window.location.href = "/beranda";
                 });
@@ -166,6 +193,9 @@ document.getElementById("buatJanjiForm").addEventListener("submit", function (ev
                     title: "Gagal",
                     text: data.message || "Terjadi kesalahan. Silakan coba lagi.",
                     icon: "error",
+                    customClass: {
+                        confirmButton: 'custom-ok-button'
+                    }
                 });
             }
         })
@@ -174,6 +204,9 @@ document.getElementById("buatJanjiForm").addEventListener("submit", function (ev
                 title: "Error",
                 text: "Terjadi kesalahan saat mengirim data. Silakan coba lagi.",
                 icon: "error",
+                customClass: {
+                    confirmButton: 'custom-ok-button'
+                }
             });
             console.error("Error:", error);
         });
