@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
               Swal.fire({
                   icon: 'error',
                   title: 'Nomor Identitas Sudah Terdaftar',
-                  text: 'Nomor identitas ini sudah digunakan. Silakan gunakan nomor identitas lain.',
+                  text: 'Nomor identitas ini sudah terpakai. Gunakan nomor identitas lain.',
                   confirmButtonText: 'OK',
                   customClass: {
                       confirmButton: 'custom-ok-button'

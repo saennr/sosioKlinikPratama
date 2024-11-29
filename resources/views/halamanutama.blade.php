@@ -278,7 +278,7 @@
             <!-- Form Section -->
             <div class="col-md-8 p-4 form-section">
 
-    <form method="post" action="https://script.google.com/macros/s/AKfycbwTidqW_0gN4OtvWBl95C0Wg7PyCx3UuSNFCK78_r948TO755aX_v9mp7FZTwYn_q1Z6w/exec" name="contact-form">>
+    <form method="post" action="https://script.google.com/macros/s/AKfycbwTidqW_0gN4OtvWBl95C0Wg7PyCx3UuSNFCK78_r948TO755aX_v9mp7FZTwYn_q1Z6w/exec" name="contact-form">
         <div class="row">
             <div class="col-md-6 mb-3">
                 <input type="text" class="form-control" id="nama" placeholder="Masukan Nama">
