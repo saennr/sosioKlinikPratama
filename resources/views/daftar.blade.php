@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Daftar Klinik Pratama</title>
   <link rel="stylesheet" href="{{ asset('lg/daftar/daftar.css') }}">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -35,11 +36,6 @@
               </div>
 
               <div class="input-wrap">
-                <input type="email" name="email" class="input-field" value="{{ old('email') }}" required placeholder="Email" />
-                @error('email') <small class="error">{{ $message }}</small> @enderror
-              </div>
-
-              <div class="input-wrap">
                 <input type="password" name="pw" id="password" class="input-field" required placeholder="Password" />
                 @error('password') <small id= "password-error" class="error">{{ $message }}</small> @enderror
               </div>
@@ -50,7 +46,7 @@
               </div>
 
               <div class="input-wrap">
-                <input type="text" name="no_identitas" class="input-field" value="{{ old('identity_number') }}" required placeholder="Nomor Identitas" />
+                <input type="text" id="no_identitas" name="no_identitas" class="input-field" value="{{ old('identity_number') }}" required placeholder="Nomor Identitas" />
                 <small class="note">NIM, NIP atau NIK (Masukan salah satu)</small>
               </div>
 

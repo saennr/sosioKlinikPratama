@@ -19,7 +19,6 @@ class UsersTableSeeder extends Seeder
             [
                 'firstName' => 'Ali',
                 'lastName' => 'Mahendra',
-                'email' => 'ali@example.com',
                 'pw' => Hash::make('password123'),
                 'no_identitas' => '123456789',
                 'tgl_lahir' => '1988-03-14',
@@ -30,7 +29,6 @@ class UsersTableSeeder extends Seeder
             [
                 'firstName' => 'Dewi',
                 'lastName' => 'Ayu',
-                'email' => 'dewi@example.com',
                 'pw' => Hash::make('password123'),
                 'no_identitas' => '987654321',
                 'tgl_lahir' => '1992-06-22',

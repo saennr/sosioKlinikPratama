@@ -26,17 +26,17 @@
 
               <h2>Masuk</h2>
             </div>
-            <p class="text">Gunakan Email yang terdaftar</p>
+            <p class="text">Gunakan No Identitias yang terdaftar</p>
 
             <div class="actual-form">
               <div class="input-wrap">
                 <input 
-                  type="email" 
+                  type="text" 
                   class="input-field"
-                  name="email"
+                  name="no_identitas"
                   autocomplete="off"
                   required
-                  placeholder="Email"
+                  placeholder="No Identitas"
                 />
               </div>
               <div class="input-wrap">

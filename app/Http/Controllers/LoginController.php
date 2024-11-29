@@ -19,21 +19,21 @@ class LoginController extends Controller
 {
     // Validasi input email dan password
     $request->validate([
-        'email' => 'required|email', // Menambahkan validasi format email
-        'password' => 'required|min:6', // Menambahkan minimal panjang password
+        'no_identitas' => 'required:string', // Menggunakan nomor identitas
+        'password' => 'required|min:8', // Menambahkan minimal panjang password
     ]);
 
     // Mengambil data email dan password dari request
-    $credentials = $request->only('email', 'password');
+    $credentials = $request->only('no_identitas', 'password');
 
     // Mencoba login menggunakan data yang diberikan
-    if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+    if (Auth::attempt(['no_identitas' => $request->no_identitas, 'password' => $request->password])) {
         // Login berhasil
         return redirect()->route('beranda');
     } else {
         // Login gagal
         return redirect()->route('login')->withErrors([
-            'login_failed' => 'Email atau Password salah',
+            'login_failed' => 'No Identitas atau Password salah',
         ]);
     }
 }
@@ -47,7 +47,6 @@ class LoginController extends Controller
         $validator = Validator::make($request->all(), [
             'firstName' => 'required',
             'lastName' => 'required',
-            'email' => 'required|email|unique:users,email',
             'pw' => 'required|min:8',
             'no_hp' => 'required|string|max:15',
             'no_identitas' => 'required|string|max:20|unique:users,no_identitas',
@@ -62,7 +61,6 @@ class LoginController extends Controller
         // Simpan data pendaftar
         $data['firstName'] = $request->firstName;
         $data['lastName'] = $request->lastName;
-        $data['email'] = $request->email;
         $data['pw'] = Hash::make($request->pw);
         $data['no_hp'] = $request->no_hp;
         $data['no_identitas'] = $request->no_identitas;
@@ -74,4 +72,21 @@ class LoginController extends Controller
         // Redirect atau tampilkan view setelah pendaftaran berhasil
         return view('login');
     }
+
+    public function checkNoIdentitas(Request $request)
+    {
+        // Validasi input no_identitas
+        $request->validate([
+            'no_identitas' => 'required|string',
+        ]);
+
+        // Cek apakah no_identitas sudah ada di database
+        $exists = User::where('no_identitas', $request->no_identitas)->exists();
+
+        // Kirimkan response JSON
+        return response()->json([
+            'exists' => $exists
+        ]);
+    }
+
 }
