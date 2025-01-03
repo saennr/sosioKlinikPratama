@@ -53,7 +53,19 @@
 
               <div class="input-wrap">
                 <input type="text" name="tgl_lahir" class="input-field" value="{{ old('birth_date') }}" placeholder="Tanggal Lahir" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}" required />
-              </div>              
+              </div>    
+              
+              <div class="input-wrap">
+                <select class="input-field" required>
+                  <option value="" disabled selected>Jenis Kelamin</option>
+                  <option value="Perempuan">Perempuan</option>
+                  <option value="Laki-laki">Laki-laki</option>
+                </select>
+              </div>
+              
+              <div class="input-wrap">
+                <textarea class="input-field" required placeholder="Alamat" rows="4"></textarea>
+              </div>  
 
               <button type="submit" class="sign-btn">Sign Up</button>
 

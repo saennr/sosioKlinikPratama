@@ -56,7 +56,7 @@ main {
   position: absolute;
   height: 80%;
   width: 40%;
-  top: 0;
+  top: 5%;
   left: 50%;
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@ form {
 
 .input-wrap {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   z-index: 1;
 }
 
