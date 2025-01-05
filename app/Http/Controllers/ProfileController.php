@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
@@ -29,8 +28,8 @@ class ProfileController extends Controller
         ]);
 
         // Perbarui data pengguna
-        $user->first_name = $validatedData['firstName'];
-        $user->last_name = $validatedData['lastName'];
+        $user->firstName = $validatedData['firstName'];
+        $user->lastName = $validatedData['lastName'];
         $user->no_identitas = $validatedData['no_identitas'];
         $user->no_hp = $validatedData['no_hp'];
         $user->tgl_lahir = $validatedData['tgl_lahir'];
@@ -41,7 +40,6 @@ class ProfileController extends Controller
         // Redirect dengan pesan sukses
         return redirect()->route('profileuser')->with('success', 'Profil berhasil diperbarui.');
     }
-  
 
     public function logout(Request $request)
     {
