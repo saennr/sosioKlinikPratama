@@ -14,6 +14,35 @@ class ProfileController extends Controller
         return view('profileuser', compact('user'));
     }
 
+    public function update(Request $request)
+    {
+        // Ambil pengguna yang sedang login
+        $user = Auth::user();
+
+        // Validasi data yang diterima
+        $validatedData = $request->validate([
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'no_identitas' => 'required|string|max:20',
+            'no_hp' => 'required|string|max:20',
+            'tgl_lahir' => 'required|date',
+        ]);
+
+        // Perbarui data pengguna
+        $user->first_name = $validatedData['firstName'];
+        $user->last_name = $validatedData['lastName'];
+        $user->no_identitas = $validatedData['no_identitas'];
+        $user->no_hp = $validatedData['no_hp'];
+        $user->tgl_lahir = $validatedData['tgl_lahir'];
+
+        // Simpan perubahan ke database
+        $user->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('profileuser')->with('success', 'Profil berhasil diperbarui.');
+    }
+  
+
     public function logout(Request $request)
     {
         Auth::logout(); // Log out user

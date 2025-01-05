@@ -41,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/layanan', [ServiceController::class, 'index'])->name('layanan');
 
     Route::get('/profileuser', [ProfileController::class, 'index'])->name('profileuser');
+    Route::post('/profileuser', [ProfileController::class, 'update'])->name('profileUpdate');
     Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
 
     Route::get('/janji', [JanjiController::class, 'janji'])->name('janji');
@@ -53,7 +54,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/informasi', [InformasiController::class, 'informasi'])->name('informasi');
 
-    Route::get('/riwayatreservasi', [RiwayatReservasiController::class, 'riwayat'])->name('riwayat');
+    Route::get('/reservasi-aktif', [RiwayatReservasiController::class, 'reservasiAktif'])->name('reservasiAktif');
+    Route::get('/riwayat-pendaftaran', [RiwayatReservasiController::class, 'riwayatPendaftaran'])->name('riwayatPendaftaran');
 });
 
 

@@ -60,6 +60,16 @@ class JanjiController extends Controller
             'tanggal' => 'required|date|after_or_equal:today',
             'keluhan' => 'required|string',
         ]);
+        
+        // Periksa apakah user sudah memiliki reservasi pada jadwal dan tanggal yang sama
+        $existingReservasi = Reservasi::where('id_user', Auth::id())
+                                    ->where('id_jadwal_dokter', $request->jadwal)
+                                    ->where('tanggal', $request->tanggal)
+                                    ->first();
+
+        if ($existingReservasi) {
+            return response()->json(['success' => false, 'message' => 'Anda sudah memiliki reservasi pada jadwal dan tanggal tersebut.']);
+        }
 
         // Hitung nomor antrian
         $latestAntrian = Reservasi::where('id_dokter', $request->dokter)
