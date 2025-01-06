@@ -25,6 +25,7 @@ class ProfileController extends Controller
             'no_identitas' => 'required|string|max:20',
             'no_hp' => 'required|string|max:20',
             'tgl_lahir' => 'required|date',
+            'alamat' => 'required|string|max:255',
         ]);
 
         // Perbarui data pengguna
@@ -33,6 +34,7 @@ class ProfileController extends Controller
         $user->no_identitas = $validatedData['no_identitas'];
         $user->no_hp = $validatedData['no_hp'];
         $user->tgl_lahir = $validatedData['tgl_lahir'];
+        $user->alamat = $validatedData['alamat'];
 
         // Simpan perubahan ke database
         $user->save();

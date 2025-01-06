@@ -56,6 +56,15 @@
                     <label for="tgl_lahir">Tanggal Lahir</label>
                     <input type="date" id="tgl_lahir" name="tgl_lahir" value="{{ old('tgl_lahir', $user->tgl_lahir ? \Carbon\Carbon::parse($user->tgl_lahir)->format('Y-m-d') : '') }}" required readonly>
                 </div>
+                <div class="form-group">
+                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <input type="text" id="jk" name="jk" 
+                        value="{{ old('jk', $user->jk == 'L' ? 'Laki-laki' : ($user->jk == 'P' ? 'Perempuan' : '')) }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" id="alamat" name="alamat" value="{{ old('alamat', $user->alamat) }}" required readonly>
+                </div>  
                 <button type="button" class="edit-button" onclick="enableEdit()">Edit</button>
                 <button type="submit" class="update-button" style="display:none;">Update</button>
             </form>
@@ -79,14 +88,14 @@
 
     <script>
          function enableEdit() {
-        const inputs = document.querySelectorAll('.form-group input');
-        inputs.forEach(input => {
-            // Hanya enable jika bukan input dengan id no_identitas
-            if (input.id !== 'no_identitas') {
-                input.removeAttribute('readonly');
-            }
-        });
-            document.querySelector('.update-button').style.display = 'inline-block';
+            const inputs = document.querySelectorAll('.form-group input');
+            inputs.forEach(input => {
+                // Hanya enable jika bukan input dengan id no_identitas
+                if (input.id !== 'no_identitas' && input.id !== 'jk') {
+                    input.removeAttribute('readonly');
+                }
+            });
+                document.querySelector('.update-button').style.display = 'inline-block';
         }
 
         function confirmLogout() {
