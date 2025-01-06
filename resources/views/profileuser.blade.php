@@ -84,7 +84,8 @@
             // Hanya enable jika bukan input dengan id no_identitas
             if (input.id !== 'no_identitas') {
                 input.removeAttribute('readonly');
-            });
+            }
+        });
             document.querySelector('.update-button').style.display = 'inline-block';
         }
 

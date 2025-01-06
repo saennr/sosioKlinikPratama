@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('no_identitas')->unique();
             $table->date('tgl_lahir');
             $table->string('no_hp');
+            $table->string('jk', 1);
+            $table->string('alamat');
             $table->rememberToken();
             $table->timestamps();
         });

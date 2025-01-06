@@ -37,6 +37,8 @@ class User extends Authenticatable
         'no_identitas',
         'tgl_lahir',
         'no_hp',
+        'jk',
+        'alamat'
     ];
 
     /**
