@@ -55,17 +55,23 @@
                 <input type="text" name="tgl_lahir" class="input-field" value="{{ old('birth_date') }}" placeholder="Tanggal Lahir" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}" required />
               </div>    
               
-              <div class="input-wrap">
-                <select class="input-field" required>
-                  <option value="" disabled selected>Jenis Kelamin</option>
-                  <option value="Perempuan">Perempuan</option>
-                  <option value="Laki-laki">Laki-laki</option>
-                </select>
+              <div class="input-wrap" style="font-size: 14px; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                <p style="margin-bottom: 0.5rem;">Jenis Kelamin:</p>
+                <label>
+                  <input type="radio" name="jenis_kelamin" value="Perempuan" required />
+                  Perempuan
+                </label>
+
+                <label style="margin-left: 1rem;">
+                  <input type="radio" name="jenis_kelamin" value="Laki-laki" required />
+                  Laki-laki
+                </label>
               </div>
+
               
               <div class="input-wrap">
                 <textarea class="input-field" required placeholder="Alamat" rows="4"></textarea>
-              </div>  
+              </div>
 
               <button type="submit" class="sign-btn">Sign Up</button>
 
