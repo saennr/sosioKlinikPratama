@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="{{ asset('/lg/profileuser/profileuser.css')}}">
 </head>
 
@@ -24,10 +25,10 @@
                 <li><a href="{{ route('reservasiAktif') }}">Reservasi Aktif</a></li>
                 <li><a href="{{ route('riwayatPendaftaran') }}">Riwayat Pendaftaran</a></li>
                 <li>
-                    <form action="{{ route('logout') }}" method="POST" style ="display: inline;">
-                        @csrf
-                        <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">Logout</button>
-                    </form>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="button" onclick="confirmLogout()" style="background: none; border: none; color: inherit; cursor: pointer;">Logout</button>
+                </form>
                 </li>
             </ul>
         </aside>
@@ -60,9 +61,18 @@
             </form>
 
             @if(session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        title: "Sukses!",
+                        text: "{{ session('success') }}",
+                        icon: "success",
+                        customClass: {
+                            confirmButton: 'custom-ok-button'
+                        }
+                    })
+                });
+            </script>
             @endif
         </section>
     </div>
@@ -74,13 +84,27 @@
             // Hanya enable jika bukan input dengan id no_identitas
             if (input.id !== 'no_identitas') {
                 input.removeAttribute('readonly');
-                input.classList.add('editable'); // Tambahkan kelas 'editable' untuk mengubah warna
-            }
-        });
+            });
+            document.querySelector('.update-button').style.display = 'inline-block';
+        }
 
-        document.querySelector('.update-button').style.display = 'inline-block';
-    }
-
+        function confirmLogout() {
+            Swal.fire({
+                title: "Konfirmasi Logout",
+                text: "Apakah Anda yakin ingin logout?",
+                icon: "warning", // Ganti 'type' dengan 'icon'
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Ya, Logout!",
+                cancelButtonText: "Batal",
+                reverseButtons: true // Jika Anda ingin membalikkan urutan tombol
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengkonfirmasi, kirim form logout
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
     </script>
 </body>
 @endsection

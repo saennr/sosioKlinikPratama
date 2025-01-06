@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="{{ asset('/lg/reservasi/reservasi.css') }}">
 </head>
 <body>
@@ -28,9 +30,9 @@
                     <li><a href="{{ route('reservasiAktif') }}" class="active">Reservasi Aktif</a></li>
                     <li><a href="{{ route('riwayatPendaftaran') }}">Riwayat Pendaftaran</a></li>
                     <li>
-                        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
                             @csrf
-                            <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">Logout</button>
+                            <button type="button" onclick="confirmLogout()" style="background: none; border: none; color: inherit; cursor: pointer;">Logout</button>
                         </form>
                     </li>
                 </ul>
@@ -92,6 +94,6 @@
         </div>
     </main>
 
-    <script src="{{ asset('reservasi/reservasi.js') }}"></script>
+    <script src="{{ asset('lg/reservasi/reservasi.js') }}"></script>
 </body>
 @endsection
