@@ -68,13 +68,19 @@
     </div>
 
     <script>
-        function enableEdit() {
-            const inputs = document.querySelectorAll('.form-group input');
-            inputs.forEach(input => {
+         function enableEdit() {
+        const inputs = document.querySelectorAll('.form-group input');
+        inputs.forEach(input => {
+            // Hanya enable jika bukan input dengan id no_identitas
+            if (input.id !== 'no_identitas') {
                 input.removeAttribute('readonly');
-            });
-            document.querySelector('.update-button').style.display = 'inline-block';
-        }
+                input.classList.add('editable'); // Tambahkan kelas 'editable' untuk mengubah warna
+            }
+        });
+
+        document.querySelector('.update-button').style.display = 'inline-block';
+    }
+
     </script>
 </body>
 @endsection

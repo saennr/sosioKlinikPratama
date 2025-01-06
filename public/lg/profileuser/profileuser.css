@@ -146,6 +146,22 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  input[readonly] {
+    background-color: #f5f5f5; /* Warna abu untuk kolom readonly */
+    border: 1px solid #ccc; /* Opsional: Menambahkan border */
+    cursor: not-allowed; /* Opsional: Menunjukkan bahwa kolom tidak bisa diubah */
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #097670;
+    border-color: #097670;
+}
+
+.editable {
+    background-color: #ffffff !important; /* Warna putih setelah kolom dapat diedit */
+}
   
   /* Media Queries for Responsiveness */
   @media (max-width: 768px) {
