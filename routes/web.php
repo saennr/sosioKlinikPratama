@@ -33,7 +33,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::get('/daftar', [LoginController::class, 'register'])->name('register');
 Route::post('/check-no-identitas', [LoginController::class, 'checkNoIdentitas']);
-Route::post('daftar', [LoginController::class, 'register_proses'])->name('register.proses');
+Route::post('/daftar', [LoginController::class, 'register_proses'])->name('register.proses');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/beranda', [HalamanUtamaController::class, 'beranda'])->name('beranda');

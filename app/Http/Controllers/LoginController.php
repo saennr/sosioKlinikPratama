@@ -51,6 +51,8 @@ class LoginController extends Controller
             'no_hp' => 'required|string|max:15',
             'no_identitas' => 'required|string|max:20|unique:users,no_identitas',
             'tgl_lahir' => 'required|date',
+            'jk' => 'required|string',
+            'alamat' => 'required|string|max:255',
         ]);
 
         // Cek jika validasi gagal
@@ -65,6 +67,8 @@ class LoginController extends Controller
         $data['no_hp'] = $request->no_hp;
         $data['no_identitas'] = $request->no_identitas;
         $data['tgl_lahir'] = $request->tgl_lahir;
+        $data['jk'] = $request->jk;
+        $data['alamat'] = $request->alamat;
 
         // Buat user baru
         User::create($data);
