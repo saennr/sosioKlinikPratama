@@ -51,7 +51,7 @@ class LoginController extends Controller
             'no_hp' => 'required|string|max:15',
             'no_identitas' => 'required|string|max:20|unique:users,no_identitas',
             'tgl_lahir' => 'required|date',
-            'jk' => 'required|string',
+            'jk' => 'required|string|max:1',
             'alamat' => 'required|string|max:255',
         ]);
 
