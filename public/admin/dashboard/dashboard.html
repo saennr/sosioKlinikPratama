@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klinik Pratama</title>
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="/public/lg/img/userprofile.png" alt="Profile Image">
+            <h3>Zidni Nurfauzi Mahen</h3>
+            <p>1227050137</p>
+            <div class="green-line"></div>
+        </div>
+        <ul class="menu">
+            <li><a href="../dashboard/dashboard.html" class="active"> <i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href=""> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
+            <li><a href="../data user/datauser.html"> <i class="fas fa-users"></i>Data User</a></li>
+            <li><a href="#"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Klinik Pratama</h1>
+        </div>
+        <div class="gray-line"></div>
+        <div class="dashboard-welcome">
+            <span>Welcome Admin</span>
+        </div>
+
+        <div class="dashboard-info">
+            <div class="card">
+                <h3>User Terdaftar</h3>
+                <img src="/public/lg/img/user.png" alt="User Icon" class="icon">
+                <p>30 User</p>
+            </div>
+            <div class="card">
+                <h3>Dokter Terdaftar</h3>
+                <img src="/public/lg/img/doctor-icon.png" alt="Doctor Icon" class="icon">
+                <p>8 Dokter</p>
+            </div>
+            <div class="card">
+                <h3>Pasien Terdaftar</h3>
+                <img src="/public/lg/img/pasien.png" alt="Patient Icon" class="icon">
+                <p>11 Pasien</p>
+            </div>
+        </div>
+
+        <span style="font-weight: bold;">Pendaftaran</span>
+        <div class="table-container">
+            <div class="row header">
+                <div class="cell">Nama Pasien</div>
+                <div class="cell">Nama Dokter</div>
+                <div class="cell">Tanggal</div>
+                <div class="cell">No Antrian</div>
+                <div class="cell">Estimasi</div>
+                <div class="cell"></div>
+            </div>
+            <div class="row">
+                <div class="cell">Aen Siti</div>
+                <div class="cell">drg. Nina Ayu Pebriyana</div>
+                <div class="cell">22/03/2002</div>
+                <div class="cell">Antrian 1</div>
+                <div class="cell">07.30 WIB</div>
+                <div class="cell">
+                    <button class="dropdown-btn">⋮</button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Edit</a>
+                        <a href="#" class="dropdown-item">Hapus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">Zidni Nurfauzi</div>
+                <div class="cell">drg. Nina Ayu Pebriyana</div>
+                <div class="cell">22/03/2002</div>
+                <div class="cell">Antrian 2</div>
+                <div class="cell">07.30 WIB</div>
+                <div class="cell">
+                    <button class="dropdown-btn">⋮</button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Edit</a>
+                        <a href="#" class="dropdown-item">Hapus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">Aen Siti</div>
+                <div class="cell">drg. Nina Ayu Pebriyana</div>
+                <div class="cell">22/03/2002</div>
+                <div class="cell">Antrian 3</div>
+                <div class="cell">07.30 WIB</div>
+                <div class="cell">
+                    <button class="dropdown-btn">⋮</button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Edit</a>
+                        <a href="#" class="dropdown-item">Hapus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view-all">
+            <a href="#">Lihat Semua</a>
+        </div>
+    </div>
+</body>
+<script src="dashboard.js"></script>
+
+</html>

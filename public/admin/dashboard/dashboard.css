@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #eaf8f7;
+    color: #2d827f;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.green-line {
+    width: 80%; 
+    height: 3px;
+    background-color: #00bfa6; 
+    margin: 10px auto; 
+    border-radius: 2px; 
+  }
+
+.sidebar .profile {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid #2d827f;
+}
+
+.sidebar .profile h3 {
+    font-size: 18px;
+    color: #2d827f;
+}
+
+.sidebar .profile p {
+    font-size: 14px;
+    color: #6eaaa8;
+}
+
+.sidebar hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: #d0eded;
+    margin: 15px 0;
+}
+
+.sidebar .menu {
+    list-style: none;
+    width: 100%;
+    margin-left: -12px;
+}
+
+.sidebar .menu li {
+    margin: 15px 0;
+}
+
+.sidebar .menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak antara ikon dan teks */
+    text-decoration: none;
+    color: #2d827f;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a.active {
+    color: white;
+    background-color: #00bfa6;
+  }
+
+.sidebar .menu a i {
+    font-size: 18px; /* Ukuran ikon */
+    color: #2d827f; /* Warna ikon */
+}
+
+.sidebar .menu a:hover {
+    background-color: #d0eded;
+}
+
+.sidebar .menu a:hover i {
+    color: #097670; /* Warna ikon berubah saat hover */
+}
+
+
+.container {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #097670;
+}
+.gray-line {
+    width:98%; 
+    height: 2px;
+    background-color: #67676765;
+    margin: 10px auto; 
+    border-radius: 2px;
+  }
+
+.dashboard-welcome {
+    background-color: #63C4AB;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card span,
+.card p,
+.card h3{
+    margin: 0; /* Hapus margin bawaan */
+    color: white; /* Warna teks */
+    font-size: 20px; /* Ukuran teks */
+    font-weight: bold; /* Tebal teks */
+}
+
+.card {
+    background-color: #63C4AB !important;
+    width: 32%;
+    gap: 5px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    display: block; /* Hapus ruang di bawah gambar */
+    width: 80px; /* Ukuran gambar */
+    height: 80px;
+    object-fit: cover; /* Potong gambar sesuai ukuran */
+    margin: 0 auto; /* Tengah secara horizontal */
+}
+
+/* Kontainer Utama */
+.table{
+    font-size: 20px;
+
+}
+.table-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Gaya untuk Baris */
+.row {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Baris */
+.row.header {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    border: none;
+    box-shadow: none;
+    padding: 15px 10px;
+}
+
+/* Sel */
+.cell {
+    flex: 1; /* Setiap cell mengambil ruang yang sama */
+    text-align: left;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.cell:nth-last-child(4) {
+    text-align: left;
+    margin-left: 20px;
+    flex: 0.5;
+}
+.cell:nth-last-child(3) {
+    flex: 0.5;
+    padding-left: 90px;
+}
+
+.cell:nth-last-child(2) {
+    text-align: center; 
+}
+
+.cell:last-child {
+    flex: 0 0 50px;
+    text-align: center;
+}
+/* Dropdown */
+.dropdown {
+    position: relative; 
+    display: inline-block;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0; 
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 10; 
+    min-width: 120px;
+    overflow: hidden;
+}
+
+/* Tampilkan menu saat kelas 'show' ditambahkan */
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Gaya untuk Item Dropdown */
+.dropdown-item {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: #555;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: #000;
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #555;
+    padding: 5px;
+}
+
+.dropdown-btn:hover {
+    color: #000;
+}
+
+
+
+.view-all {
+    text-align: right;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.view-all a {
+    text-decoration: none;
+    color: #64d3ac;
+    font-weight: bold;
+}
+
+.view-all a:hover {
+    text-decoration: underline;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
