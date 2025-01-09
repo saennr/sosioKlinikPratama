@@ -70,7 +70,6 @@ body {
     margin: 15px 0;
 }
 
-/* Menu Items with Icons */
 .sidebar .menu a {
     display: flex;
     align-items: center;
@@ -82,6 +81,7 @@ body {
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
+
 .menu a.active {
     color: white;
     background-color: #00bfa6;
@@ -164,21 +164,24 @@ body {
 }
 
 .cell {
-    flex: 0.5;
+    flex: 1;
     padding: 5px;
     text-align: left;
 }
 
-/* .cell:nth-last-child(4) {
+.cell:nth-last-child(4) {
     text-align: left;
-    margin-left: 20px;
     flex: 0.5;
-} */
-.cell:nth-last-child(2) {
-    flex: 0.4;
+    margin-left:60px ;
+}
+.cell:nth-last-child(3) {
+    flex: 0.5;
+    margin-left:80px ;
 }
 
-
+.cell:nth-last-child(2) {
+    text-align: center;
+}
 
 .cell:last-child {
     flex: 0 0 50px;

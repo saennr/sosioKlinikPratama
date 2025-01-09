@@ -124,6 +124,18 @@ body {
     margin: 10px auto; 
     border-radius: 2px;
   }
+  .main-container {
+    margin-left: 300px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #097670;
+}
 
 /* Table Container */
 .table-container {
@@ -134,6 +146,7 @@ body {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
+    gap: 20px;
 }
 
 .search-input {
@@ -141,6 +154,22 @@ body {
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 8px;
+}
+
+.btn-dokter {
+    background-color: #63C4AB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-dokter:hover {
+    background-color: #097670;
 }
 
 .data-table {
@@ -152,6 +181,7 @@ body {
 
 .row {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     border: 1px solid #ddd;
@@ -164,31 +194,144 @@ body {
 }
 
 .cell {
-    flex: 0.5;
+    flex: 1;
     padding: 5px;
     text-align: left;
 }
 
-/* .cell:nth-last-child(4) {
+
+.cell:nth-last-child(4) {
     text-align: left;
     margin-left: 20px;
     flex: 0.5;
-} */
-.cell:nth-last-child(2) {
-    flex: 0.4;
+}
+.cell:nth-last-child(3) {
+    flex: 1;
+    padding-left: 90px;
 }
 
-
+.cell:nth-last-child(2) {
+    flex: 0.5;
+}
 
 .cell:last-child {
     flex: 0 0 50px;
     text-align: center;
 }
 
+.btn-jadwal {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-jadwal:hover {
+    background-color: #0056b3;
+}
+
+/* Schedule Section */
+.hidden {
+    display: none;
+}
+
+.schedule-table{
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius:8px;
+}
+.schedule-table .schedule-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.schedule-table .schedule-cell {
+    flex: 1;
+    padding: 5px;
+    text-align: left;
+}
+
+.schedule-table .schedule-row.header {
+    background-color: #63c4ac94;
+    font-weight: bold;
+}
+
+.cell:nth-last-child(4) {
+    text-align: left;
+    margin-left: 20px;
+    flex: 0.5;
+}
+.cell:nth-last-child(3) {
+    flex: 1;
+    padding-left: 90px;
+}
+
+
+.schedule-table .schedule-cell:nth-last-child(3) {
+    text-align: left;
+    flex: 0.5;
+}
+.schedule-table .schedule-cell:nth-last-child(3) {
+    flex: 1;
+    padding-left: 20px;
+}
+.schedule-table .schedule-cell:nth-last-child(2) {
+    flex: 0.5px;
+}
+
+.schedule-table .schedule-cell:last-child{
+    flex: 0 0 50px;
+    text-align: center;
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 500px; /* Sesuaikan dengan konten Anda */
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        max-height: 500px; /* Sesuaikan dengan konten Anda */
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+    }
+}
+
+.schedule-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.schedule-container.hidden {
+    animation: slideUp 0.5s ease forwards; /* Animasi keluar */
+}
+
+.schedule-container.visible {
+    animation: slideDown 0.5s ease forwards; /* Animasi masuk */
+}
+
 .dropdown {
     position: relative; 
     display: inline-block;
 }
+
 .dropdown-menu {
     display: none;
     position: absolute;
