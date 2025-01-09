@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinik Pratama</title>
-    <link rel="stylesheet" href="../dashboard/dashboard.css">
+    <title>Klinik Pratama</title> 
+    <link rel="stylesheet" href="{{asset ('dashboard/dashboard.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
@@ -15,7 +15,7 @@
 <body>
     <div class="sidebar">
         <div class="profile">
-            <img src="/public/lg/img/userprofile.png" alt="Profile Image">
+            <img src="{{ asset('lg/img/userprofile.png') }}" alt="Profile Image">
             <h3>Zidni Nurfauzi Mahen</h3>
             <p>1227050137</p>
             <div class="green-line"></div>
@@ -23,7 +23,7 @@
         <ul class="menu">
             <li><a href="../dashboard/dashboard.html" class="active" class="menu-item"> <i
                         class="fas fa-home"></i>Dashboard</a></li>
-            <li><a href="../daftar admin/daftaradmin.html"> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
+            <li><a href="../daftaradmin/daftaradmin.html"> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
             <li><a href="../data user/datauser.html"> <i class="fas fa-users"></i>Data User</a></li>
             <li><a href="../data dokter/datadokter.html"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
         </ul>
@@ -40,17 +40,17 @@
         <div class="dashboard-info">
             <div class="card">
                 <h3>User Terdaftar</h3>
-                <img src="/public/lg/img/user.png" alt="User Icon" class="icon">
+                <img src="{{ asset('lg/img/user.png') }}" alt="User Icon" class="icon">
                 <p>30 User</p>
             </div>
             <div class="card">
                 <h3>Dokter Terdaftar</h3>
-                <img src="/public/lg/img/doctor-icon.png" alt="Doctor Icon" class="icon">
+                <img src="{{ asset('lg/img/doctor-icon.png') }}" alt="Doctor Icon" class="icon">
                 <p>8 Dokter</p>
             </div>
             <div class="card">
                 <h3>Pasien Terdaftar</h3>
-                <img src="/public/lg/img/pasien.png" alt="Patient Icon" class="icon">
+                <img src="{{ asset('lg/img/pasien.png') }}" alt="Patient Icon" class="icon">
                 <p>11 Pasien</p>
             </div>
         </div>
@@ -109,10 +109,10 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="../daftar admin/daftaradmin.html">Lihat Semua</a>
+            <a href="../daftaradmin/daftaradmin.html">Lihat Semua</a>
         </div>
     </div>
 </body>
-<script src="dashboard.js"></script>
+<script src="{{ asset('dashboard/dashboard.js') }}"></script>
 
 </html>
