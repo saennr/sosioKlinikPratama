@@ -24,6 +24,7 @@
                 <li><a href="../profileuser" class="active">Profil</a></li>
                 <li><a href="{{ route('reservasiAktif') }}">Reservasi Aktif</a></li>
                 <li><a href="{{ route('riwayatPendaftaran') }}">Riwayat Pendaftaran</a></li>
+                <li><a href="{{ route('dashboardAdmin') }}" class="btn login-btn">Admin</a></li>
                 <li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
                     @csrf

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klinik Pratama</title>
-    <link rel="stylesheet" href="{{asset ('daftardashboard.css') }}">
+    <link rel="stylesheet" href="{{asset ('admin/daftar_admin/daftaradmin.css') }}">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
 <body>
     <div class="sidebar">
         <div class="profile">
-            <img src="/public/lg/img/userprofile.png" alt="Profile Image">
+            <img src="{{ asset('lg/img/userprofile.png') }}" alt="Profile Image">
             <h3>Zidni Nurfauzi Mahen</h3>
             <p>1227050137</p>
             <div class="green-line"></div>

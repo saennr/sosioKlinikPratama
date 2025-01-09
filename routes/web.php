@@ -9,6 +9,7 @@ use App\Http\Controllers\JanjiController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\RiwayatReservasiController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,4 +57,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/reservasi-aktif', [RiwayatReservasiController::class, 'reservasiAktif'])->name('reservasiAktif');
     Route::get('/riwayat-pendaftaran', [RiwayatReservasiController::class, 'riwayatPendaftaran'])->name('riwayatPendaftaran');
+
+    Route::get('/dashboard', [AdminController::class, 'dashboardAdmin'])->name('dashboardAdmin');
+    Route::get('/daftaradmin',[AdminController::class, 'daftarAdmin'])->name('daftarAdmin');
 });

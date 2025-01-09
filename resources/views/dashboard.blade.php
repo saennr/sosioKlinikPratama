@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klinik Pratama</title> 
-    <link rel="stylesheet" href="{{asset ('dashboard/dashboard.css') }}">
+    <link rel="stylesheet" href="{{asset ('admin/dashboard/dashboard.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
@@ -23,7 +23,7 @@
         <ul class="menu">
             <li><a href="../dashboard/dashboard.html" class="active" class="menu-item"> <i
                         class="fas fa-home"></i>Dashboard</a></li>
-            <li><a href="../daftaradmin/daftaradmin.html"> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
+            <li><a href="{{ route('daftarAdmin') }}"> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
             <li><a href="../data user/datauser.html"> <i class="fas fa-users"></i>Data User</a></li>
             <li><a href="../data dokter/datadokter.html"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
         </ul>
