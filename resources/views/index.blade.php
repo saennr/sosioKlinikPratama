@@ -20,7 +20,6 @@
       <div class="buttons">
         <a href="{{ url('/login') }}" class="btn login-btn">Login</a>
         <a href="{{ url('/daftar') }}" class="btn login-btn">Daftar</a>
-        <a href="{{ route('dashboardAdmin') }}" class="btn login-btn">admin</a>
       </div>
     </div>
     <div class="doctor-image">

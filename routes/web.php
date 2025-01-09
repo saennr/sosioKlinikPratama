@@ -60,4 +60,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboardAdmin'])->name('dashboardAdmin');
     Route::get('/daftaradmin',[AdminController::class, 'daftarAdmin'])->name('daftarAdmin');
+    Route::get('/datauser',[AdminController::class, 'dataUser'])->name('dataUser');
+    Route::get('/datadokter',[AdminController::class, 'dataDokter'])->name('dataDokter');
 });

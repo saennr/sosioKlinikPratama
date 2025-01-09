@@ -9,7 +9,7 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $user = Auth::user(); // Ambil data user yang sedang login
+        $user = Auth::user(); 
         return view('profileuser', compact('user'));
     }
 

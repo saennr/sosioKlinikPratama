@@ -22,11 +22,12 @@
             <div class="green-line"></div>
         </div>
         <ul class="menu">
-            <li><a href="../dashboard/dashboard.html" class="menu-item"> <i class="fas fa-home"></i>Dashboard</a></li>
-            <li><a href="../daftaradmin/daftaradmin.html" class="active"> <i
-                        class="fas fa-user-plus"></i>Pendaftaran</a></li>
-            <li><a href="../data user/datauser.html"> <i class="fas fa-users"></i>Data User</a></li>
-            <li><a href="../data dokter/datadokter.html"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
+        <li><a href="{{ route('dashboardAdmin') }}" class="menu-item"> <i
+                        class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="{{ route('daftarAdmin') }}" class="active"> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
+            <li><a href="{{ route('dataUser') }}"> <i class="fas fa-users"></i>Data User</a></li>
+            <li><a href="{{ route('dataDokter') }}"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
+            <li><a href="{{ route('beranda') }}"> <i class="fas fa-home"></i>Beranda</a></li>
         </ul>
     </div>
     <div class="container">

@@ -19,4 +19,17 @@ class AdminController extends Controller
     public function daftarAdmin() {
         return view('daftaradmin');
     }
+
+    public function dataUser() {
+        return view('datauser');
+    }
+
+    public function dataDokter() {
+        return view('datadokter');
+    }
+
+    public function halamanUtama() {
+        return view('halamanutama');
+    }
+
 }

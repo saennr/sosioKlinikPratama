@@ -21,11 +21,13 @@
             <div class="green-line"></div>
         </div>
         <ul class="menu">
-            <li><a href="../dashboard/dashboard.html" class="active" class="menu-item"> <i
-                        class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="{{ route('dashboardAdmin') }}" class="active"> <i
+                        class="fas fa-chart-pie"></i>Dashboard</a></li>
             <li><a href="{{ route('daftarAdmin') }}"> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
-            <li><a href="../data user/datauser.html"> <i class="fas fa-users"></i>Data User</a></li>
-            <li><a href="../data dokter/datadokter.html"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
+            <li><a href="{{ route('dataUser') }}"> <i class="fas fa-users"></i>Data User</a></li>
+            <li><a href="{{ route('dataDokter') }}"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
+            <li><a href="{{ route('beranda') }}"> <i class="fas fa-home"></i>Beranda</a></li>
+
         </ul>
     </div>
     <div class="container">
@@ -109,7 +111,7 @@
             </div>
         </div>
         <div class="view-all">
-            <a href="../daftaradmin/daftaradmin.html">Lihat Semua</a>
+            <a href="{{ route('daftarAdmin') }}">Lihat Semua</a>
         </div>
     </div>
 </body>
