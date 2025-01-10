@@ -16,7 +16,7 @@
             <img src="{{ asset('lg/img/Logo UIN.png') }}" alt="Logo UIN">
           </div>
           <form class="sign-in-form" action="{{ route('login.proses') }}" method="POST">
-            @csrf 
+            @CSRF
             
             <div class="heading">
             @if ($errors->has('login_failed'))

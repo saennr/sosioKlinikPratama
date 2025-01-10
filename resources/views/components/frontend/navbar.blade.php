@@ -23,6 +23,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ route ('beranda') }}">Beranda</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route ('beranda') }}#artikel">Artikel</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route ('profileStaff') }}#artikel">Profile Staff</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route ('beranda') }}#services">Layanan</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route ('beranda') }}#kontak">Kontak</a></li>
                 <li class="nav-item">

@@ -9,6 +9,7 @@ use App\Http\Controllers\JanjiController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\RiwayatReservasiController;
+use App\Http\Controllers\ProfileStaffController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -38,7 +39,7 @@ Route::post('daftar', [LoginController::class, 'register_proses'])->name('regist
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/beranda', [HalamanUtamaController::class, 'beranda'])->name('beranda');
-
+    Route::get('/profilestaf', [ProfileStaffController::class, 'profileStaff'])->name('profileStaff');
     Route::get('/layanan', [ServiceController::class, 'index'])->name('layanan');
 
     Route::get('/profileuser', [ProfileController::class, 'index'])->name('profileuser');
