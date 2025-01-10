@@ -37,7 +37,20 @@
         </div>
         <div class="gray-line"></div>
         <div class="table-container">
-        <div class="table-header">  
+        <div class="table-header">
+            <div>
+            <input type="date" id="filterDate" class="filter-date" />
+            </div>
+                <div class="dropdown-filter">
+                    <button class="dropdown-toggle" id="dropdownButton">
+                        Pilih Opsi
+                    </button>
+                    <ul class="dropdown-menu-filtter">
+                        <li><a href="#" onclick="selectOption('Reservasi Aktif')">Reservasi Aktif</a></li>
+                        <li><a href="#" onclick="selectOption('Semua Reservasi')">Semua Reservasi</a></li>
+                        <li><a href="#" onclick="selectOption('Riwayat')">Riwayat</a></li>
+                    </ul>
+                </div>
             <div class="search-bar">  
                 <input type="text" id="searchInput" placeholder="Cari Pasien" class="search-input">  
             </div> 
