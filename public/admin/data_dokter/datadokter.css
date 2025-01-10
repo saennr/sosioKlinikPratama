@@ -197,6 +197,7 @@ body {
     flex: 1;
     padding: 5px;
     text-align: left;
+    font-size: 14px;
 }
 
 
@@ -243,18 +244,18 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius:8px;
+   
 }
 .schedule-table .schedule-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
     border-radius: 8px;
 }
 
 .schedule-table .schedule-cell {
     flex: 1;
-    padding: 5px;
+    padding: 10px;
     text-align: left;
 }
 
