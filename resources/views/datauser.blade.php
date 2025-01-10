@@ -16,8 +16,8 @@
     <div class="sidebar">
         <div class="profile">
             <img src="{{ asset('lg/img/userprofile.png') }}" alt="Profile Image">
-            <h3>Zidni Nurfauzi Mahen</h3>
-            <p>1227050137</p>
+            <h3>{{ $user->firstName }} {{ $user->lastName }}</h3>
+            <p>{{ $user->no_identitas }}</p>
             <div class="green-line"></div>
         </div>
         <ul class="menu">

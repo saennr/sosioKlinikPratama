@@ -16,8 +16,8 @@
     <div class="sidebar">
         <div class="profile">
             <img src="{{ asset('lg/img/userprofile.png') }}" alt="Profile Image">
-            <h3>Zidni Nurfauzi Mahen</h3>
-            <p>1227050137</p>
+            <h3>{{ $user->firstName }} {{ $user->lastName }}</h3>
+            <p>{{ $user->no_identitas }}</p>
             <div class="green-line"></div>
         </div>
         <ul class="menu">
@@ -43,73 +43,48 @@
             <div class="card">
                 <h3>User Terdaftar</h3>
                 <img src="{{ asset('lg/img/user.png') }}" alt="User Icon" class="icon">
-                <p>30 User</p>
+                <p>{{ $jumlahUsers }} User</p>
             </div>
             <div class="card">
                 <h3>Dokter Terdaftar</h3>
                 <img src="{{ asset('lg/img/doctor-icon.png') }}" alt="Doctor Icon" class="icon">
-                <p>8 Dokter</p>
+                <p>{{ $jumlahDokter }} Dokter</p>
             </div>
             <div class="card">
                 <h3>Pasien Terdaftar</h3>
                 <img src="{{ asset('lg/img/pasien.png') }}" alt="Patient Icon" class="icon">
-                <p>11 Pasien</p>
+                <p>{{ $jumlahPasien }} Pasien</p>
             </div>
         </div>
 
-        <span style="font-weight: bold;">Pendaftaran</span>
-        <div class="table-container">
-            <div class="row header">
-                <div class="cell">Nama Pasien</div>
-                <div class="cell">Nama Dokter</div>
-                <div class="cell">Tanggal</div>
-                <div class="cell">No Antrian</div>
-                <div class="cell">Estimasi</div>
-                <div class="cell"></div>
-            </div>
-            <div class="row">
-                <div class="cell">Aen Siti</div>
-                <div class="cell">drg. Nina Ayu Pebriyana</div>
-                <div class="cell">22/03/2002</div>
-                <div class="cell">Antrian 1</div>
-                <div class="cell">07.30 WIB</div>
-                <div class="cell">
-                    <button class="dropdown-btn">⋮</button>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Edit</a>
-                        <a href="#" class="dropdown-item">Hapus</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell">Zidni Nurfauzi</div>
-                <div class="cell">drg. Nina Ayu Pebriyana</div>
-                <div class="cell">22/03/2002</div>
-                <div class="cell">Antrian 2</div>
-                <div class="cell">07.30 WIB</div>
-                <div class="cell">
-                    <button class="dropdown-btn">⋮</button>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Edit</a>
-                        <a href="#" class="dropdown-item">Hapus</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell">Aen Siti</div>
-                <div class="cell">drg. Nina Ayu Pebriyana</div>
-                <div class="cell">22/03/2002</div>
-                <div class="cell">Antrian 3</div>
-                <div class="cell">07.30 WIB</div>
-                <div class="cell">
-                    <button class="dropdown-btn">⋮</button>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Edit</a>
-                        <a href="#" class="dropdown-item">Hapus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <span style="font-weight: bold;">Pendaftaran Hari Ini</span>  
+        <div class="table-container">  
+            <div class="row header">  
+                <div class="cell">Nama Pasien</div>  
+                <div class="cell">Nama Dokter</div>  
+                <div class="cell">Tanggal</div>  
+                <div class="cell">No Antrian</div>  
+                <div class="cell">Estimasi</div>  
+                <div class="cell"></div>  
+            </div>  
+            @foreach($reservasiHariIni as $reservasi)  
+                <div class="row">  
+                    <div class="cell">{{ $reservasi->user->firstName }} {{ $reservasi->user->lastName }}</div>  
+                    <div class="cell">{{ $reservasi->dokter->nama }}</div>  
+                    <div class="cell">{{ $reservasi->tanggal->format('d/m/Y') }}</div>  
+                    <div class="cell">Antrian {{ $reservasi->no_antrian }}</div>  
+                    <div class="cell">{{ $reservasi->estimasi_mulai }}</div>  
+                    <div class="cell">  
+                        <button class="dropdown-btn">⋮</button>  
+                        <div class="dropdown-menu">  
+                            <a href="#" class="dropdown-item">Edit</a>  
+                            <a href="#" class="dropdown-item">Hapus</a>  
+                        </div>  
+                    </div>  
+                </div>  
+            @endforeach  
+        </div>  
+
         <div class="view-all">
             <a href="{{ route('daftarAdmin') }}">Lihat Semua</a>
         </div>
