@@ -96,6 +96,6 @@
         </div>
     </div>
 </body>
-<script src="daftaradmin.js"></script>
+<script src="admin/daftar_admin/daftaradmin.js"></script>
 
 </html>

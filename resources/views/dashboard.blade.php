@@ -115,6 +115,6 @@
         </div>
     </div>
 </body>
-<script src="{{ asset('dashboard/dashboard.js') }}"></script>
+<script src="{{ asset('admin/dashboard/dashboard.js') }}"></script>
 
 </html>

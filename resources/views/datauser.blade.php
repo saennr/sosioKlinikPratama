@@ -84,6 +84,6 @@
         </div>
     </div>
 </body>
-<script src="{{ asset('data user/datauser.js') }}"></script>
+<script src="{{ asset('admin/data_user/datauser.js') }}"></script>
 
 </html>

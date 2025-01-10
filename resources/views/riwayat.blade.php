@@ -30,6 +30,11 @@
                     <li><a href="{{ route('reservasiAktif') }}">Reservasi Aktif</a></li>
                     <li><a href="{{ route('riwayatPendaftaran') }}" class="active">Riwayat Pendaftaran</a></li>
                     <li>
+                        @if(Auth::check() && Auth::user()->admin)  
+                            <a href="{{ route('dashboardAdmin') }}" class="btn login-btn">Admin</a>  
+                        @endif
+                    </li>
+                    <li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
                             @csrf
                             <button type="button" onclick="confirmLogout()" style="background: none; border: none; color: inherit; cursor: pointer;">Logout</button>

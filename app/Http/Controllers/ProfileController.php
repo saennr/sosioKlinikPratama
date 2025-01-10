@@ -14,7 +14,8 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request)
-    {
+    {   
+        // dd($request->all());    
         // Ambil pengguna yang sedang login
         $user = Auth::user();
 
@@ -25,7 +26,7 @@ class ProfileController extends Controller
             'no_identitas' => 'required|string|max:20',
             'no_hp' => 'required|string|max:20',
             'tgl_lahir' => 'required|date',
-            'jk' => 'required|string|max:1',
+            'jk_hidden' => 'required|string|max:1',
             'alamat' => 'required|string|max:255',
         ]);
 
@@ -35,7 +36,7 @@ class ProfileController extends Controller
         $user->no_identitas = $validatedData['no_identitas'];
         $user->no_hp = $validatedData['no_hp'];
         $user->tgl_lahir = $validatedData['tgl_lahir'];
-        $user->jk = $validatedData['jk'];
+        $user->jk = $validatedData['jk_hidden'];
         $user->alamat = $validatedData['alamat'];
 
         // Simpan perubahan ke database

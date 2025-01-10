@@ -24,7 +24,11 @@
                 <li><a href="../profileuser" class="active">Profil</a></li>
                 <li><a href="{{ route('reservasiAktif') }}">Reservasi Aktif</a></li>
                 <li><a href="{{ route('riwayatPendaftaran') }}">Riwayat Pendaftaran</a></li>
-                <li><a href="{{ route('dashboardAdmin') }}" class="btn login-btn">Admin</a></li>
+                <li>
+                    @if(Auth::check() && Auth::user()->admin)  
+                        <a href="{{ route('dashboardAdmin') }}" class="btn login-btn">Admin</a>  
+                    @endif
+                </li>
                 <li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
                     @csrf
@@ -57,11 +61,12 @@
                     <label for="tgl_lahir">Tanggal Lahir</label>
                     <input type="date" id="tgl_lahir" name="tgl_lahir" value="{{ old('tgl_lahir', $user->tgl_lahir ? \Carbon\Carbon::parse($user->tgl_lahir)->format('Y-m-d') : '') }}" required readonly>
                 </div>
-                <div class="form-group">
-                    <label for="jenis_kelamin">Jenis Kelamin</label>
-                    <input type="text" id="jk" name="jk" 
-                        value="{{ old('jk', $user->jk == 'L' ? 'Laki-laki' : ($user->jk == 'P' ? 'Perempuan' : '')) }}" readonly>
-                </div>
+                <div class="form-group">  
+                    <label for="jenis_kelamin">Jenis Kelamin</label>  
+                    <input type="text" id="jk" name="jk"   
+                        value="{{ old('jk', $user->jk == 'L' ? 'Laki-laki' : ($user->jk == 'P' ? 'Perempuan' : '')) }}" readonly>  
+                    <input type="hidden" id="jk_hidden" name="jk_hidden" value="{{ old('jk', $user->jk) }}">  
+                </div>  
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <input type="text" id="alamat" name="alamat" value="{{ old('alamat', $user->alamat) }}" required readonly>
@@ -81,6 +86,18 @@
                             confirmButton: 'custom-ok-button'
                         }
                     })
+                });
+
+                document.querySelector('form').addEventListener('submit', function() {  
+                    const jkInput = document.getElementById('jk');  
+                    const jkHiddenInput = document.getElementById('jk_hidden');  
+            
+                    // Set nilai hidden input berdasarkan nilai yang ditampilkan  
+                    if (jkInput.value === 'Laki-laki') {  
+                        jkHiddenInput.value = 'L';  
+                    } else if (jkInput.value === 'Perempuan') {  
+                        jkHiddenInput.value = 'P';  
+                    }  
                 });
             </script>
             @endif

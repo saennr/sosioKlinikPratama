@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('no_hp');
             $table->string('jk', 1);
             $table->string('alamat');
+            $table->boolean('admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
