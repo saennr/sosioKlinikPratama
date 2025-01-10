@@ -167,6 +167,7 @@ body {
     flex: 0.5;
     padding: 5px;
     text-align: left;
+    font-size: 14px;
 }
 
 /* .cell:nth-last-child(4) {

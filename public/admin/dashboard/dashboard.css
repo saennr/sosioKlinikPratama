@@ -149,7 +149,7 @@ body {
 .card h3{
     margin: 0; /* Hapus margin bawaan */
     color: white; /* Warna teks */
-    font-size: 20px; /* Ukuran teks */
+    font-size: 20px;
     font-weight: bold; /* Tebal teks */
 }
 
