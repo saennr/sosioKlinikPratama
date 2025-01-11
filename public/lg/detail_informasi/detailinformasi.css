@@ -1,5 +1,7 @@
 body, input {
     font-family: 'Poppins', sans-serif !important;
+    margin: 0;
+    padding: 0;
 }
 
 /* Styling untuk Navbar */
@@ -20,10 +22,9 @@ body, input {
 
 /* Styling untuk Logo */
 .navbar-brand {
-    gap: 10px;
     display: flex;
-    align-items: center; /* Sejajarkan logo dan teks secara vertikal */
-    color: #097670 !important;
+    align-items: center;
+    color: #097670;
     font-weight: bold;
 }
 
@@ -41,7 +42,7 @@ body, input {
 
 .navbar-nav .nav-link {
     padding: 0;
-    color: #333; /* Warna default teks link */
+    color: #097670; /* Warna default teks link */
     text-decoration: none; /* Hilangkan garis bawah */
     font-size: 14px;
 }
@@ -75,4 +76,41 @@ body, input {
     .navbar-nav .nav-link {
         font-size: 16px; /* Ukuran teks lebih besar untuk layar kecil */
     }
+}
+
+.container-informasi {
+    max-width: 800px;
+    margin: 20px auto;
+    padding-top: 100px;
+}
+
+.image-container {
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover; 
+    max-height: 400px; 
+    display: block;
+    margin: 0 auto;
+}
+
+.content {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #555;
 }

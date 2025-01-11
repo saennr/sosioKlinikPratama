@@ -92,8 +92,9 @@
                 <div class="col-md-4 info-section">
                     <img src="{{ asset('lg/img/Rectangle 18.png') }}" class="info-image" alt="Info 1">
                     <div class="info-content">
-                        <h5 class="info-title">Patah Tulang Panggul pada Lanjut Usia...</h5>
+                        <h5 class="info-title">Patah Tulang Panggul pada Lanjut Usia akibat Osteoporosis</h5>
                     </div>
+                    <p>Seiring bertambahnya usia, jumlah orang yang mengalami patah tulang panggul semakin meningkat. Patah tulang panggul...</p>
                     <div class="btn-read-more">Baca lebih lanjut</div>
                 </div>
                 <!-- Section 2 -->
@@ -102,14 +103,16 @@
                     <div class="info-content">
                         <h5 class="info-title">Flu Singapura</h5>
                     </div>
+                    <p>Flu Singapura atau Hand Foot and Mouth Disease (HFMD) adalah penyakit yang disebabkan oleh virus dari genus Enterovirus. Spesies enterovirus yang paling sering menyebabkan HFMD adalah Coxsackievirus....</p>
                     <div class="btn-read-more">Baca lebih lanjut</div>
                 </div>
                 <!-- Section 3 -->
                 <div class="col-md-4 info-section">
                     <img src="{{ asset('lg/img/Rectangle 20.png') }}" class="info-image" alt="Info 3">
                     <div class="info-content">
-                        <h5 class="info-title">Ambulatory Blood Pressure Monitoring...</h5>
+                        <h5 class="info-title">Ambulatory Blood Pressure Monitoring</h5>
                     </div>
+                    <p>Ambulatory Blood Pressure Monitoring atau ABPM adalah suatu metoda pengukuran tekanan darah selama 24 jam termasuk saat tidur, dan merupakan metoda akurat dalam...</p>
                     <div class="btn-read-more">Baca lebih lanjut</div>
                 </div>
             </div>
