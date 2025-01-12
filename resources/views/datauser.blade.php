@@ -50,13 +50,13 @@
                     <div class="cell">NIM/NIP/NIK</div>
                     <div class="cell">Tanggal Lahir</div>
                     <div class="cell">No Telpon</div>
-                    <div class="cell">Jenis Kelamin</div>
+                    <div class="cell">J/K</div>
                     <div class="cell">Alamat</div>
-                    <div class="cell">Aksi</div>
+                    <div class="cell"></div>
                 </div>
 
                 <!-- Data User -->
-                <div id="userTable">
+                <div id="userTable" >
                     @foreach ($dataUsers as $dataUser)
                     <div class="row">
                         <div class="cell">{{ $dataUser->firstName }} {{ $dataUser->lastName }}</div>

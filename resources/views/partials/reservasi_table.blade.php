@@ -3,7 +3,7 @@
         <div class="cell">{{ $reservasi->user->firstName }} {{ $reservasi->user->lastName }}</div>    
         <div class="cell">{{ $reservasi->dokter->nama }}</div>    
         <div class="cell">{{ $reservasi->tanggal->format('d/m/Y') }}</div>    
-        <div class="cell">{{ $reservasi->no_antrian }}</div>    
+        <div class="cell">Antrian {{ $reservasi->no_antrian }}</div>    
         <div class="cell">{{ $reservasi->estimasi_mulai }}</div>    
         <div class="cell">    
             <button class="dropdown-btn">⋮</button>    

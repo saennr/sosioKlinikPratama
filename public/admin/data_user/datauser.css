@@ -156,6 +156,7 @@ body {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    margin-bottom: 12px;
 }
 
 .row.header {
@@ -175,11 +176,13 @@ body {
     margin-left: 20px;
     flex: 0.5;
 } */
-.cell:nth-last-child(2) {
-    flex: 0.4;
+.cell:nth-last-child(3) {
+    flex: 0.2;
 }
 
-
+.cell:nth-last-child(2) {
+    flex: 1;
+}
 
 .cell:last-child {
     flex: 0 0 50px;

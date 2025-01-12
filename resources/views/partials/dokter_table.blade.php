@@ -5,7 +5,7 @@
         <div class="cell">Jadwal</div>  
         <div class="cell">No Telepon</div>  
         <div class="cell"></div>  
-    </div>  
+    </div>
   
     @foreach($dokters as $dokter)  
     <div class="row">  

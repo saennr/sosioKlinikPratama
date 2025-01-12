@@ -227,6 +227,7 @@ body {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    margin-bottom: 12px;
 }
 
 .row.header {
