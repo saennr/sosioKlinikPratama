@@ -68,3 +68,17 @@ $(document).ready(function () {
       });
   });
 });
+
+function filterByDate(selectedDate) {
+  $.ajax({
+      url: '/daftaradmin/filter',
+      method: 'GET',
+      data: { date: selectedDate },
+      success: function (response) {
+          $('#reservasiTable').html(response); // Ganti isi tabel dengan data baru
+      },
+      error: function (xhr) {
+          console.error('Terjadi kesalahan:', xhr.responseText);
+      }
+  });
+}

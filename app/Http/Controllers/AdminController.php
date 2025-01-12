@@ -46,7 +46,22 @@ class AdminController extends Controller
         // Kembalikan hanya bagian tabel  
         return view('partials.reservasi_table', compact('reservasiAll'));  
     }
- 
+
+    public function filterByDate(Request $request) {
+        $date = $request->input('date');
+    
+        if (!$date) {
+            // Jika tanggal kosong, ambil semua data reservasi
+            $reservasiAll = Reservasi::with(['user', 'dokter'])->get();
+        } else {
+            // Ambil reservasi berdasarkan tanggal
+            $reservasiAll = Reservasi::with(['user', 'dokter'])
+                ->whereDate('tanggal', $date)
+                ->get();
+        }
+    
+        return view('partials.reservasi_table', compact('reservasiAll'));
+    }
 
     public function dataUser() {
         $user = Auth::user();

@@ -64,4 +64,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datauser',[AdminController::class, 'dataUser'])->name('dataUser');
     Route::get('/datadokter',[AdminController::class, 'dataDokter'])->name('dataDokter');
     Route::get('/daftaradmin/cari', [AdminController::class, 'cariReservasi'])->name('cariReservasi');
+    Route::get('/daftaradmin/filter', [AdminController::class, 'filterByDate'])->name('filterByDate');
 });

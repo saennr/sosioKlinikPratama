@@ -39,7 +39,7 @@
         <div class="table-container">
         <div class="table-header">
             <div>
-            <input type="date" id="filterDate" class="filter-date" />
+            <input type="date" id="filterDate" class="filter-date" onchange="filterByDate(this.value)" />
             </div>
                 <div class="dropdown-filter">
                     <button class="dropdown-toggle" id="dropdownButton">
