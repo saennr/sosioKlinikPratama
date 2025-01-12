@@ -71,6 +71,6 @@
         </div>
     </div>
 </body>
-<script src="admin/daftar_admin/daftaradmin.js"></script>
+<script src="{{ asset('admin/daftar_admin/daftaradmin.js') }}"></script>
 
 </html>

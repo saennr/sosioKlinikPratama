@@ -34,7 +34,7 @@ class AdminController extends Controller
     
     public function cariReservasi(Request $request) {  
         $query = $request->input('query');  
-   
+    
         // Ambil reservasi berdasarkan nama pasien  
         $reservasiAll = Reservasi::with(['user', 'dokter'])  
             ->whereHas('user', function($q) use ($query) {  
@@ -42,10 +42,10 @@ class AdminController extends Controller
                   ->orWhere('lastName', 'LIKE', "%{$query}%");  
             })  
             ->get();  
-   
+    
         // Kembalikan hanya bagian tabel  
         return view('partials.reservasi_table', compact('reservasiAll'));  
-    }  
+    }
  
 
     public function dataUser() {

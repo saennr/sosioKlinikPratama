@@ -50,21 +50,21 @@ function selectOption(option) {
 
 
 
-$(document).ready(function() {    
-    $('#searchInput').on('keyup', function() {    
-        var query = $(this).val();    
-        var url = "{{ route('cariReservasi') }}"; // Menggunakan route baru  
+$(document).ready(function () {
+  $("#searchInput").on("input", function () {
+      let query = $(this).val(); // Ambil input dari kolom pencarian
 
-        $.ajax({    
-            url: url,    
-            method: "GET",    
-            data: { query: query },    
-            success: function(data) {    
-                $('#reservasiTable').html(data);    
-            },    
-            error: function(xhr) {  
-                console.error(xhr.responseText); // Log error ke konsol untuk debugging  
-            }  
-        });    
-    });    
+      $.ajax({
+          url: "/daftaradmin/cari", // Sesuaikan dengan route pencarian
+          method: "GET",
+          data: { query: query }, // Kirimkan query pencarian
+          success: function (response) {
+              // Perbarui tabel dengan data yang diterima
+              $("#reservasiTable").html(response);
+          },
+          error: function () {
+              console.log("Pencarian gagal. Coba lagi.");
+          }
+      });
+  });
 });
