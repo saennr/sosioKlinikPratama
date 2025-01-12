@@ -15,13 +15,13 @@ class SpesialisSeeder extends Seeder
         DB::table('spesialis')->insert([
             [
                 'id_spesialis' => 1,
-                'nama_spesialis' => 'umum',
+                'nama_spesialis' => 'Umum',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id_spesialis' => 2,
-                'nama_spesialis' => 'gigi',
+                'nama_spesialis' => 'Gigi',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

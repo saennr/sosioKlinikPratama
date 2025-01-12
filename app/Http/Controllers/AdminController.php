@@ -10,6 +10,7 @@ use App\Models\Spesialis;
 use App\Models\Dokter;
 use App\Models\JadwalDokter;
 use App\Models\Reservasi;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -93,10 +94,48 @@ class AdminController extends Controller
 }
 
 
-    public function dataDokter() {
-        $user = Auth::user();
-        return view('datadokter', compact('user'));
+    public function dataDokter() {  
+        $user = Auth::user();  
+        $dokters = Dokter::with(['spesialis', 'jadwalDokter'])->get();  
+    
+        foreach ($dokters as $dokter) {    
+            foreach ($dokter->jadwalDokter as $jadwal) {    
+                // Debugging: Tampilkan nilai jam_mulai  
+                \Log::info('jam_mulai: ' . $jadwal->jam_mulai);  
+    
+                // Menghitung jam_selesai    
+                try {  
+                    // Menggunakan format H:i:s untuk mem-parsing jam_mulai  
+                    $jamMulai = \Carbon\Carbon::createFromFormat('H:i:s', $jadwal->jam_mulai);    
+                    $durasiTindakan = $jadwal->durasi_tindakan; // Misalnya dalam menit    
+                    $jamSelesai = $jamMulai->copy()->addMinutes($durasiTindakan);    
+                    
+                    // Menyimpan jam_selesai dalam objek jadwal  
+                    $jadwal->jam_selesai = $jamSelesai->format('H:i'); // Format jam_selesai menjadi H:i  
+                    // Mengubah jam_mulai menjadi format H:i  
+                    $jadwal->jam_mulai = $jamMulai->format('H:i'); // Format jam_mulai menjadi H:i  
+                } catch (\Exception $e) {  
+                    \Log::error('Error parsing jam_mulai: ' . $e->getMessage());  
+                    $jadwal->jam_selesai = null; // Atau nilai default lainnya  
+                }  
+            }    
+        }  
+    
+        return view('datadokter', compact('user', 'dokters'));  
     }
+
+    public function cariDokter(Request $request) {  
+        $query = $request->input('query');  
+      
+        $dokters = Dokter::with('spesialis')  
+            ->where('nama_dokter', 'LIKE', "%{$query}%")  
+            ->orWhereHas('spesialis', function($q) use ($query) {  
+                $q->where('nama_spesialis', 'LIKE', "%{$query}%");  
+            })  
+            ->get();  
+      
+        return view('partials.dokter_table', compact('dokters'));  
+    }  
 
     public function halamanUtama() {
         return view('halamanutama');

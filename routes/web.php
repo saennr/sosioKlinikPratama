@@ -66,4 +66,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/daftaradmin/cari', [AdminController::class, 'cariReservasi'])->name('cariReservasi');
     Route::get('/daftaradmin/filter', [AdminController::class, 'filterByDate'])->name('filterByDate');
     Route::get('/datauser/cari', [AdminController::class, 'cariUser'])->name('cariUser');
+    Route::get('/cari-dokter', [AdminController::class, 'cariDokter'])->name('cariDokter');  
 });

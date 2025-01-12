@@ -1,13 +1,3 @@
-<div class="row header">
-    <div class="cell">Nama</div>
-    <div class="cell">NIK/NIM/NIP</div>
-    <div class="cell">Tanggal Lahir</div>
-    <div class="cell">No Telpon</div>
-    <div class="cell">Jenis Kelamin</div>
-    <div class="cell">Alamat</div>
-    <div class="cell"></div>
-</div>
-
 @foreach ($dataUsers as $dataUser)
     <div class="row">
         <div class="cell">{{ $dataUser->firstName }} {{ $dataUser->lastName }}</div>

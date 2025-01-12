@@ -29,3 +29,22 @@ window.addEventListener('click', function () {
         menu.classList.remove('show'); // Hapus kelas 'show' dari semua dropdown
     });
 });
+
+$(document).ready(function () {  
+    $("#searchInput").on("input", function () {  
+        let query = $(this).val(); // Ambil input dari kolom pencarian  
+  
+        $.ajax({  
+            url: "/cari-dokter", // Sesuaikan dengan route pencarian  
+            method: "GET",  
+            data: { query: query }, // Kirimkan query pencarian  
+            success: function (response) {  
+                // Perbarui tabel dengan data yang diterima  
+                $("#dokterTableContainer").html(response);  
+            },  
+            error: function () {  
+                console.log("Pencarian gagal. Coba lagi.");  
+            }  
+        });  
+    });  
+});
