@@ -43,7 +43,7 @@
             </div>  
             <div id="dokterTableContainer">  
                 @include('partials.dokter_table', ['dokters' => $dokters])
-            </div>  
+            </div>
         </div>
 </div>
 <script src="{{ asset('/admin/data_dokter/datadokter.js') }}"></script>

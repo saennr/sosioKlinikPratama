@@ -244,7 +244,7 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius:8px;
-   
+
 }
 .schedule-table .schedule-row {
     display: flex;
@@ -321,11 +321,11 @@ body {
 }
 
 .schedule-container.hidden {
-    animation: slideUp 0.5s ease forwards; /* Animasi keluar */
+    animation: slideUp 0.5s ease forwards; 
 }
 
 .schedule-container.visible {
-    animation: slideDown 0.5s ease forwards; /* Animasi masuk */
+    animation: slideDown 0.5s ease forwards; 
 }
 
 .dropdown {
