@@ -14,3 +14,30 @@ window.addEventListener('click', function () {
     });
 });
 
+
+$(document).ready(function () {
+    // Menangani input di search bar
+    $("#searchInput").on("input", function () {
+        let query = $(this).val(); // Ambil input dari kolom pencarian
+
+        $.ajax({
+            url: "/datauser/cari",  // Pastikan ini sesuai dengan route yang didefinisikan
+            method: "GET",
+            data: { query: query },  // Kirimkan query pencarian
+            success: function (response) {
+                // Perbarui tabel dengan data yang diterima
+                $("#userTable").html(response);
+            },
+            error: function () {
+                console.log("Pencarian gagal. Coba lagi.");
+            }
+        });
+        
+
+        // Jika query kosong, reset hasil pencarian
+        if (query === '') {
+            $("#userTable").html('');
+        }
+    });
+});
+
