@@ -145,6 +145,19 @@ class AdminController extends Controller
 }
 
 
+public function deleteUser($id_user)
+{
+    try {
+        $user = User::findOrFail($id_user); // Temukan user berdasarkan ID
+        $user->delete(); // Hapus user
+        return response()->json(['success' => 'User berhasil dihapus.']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'Terjadi kesalahan saat menghapus user.'], 500);
+    }
+}
+
+
+
     public function dataDokter() {  
         $user = Auth::user();  
         $dokters = Dokter::with(['spesialis', 'jadwalDokter'])->get();  

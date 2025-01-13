@@ -41,3 +41,54 @@ $(document).ready(function () {
     });
 });
 
+
+// Fungsi untuk menghapus user
+function deleteUser(id_user) {
+    // Menggunakan SweetAlert2 untuk konfirmasi penghapusan
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Anda tidak dapat mengembalikan ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!',
+        customClass: {
+            confirmButton: 'custom-ok-button'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Jika pengguna mengonfirmasi, lakukan penghapusan
+            $.ajax({
+                url: '/admin/user/' + id_user, // Sesuaikan dengan route penghapusan user
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    // Tampilkan pesan sukses setelah penghapusan
+                    Swal.fire({
+                        title: 'Dihapus!',
+                        text: response.success,
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            confirmButton: 'custom-ok-button'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload(); // Muat ulang halaman setelah mengklik OK
+                        }
+                    });
+                },
+                error: function (xhr) {
+                    Swal.fire(
+                        'Terjadi kesalahan!',
+                        'Gagal menghapus user.',
+                        'error'
+                    );
+                }
+            });
+        }
+    });
+}

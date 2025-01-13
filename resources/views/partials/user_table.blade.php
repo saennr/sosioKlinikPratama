@@ -10,7 +10,8 @@
             <button class="dropdown-btn">⋮</button>
             <div class="dropdown-menu">
                 <a href="#" class="dropdown-item">Edit</a>
-                <a href="#" class="dropdown-item">Hapus</a>
+                <!-- Tambahkan fungsi deleteUser -->
+                <a href="javascript:void(0);" class="dropdown-item" onclick="deleteUser({{ $dataUser->id_user }})">Hapus</a>
             </div>
         </div>
     </div>

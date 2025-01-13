@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Klinik Pratama</title>
     <link rel="stylesheet" href="{{ asset('admin/data_user/datauser.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -11,6 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -57,23 +60,7 @@
 
                 <!-- Data User -->
                 <div id="userTable" >
-                    @foreach ($dataUsers as $dataUser)
-                    <div class="row">
-                        <div class="cell">{{ $dataUser->firstName }} {{ $dataUser->lastName }}</div>
-                        <div class="cell">{{ $dataUser->no_identitas }}</div>
-                        <div class="cell">{{ $dataUser->tgl_lahir }}</div>
-                        <div class="cell">{{ $dataUser->no_hp }}</div>
-                        <div class="cell">{{ $dataUser->jk }}</div>
-                        <div class="cell">{{ $dataUser->alamat }}</div>
-                        <div class="cell">
-                            <button class="dropdown-btn">⋮</button>
-                            <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Edit</a>
-                                <a href="#" class="dropdown-item">Hapus</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+                @include('partials.user_table', ['dataUsers' => $dataUsers])
                 </div>
             </div>
 
