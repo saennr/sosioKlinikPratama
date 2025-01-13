@@ -36,11 +36,31 @@
     <div class="gray-line"></div>
     <div class="table-container">  
             <div class="table-header">  
-                <button class="btn-dokter">Tambah Dokter</button>  
+                <button class="btn-dokter">Tambah Dokter</button>
+                <!-- Modal Form -->
+                <div class="modal-overlay modal-hidden"></div>
+                <div id="doctorFormModal" class="modal-hidden">
+                    <div class="modal-content">
+                        <h3>Tambah Dokter</h3>
+                        <form id="doctorForm">
+                            <label for="doctorName">Nama Dokter</label>
+                            <input type="text" id="doctorName" placeholder="Masukkan Nama Dokter" required />
+
+                            <label for="specialist">Spesialis</label>
+                            <input type="text" id="specialist" placeholder="Masukkan Spesialis" required />
+
+                            <label for="phone">No Telepon</label>
+                            <input type="text" id="phone" placeholder="Masukkan No Telepon" required />
+
+                            <button class="btn-dokter" type="submit">Simpan</button>
+                            <button type="button" class="close-btn">Close</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="search-bar">  
                     <input type="text" placeholder="Cari Dokter" class="search-input" id="searchInput">  
-                </div>  
-            </div>  
+                </div>
+            </div>
             <div id="dokterTableContainer">  
                 @include('partials.dokter_table', ['dokters' => $dokters])
             </div>

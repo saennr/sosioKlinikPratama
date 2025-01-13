@@ -1,3 +1,115 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.querySelector("#doctorFormModal");
+    const modalOverlay = document.querySelector(".modal-overlay");
+    const btnDokter = document.querySelector(".btn-dokter");
+    const closeBtn = document.querySelector(".close-btn");
+
+    // Pastikan elemen-elemen ada sebelum menambahkan event listener
+    if (modal && modalOverlay && btnDokter && closeBtn) {
+        // Klik tombol untuk membuka modal
+        btnDokter.addEventListener("click", () => {
+            modal.classList.remove("modal-hidden");
+            modalOverlay.classList.remove("modal-hidden");
+        });
+
+        // Klik tombol close untuk menutup modal
+        closeBtn.addEventListener("click", () => {
+            modal.classList.add("modal-hidden");
+            modalOverlay.classList.add("modal-hidden");
+        });
+
+        // Klik overlay untuk menutup modal
+        modalOverlay.addEventListener("click", () => {
+            modal.classList.add("modal-hidden");
+            modalOverlay.classList.add("modal-hidden");
+        });
+    } else {
+        console.error("Salah satu elemen tidak ditemukan:", {
+            modal,
+            modalOverlay,
+            btnDokter,
+            closeBtn,
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const doctorForm = document.querySelector("#doctorForm");
+    const dataTable = document.querySelector(".data-table");
+
+    if (doctorForm && dataTable) {
+        doctorForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Ambil nilai input dari form
+            const doctorName = document.querySelector("#doctorName").value.trim();
+            const specialist = document.querySelector("#specialist").value.trim();
+            const phone = document.querySelector("#phone").value.trim();
+
+            // Validasi input
+            if (!doctorName || !specialist || !phone) {
+                alert("Semua field harus diisi!");
+                return;
+            }
+
+            // Tambahkan baris baru ke data-table
+            const newRow = document.createElement("div");
+            newRow.classList.add("row");
+            newRow.innerHTML = `
+                <div class="cell">${doctorName}</div>
+                <div class="cell">Poli ${specialist}</div>
+                <div class="cell">
+                    <button class="btn-jadwal">Jadwal Dokter</button>
+                </div>
+                <div class="cell">${phone}</div>
+                <div class="cell">
+                    <button class="dropdown-btn">⋮</button>
+                    <div class="dropdown-menu hidden">
+                        <a href="#" class="dropdown-item">Edit</a>
+                        <a href="#" class="dropdown-item">Hapus</a>
+                    </div>
+                </div>
+            `;
+
+            dataTable.appendChild(newRow);
+
+            // Tambahkan event listener ke elemen baru
+            attachEventListeners(newRow);
+
+             // Reset form setelah menambahkan data
+             doctorForm.reset();
+            });
+        }
+    
+        // Fungsi untuk menambahkan event listener ke elemen baru
+        function attachEventListeners(row) {
+            // Tombol jadwal
+            const btnJadwal = row.querySelector(".btn-jadwal");
+            if (btnJadwal) {
+                btnJadwal.addEventListener("click", function () {
+                    toggleSchedule(btnJadwal);
+                });
+            }
+    
+            // Tombol dropdown
+            const dropdownBtn = row.querySelector(".dropdown-btn");
+            const dropdownMenu = row.querySelector(".dropdown-menu");
+            if (dropdownBtn && dropdownMenu) {
+                dropdownBtn.addEventListener("click", function (e) {
+                    e.stopPropagation(); // Mencegah event bubbling
+                    dropdownMenu.classList.toggle("show");
+                });
+            }
+        }
+    
+        // Menutup dropdown jika klik di luar
+        window.addEventListener("click", function () {
+            document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                menu.classList.remove("show");
+            });
+        });
+    });
+
 function toggleSchedule(button) {
     console.log('Button clicked'); 
     const scheduleContainer = button.parentElement.parentElement.nextElementSibling;
@@ -23,13 +135,6 @@ document.querySelectorAll('.dropdown-btn').forEach(button => {
     });
 });
 
-// Menutup dropdown jika klik di luar
-window.addEventListener('click', function () {
-    document.querySelectorAll('.dropdown-menu').forEach(menu => {
-        menu.classList.remove('show'); // Hapus kelas 'show' dari semua dropdown
-    });
-});
-
 $(document).ready(function () {  
     $("#searchInput").on("input", function () {  
         let query = $(this).val(); // Ambil input dari kolom pencarian  
@@ -48,3 +153,4 @@ $(document).ready(function () {
         });  
     });  
 });
+
