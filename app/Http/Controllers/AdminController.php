@@ -31,7 +31,7 @@ class AdminController extends Controller
         $reservasiAll = Reservasi::with(['user', 'dokter'])->get(); // Ambil semua reservasi tanpa filter  
       
         return view('daftaradmin', compact('user', 'reservasiAll'));    
-    }  
+    }
     
     public function cariReservasi(Request $request) {  
         $query = $request->input('query');  
@@ -47,6 +47,57 @@ class AdminController extends Controller
         // Kembalikan hanya bagian tabel  
         return view('partials.reservasi_table', compact('reservasiAll'));  
     }
+
+    public function filterReservasi(Request $request)  
+    {  
+        $option = $request->input('option');  
+        $date = $request->input('date');  
+        $today = Carbon::today()->toDateString(); // Mengambil tanggal hari ini dalam format Y-m-d  
+    
+        \Log::info('Opsi yang dipilih: ' . $option);  
+        \Log::info('Tanggal yang dipilih: ' . $date);  
+        \Log::info('Tanggal hari ini: ' . $today);  
+    
+        if ($option) {  
+            switch ($option) {  
+                case 'Reservasi Aktif':  
+                    $reservasi = Reservasi::where('tanggal', '>=', $today)->get();  
+                    break;  
+    
+                case 'Riwayat':  
+                    $reservasi = Reservasi::where('tanggal', '<', $today)->get();  
+                    break;  
+    
+                case 'Semua Reservasi':  
+                    $reservasi = Reservasi::all();  
+                    break;  
+    
+                default:  
+                    $reservasi = Reservasi::all();  
+                    break;  
+            }  
+        } elseif ($date) {  
+            // Jika ada filter berdasarkan tanggal  
+            $reservasi = Reservasi::where('tanggal', $date)->get();  
+        } else {  
+            // Jika tidak ada filter, ambil semua reservasi  
+            $reservasi = Reservasi::all();  
+        }  
+    
+        // Debug log untuk melihat data yang diambil  
+        \Log::info('Data reservasi untuk opsi: ' . $option, $reservasi->toArray());  
+    
+        return view('partials.reservasi_table', ['reservasiAll' => $reservasi]);  
+    }  
+  
+
+    public function deleteReservasi($id_reservasi) {  
+        $reservasi = Reservasi::findOrFail($id_reservasi);  
+        $reservasi->delete();  
+  
+        return response()->json(['success' => 'Reservasi berhasil dihapus']);  
+    }  
+
 
     public function cariUser(Request $request) {
         $query = $request->input('query');

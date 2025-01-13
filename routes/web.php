@@ -64,6 +64,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datauser',[AdminController::class, 'dataUser'])->name('dataUser');
     Route::get('/datadokter',[AdminController::class, 'dataDokter'])->name('dataDokter');
     Route::get('/daftaradmin/cari', [AdminController::class, 'cariReservasi'])->name('cariReservasi');
+    Route::get('/daftaradmin/filter', [AdminController::class, 'filterReservasi'])->name('daftaradmin.filter');
+    Route::delete('/admin/reservasi/{id_reservasi}', [AdminController::class, 'deleteReservasi'])->name('admin.reservasi.destroy');
     Route::get('/daftaradmin/filter', [AdminController::class, 'filterByDate'])->name('filterByDate');
     Route::get('/datauser/cari', [AdminController::class, 'cariUser'])->name('cariUser');
     Route::get('/cari-dokter', [AdminController::class, 'cariDokter'])->name('cariDokter');  
