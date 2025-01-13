@@ -154,6 +154,55 @@ class AdminController extends Controller
     return view('datauser', compact('user', 'dataUsers'));
 }
 
+public function updateUser (Request $request, $id_user)
+{
+    try {
+        // Validate the incoming request
+        $validatedData = $request->validate([
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'nullable|string|max:255',
+            'tgl_lahir' => 'required|date',
+            'no_hp' => 'required|string|max:20',
+            'jk' => 'required|string|max:10',
+            'alamat' => 'required|string|max:255',
+            'password' => 'nullable|min:6'
+        ]);
+
+        // Find the user
+        $user = User::findOrFail($id_user);
+
+        // Update user data
+        $user->firstName = $validatedData['firstName'];
+        $user->lastName = $validatedData['lastName'] ?? $user->lastName;
+        $user->tgl_lahir = $validatedData['tgl_lahir'];
+        $user->no_hp = $validatedData['no_hp'];
+        $user->jk = $validatedData['jk'];
+        $user->alamat = $validatedData['alamat'];
+
+        // Update password if provided
+        if (!empty($validatedData['password'])) {
+            $user->password = Hash::make($validatedData['password']);
+        }
+
+        // Save the updates
+        $user->save();
+
+        // Return success response
+        return response()->json([
+            'success' => true,
+            'message' => 'User  updated successfully',
+            'user' => $user
+        ]);
+
+    } catch (\Exception $e) {
+        // Return error response
+        return response()->json([
+            'success' => false,
+            'message' => 'Error updating user: ' . $e->getMessage()
+        ], 500);
+    }
+}
+
 
 public function deleteUser($id_user)
 {

@@ -62,6 +62,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboardAdmin'])->name('dashboardAdmin');
     Route::get('/daftaradmin',[AdminController::class, 'daftarAdmin'])->name('daftarAdmin');
     Route::get('/datauser',[AdminController::class, 'dataUser'])->name('dataUser');
+    Route::put('/users/{id_user}', [AdminController::class, 'updateUser'])->name('user.update');
     Route::get('/datadokter',[AdminController::class, 'dataDokter'])->name('dataDokter');
     Route::get('/daftaradmin/cari', [AdminController::class, 'cariReservasi'])->name('cariReservasi');
     Route::get('/daftaradmin/filter', [AdminController::class, 'filterReservasi'])->name('daftaradmin.filter');
