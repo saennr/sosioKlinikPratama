@@ -18,9 +18,19 @@ class AdminController extends Controller
         $user = Auth::user();
         $jumlahUsers = User::count();
         $jumlahDokter = Dokter::count();
-        $jumlahPasien = Reservasi::whereDate('tanggal', now())->count();
         
-        $reservasiHariIni = Reservasi::whereDate('tanggal', now())->get();
+        // Get today's date
+        $today = now()->toDateString();
+        
+        // Count patients registered today
+        $jumlahPasien = Reservasi::whereDate('tanggal', $today)->count();
+        
+        // Fetch reservations for today with related user and dokter information
+        $reservasiHariIni = Reservasi::whereDate('tanggal', $today)
+            ->with(['user', 'dokter']) // Eager load related models
+            ->orderBy('no_antrian', 'asc') // Optional: order by queue number
+            ->get();
+        
         return view('dashboard', compact('user', 'jumlahUsers', 'jumlahDokter', 'jumlahPasien', 'reservasiHariIni'));
     }
 

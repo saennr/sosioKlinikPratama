@@ -51,38 +51,42 @@
                 <p>{{ $jumlahDokter }} Dokter</p>
             </div>
             <div class="card">
-                <h3>Pasien Terdaftar</h3>
+                <h3>Pasien Hari Ini</h3>
                 <img src="{{ asset('lg/img/pasien.png') }}" alt="Patient Icon" class="icon">
                 <p>{{ $jumlahPasien }} Pasien</p>
             </div>
         </div>
 
-        <span style="font-weight: bold;">Pendaftaran Hari Ini</span>  
+        <span style="font-weight: bold;">Pendaftaran Hari Ini ({{ now()->format('d/m/Y') }})</span>  
         <div class="table-container">  
-            <div class="row header">  
-                <div class="cell">Nama Pasien</div>  
-                <div class="cell">Nama Dokter</div>  
-                <div class="cell">Tanggal</div>  
-                <div class="cell">No Antrian</div>  
-                <div class="cell">Estimasi</div>  
-                <div class="cell"></div>  
-            </div>  
-            @foreach($reservasiHariIni as $reservasi)  
-                <div class="row">  
-                    <div class="cell">{{ $reservasi->user->firstName }} {{ $reservasi->user->lastName }}</div>  
-                    <div class="cell">{{ $reservasi->dokter->nama }}</div>  
-                    <div class="cell">{{ $reservasi->tanggal->format('d/m/Y') }}</div>  
-                    <div class="cell">Antrian {{ $reservasi->no_antrian }}</div>  
-                    <div class="cell">{{ $reservasi->estimasi_mulai }}</div>  
-                    <div class="cell">  
-                        <button class="dropdown-btn">⋮</button>  
-                        <div class="dropdown-menu">  
-                            <a href="#" class="dropdown-item">Edit</a>  
-                            <a href="#" class="dropdown-item">Hapus</a>  
+            @if($reservasiHariIni->count() > 0)
+                <div class="row header">  
+                    <div class="cell">Nama Pasien</div>  
+                    <div class="cell">Nama Dokter</div>  
+                    <div class="cell">No Antrian</div>  
+                    <div class="cell">Estimasi</div>  
+                    <div class="cell">Aksi</div>  
+                </div>  
+                @foreach($reservasiHariIni as $reservasi)  
+                    <div class="row">  
+                        <div class="cell">{{ $reservasi->user->firstName }} {{ $reservasi->user->lastName }}</div>  
+                        <div class="cell">{{ $reservasi->dokter->nama }}</div>  
+                        <div class="cell">Antrian {{ $reservasi->no_antrian }}</div>  
+                        <div class="cell">{{ $reservasi->estimasi_mulai }}</div>  
+                        <div class="cell">  
+                            <button class="dropdown-btn">⋮</button>  
+                            <div class="dropdown-menu">  
+                                <a href="#" class="dropdown-item">Edit</a>  
+                                <a href="#" class="dropdown-item">Hapus</a>  
+                            </div>  
                         </div>  
                     </div>  
-                </div>  
-            @endforeach  
+                @endforeach
+                @else
+                <div class="no-data">
+                    <p>Tidak ada pasien hari ini.</p>
+                </div>
+            @endif
         </div>  
 
         <div class="view-all">
