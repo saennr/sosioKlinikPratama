@@ -1,3 +1,47 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.querySelector("#userFormModal");
+    const modalOverlay = document.querySelector(".modal-overlay");
+    const btnDokter = document.querySelector(".btn-dokter");
+    const closeBtn = document.querySelector(".close-btn");
+    const dropdownEditItem = document.querySelector(".dropdown-item");
+
+    // Pastikan elemen-elemen ada sebelum menambahkan event listener
+    if (modal && modalOverlay && btnDokter && closeBtn && dropdownEditItem) {
+        // Klik tombol untuk membuka modal
+        btnDokter.addEventListener("click", () => {
+            modal.classList.remove("modal-hidden");
+            modalOverlay.classList.remove("modal-hidden");
+        });
+
+        // Klik tombol close untuk menutup modal
+        closeBtn.addEventListener("click", () => {
+            modal.classList.add("modal-hidden");
+            modalOverlay.classList.add("modal-hidden");
+        });
+
+        // Klik overlay untuk menutup modal
+        modalOverlay.addEventListener("click", () => {
+            modal.classList.add("modal-hidden");
+            modalOverlay.classList.add("modal-hidden");
+        });
+
+        dropdownEditItem.addEventListener("click", (event) => {
+            console.log("Edit button clicked!"); // Harus muncul di konsol
+            modal.classList.remove("modal-hidden");
+            modalOverlay.classList.remove("modal-hidden");
+        });
+
+    } else {
+        console.error("Salah satu elemen tidak ditemukan:", {
+            modal,
+            modalOverlay,
+            btnDokter,
+            closeBtn,
+            dropdownEditItem,
+        });
+    }
+});
+
 // Ambil semua tombol dropdown
 document.querySelectorAll('.dropdown-btn').forEach(button => {
     button.addEventListener('click', function (e) {
@@ -6,14 +50,6 @@ document.querySelectorAll('.dropdown-btn').forEach(button => {
         dropdownMenu.classList.toggle('show'); // Tambah/hapus kelas 'show'
     });
 });
-
-// Menutup dropdown jika klik di luar
-window.addEventListener('click', function () {
-    document.querySelectorAll('.dropdown-menu').forEach(menu => {
-        menu.classList.remove('show'); // Hapus kelas 'show' dari semua dropdown
-    });
-});
-
 
 $(document).ready(function () {
     // Menangani input di search bar

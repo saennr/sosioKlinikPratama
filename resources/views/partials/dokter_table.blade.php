@@ -41,8 +41,8 @@
                 <div class="schedule-cell">
                             <button class="dropdown-btn">⋮</button>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Edit</a>
-                                <a href="#" class="dropdown-item">Hapus</a>
+                                <button class="dropdown-item">Edit</button>
+                                <a href="#" class="dropdown-delete delete">Hapus</a>
                             </div>
                         </div> 
             </div>

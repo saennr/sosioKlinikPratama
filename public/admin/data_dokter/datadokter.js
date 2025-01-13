@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalOverlay = document.querySelector(".modal-overlay");
     const btnDokter = document.querySelector(".btn-dokter");
     const closeBtn = document.querySelector(".close-btn");
+    const dropdownEditItem = document.querySelector(".dropdown-item");
 
     // Pastikan elemen-elemen ada sebelum menambahkan event listener
-    if (modal && modalOverlay && btnDokter && closeBtn) {
+    if (modal && modalOverlay && btnDokter && closeBtn && dropdownEditItem) {
         // Klik tombol untuk membuka modal
         btnDokter.addEventListener("click", () => {
             modal.classList.remove("modal-hidden");
@@ -23,12 +24,20 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.classList.add("modal-hidden");
             modalOverlay.classList.add("modal-hidden");
         });
+
+        dropdownEditItem.addEventListener("click", (event) => {
+            console.log("Edit button clicked!"); // Harus muncul di konsol
+            modal.classList.remove("modal-hidden");
+            modalOverlay.classList.remove("modal-hidden");
+        });
+
     } else {
         console.error("Salah satu elemen tidak ditemukan:", {
             modal,
             modalOverlay,
             btnDokter,
             closeBtn,
+            dropdownEditItem,
         });
     }
 });

@@ -49,6 +49,9 @@
                             <label for="specialist">Spesialis</label>
                             <input type="text" id="specialist" placeholder="Masukkan Spesialis" required />
 
+                            <label for="jadwal">Jadwal Dokter</label>
+                            <input type="text" id="specialist" placeholder="Masukkan Jadwal Dokter" required />
+
                             <label for="phone">No Telepon</label>
                             <input type="text" id="phone" placeholder="Masukkan No Telepon" required />
 
