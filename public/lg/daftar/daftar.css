@@ -213,12 +213,112 @@ form {
 }
 
 .custom-ok-button {
-    background-color: #097670 !important; /* Ubah warna tombol OK */
-    color: #fff !important;             /* Ubah warna teks */
-    padding: 10px 20px;                 /* Sesuaikan ukuran tombol */
-    font-size: 16px;                    /* Sesuaikan ukuran font */
+    background-color: #097670 !important; 
+    color: #fff !important;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 
 .custom-ok-button:hover {
     background-color: #26A072 !important; /* Warna saat hover */
 }
+
+@media (max-width: 768px) {
+  .box {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    border-radius: 1rem;
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+    overflow: hidden;
+    display: flex;
+  }
+
+  .carousel {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center, center;
+    background-size: cover, center;
+  }
+
+  .inner-box {
+    width: 100%;
+  }
+
+  .forms-wrap {
+    position: relative;
+    height: auto;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 2rem 1rem;
+    margin-top: -60px;
+  }
+
+  form {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .input-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .sign-btn {
+    font-size: 0.9rem;
+  }
+
+  .to-signup {
+    font-size: 0.8rem;
+  }
+
+  .logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icons {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .box {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    border-radius: 1rem;
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+    overflow: hidden;
+    display: flex;
+  }
+
+  .forms-wrap {
+    padding: 1rem;
+    margin-top: -40px;
+  }
+
+  .carousel {
+    display: none;
+  }
+
+  .heading h2 {
+    font-size: 1.2rem;
+  }
+
+  .heading p {
+    font-size: 0.8rem;
+  }
+
+  .sign-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+
+  .to-signup {
+    font-size: 0.75rem;
+  }
+}
+

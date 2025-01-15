@@ -155,27 +155,6 @@ form {
   cursor: pointer;
 }
 
-.google-login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  max-width: 320px;
-  background-color: #E1DFDF;
-  border: 1px solid #ddd;
-  padding: 0.2rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  font-size: 0.7rem;
-  color: #000;
-}
-
-.google-login img {
-  width: 20px;
-  margin-right: 0.5rem;
-}
-
 .logo {
   display: flex;
   justify-content: center;
@@ -217,4 +196,173 @@ form {
   background-image: url('../img/Vector2.png');
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+
+  .box {
+    position: relative;
+    width: 90%; /* Memperkecil box untuk memberikan ruang */
+    height: 700px;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+    overflow: hidden;
+    align-items: center;
+  }
+
+  .carousel {
+    position: absolute;
+    width: 50%; 
+    height: 100%;
+    left: 55%; 
+    top: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  .forms-wrap {
+    position: absolute;
+    width: 50%; 
+    height: auto;
+    left: 2%;
+    padding: 1.5rem 1.5rem;
+    margin-top: 30px;
+  }
+
+  form {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .logo img {
+    width: 80px; 
+    height: auto;
+  }
+
+  .heading h2 {
+    font-size: 1.4rem; /* Sedikit perkecil heading */
+    text-align: center;
+  }
+
+  .text {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .input-field {
+    font-size: 0.9rem;
+    height: 40px;
+    padding: 0.5rem;
+  }
+
+  .sign-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .to-signup {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .to-signup a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  main {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box {
+    position: relative;
+    width: 95%;
+    height: 500px;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+    overflow: hidden;
+    z-index: 1; 
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inner-box {
+    position: relative;
+    transform: none; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .forms-wrap {
+    position: relative;
+    width: 95%;
+    height: auto;
+    padding: 1rem;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel {
+    display: none; 
+  }
+
+  .input-wrap {
+    margin-bottom: 0.1rem;
+  }
+
+  .input-field {
+    font-size: 0.85rem;
+    height: 40px;
+  }
+
+  .sign-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem; 
+  }
+
+  .heading {
+    margin-top: 0.5rem; 
+  }
+
+  .logo img {
+    width: 80px;
+    height: auto;
+  }
+
+  .heading h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .text {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .to-signup p {
+    font-size: 0.8rem;
+  }
 }
