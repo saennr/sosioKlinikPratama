@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;  
 use App\Models\User;
 use App\Models\Spesialis;
 use App\Models\Dokter;
@@ -165,7 +166,7 @@ public function updateUser (Request $request, $id_user)
             'no_hp' => 'required|string|max:20',
             'jk' => 'required|string|max:10',
             'alamat' => 'required|string|max:255',
-            'password' => 'nullable|min:6'
+            'pw' => 'nullable|min:8'
         ]);
 
         // Find the user
@@ -180,8 +181,8 @@ public function updateUser (Request $request, $id_user)
         $user->alamat = $validatedData['alamat'];
 
         // Update password if provided
-        if (!empty($validatedData['password'])) {
-            $user->password = Hash::make($validatedData['password']);
+        if (!empty($validatedData['pw'])) {
+            $user->pw = Hash::make($validatedData['pw']);
         }
 
         // Save the updates
