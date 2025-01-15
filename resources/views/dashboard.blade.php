@@ -72,7 +72,15 @@
                         <div class="cell">{{ $reservasi->user->firstName }} {{ $reservasi->user->lastName }}</div>  
                         <div class="cell">{{ $reservasi->dokter->nama_dokter }}</div>  
                         <div class="cell">Antrian {{ $reservasi->no_antrian }}</div>  
-                        <div class="cell">{{ $reservasi->estimasi_mulai }}</div>  
+                        <div class="cell">
+                            @if($reservasi->dokter->id_spesialis == 1)
+                                5 menit
+                            @elseif($reservasi->dokter->id_spesialis == 2)
+                                30 menit
+                            @else
+                                Estimasi tidak tersedia
+                            @endif
+                        </div>  
                         <div class="cell">  
                             <button class="dropdown-btn">⋮</button>  
                             <div class="dropdown-menu">  
