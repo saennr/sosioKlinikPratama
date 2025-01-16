@@ -163,3 +163,53 @@ $(document).ready(function () {
     });  
 });
 
+
+function deleteDoctor(id_dokter) {
+    // Menggunakan SweetAlert2 untuk konfirmasi penghapusan
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Anda tidak dapat mengembalikan ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!',
+        customClass: {
+            confirmButton: 'custom-ok-button'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Jika pengguna mengonfirmasi, lakukan penghapusan
+            $.ajax({
+                url: '/admin/dokter/' + id_dokter, // Sesuaikan dengan route penghapusan dokter
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Pastikan ini ada
+                },
+                success: function (response) {
+                    // Tampilkan pesan sukses setelah penghapusan
+                    Swal.fire({
+                        title: 'Dihapus!',
+                        text: response.success,
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            confirmButton: 'custom-ok-button'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload(); // Muat ulang halaman setelah mengklik OK
+                        }
+                    });
+                },
+                error: function (xhr) {
+                    Swal.fire(
+                        'Terjadi kesalahan!',
+                        'Gagal menghapus dokter.',
+                        'error'
+                    );
+                }
+            });
+        }
+    });
+}

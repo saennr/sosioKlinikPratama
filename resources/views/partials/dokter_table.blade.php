@@ -15,13 +15,13 @@
             <button class="btn-jadwal" onclick= "toggleSchedule(this)">Jadwal Dokter</button>  
         </div>  
         <div class="cell">{{ $dokter->no_telepon }}</div>  
-        <div class="cell">  
-            <button class="dropdown-btn">⋮</button>  
-            <div class="dropdown-menu">  
-                <a href="#" class="dropdown-item">Edit</a>  
-                <a href="#" class="dropdown-item">Hapus</a>  
-            </div>  
-        </div>  
+        <div class="cell">
+        <button class="dropdown-btn">⋮</button>
+        <div class="dropdown-menu">
+            <button class="dropdown-item">Edit</button>
+            <button class="dropdown-item" onclick="deleteDoctor({{ $dokter->id_dokter }})">Hapus</button>
+        </div>
+    </div> 
     </div>  
     <div class="schedule-container hidden"> <!-- Kontainer untuk jadwal dokter -->  
         <div class="schedule-table">  

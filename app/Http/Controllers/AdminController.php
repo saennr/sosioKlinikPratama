@@ -261,6 +261,18 @@ public function deleteUser($id_user)
         return view('partials.dokter_table', compact('dokters'));  
     }  
 
+    public function destroy($id_dokter)
+{
+    $dokter = Dokter::find($id_dokter);
+    
+    if ($dokter) {
+        $dokter->delete();
+        return response()->json(['success' => 'Dokter berhasil dihapus.']);
+    } else {
+        return response()->json(['error' => 'Dokter tidak ditemukan.'], 404);
+    }
+}
+
     public function halamanUtama() {
         return view('halamanutama');
     }
