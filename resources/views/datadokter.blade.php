@@ -40,23 +40,28 @@
     <div class="table-container">  
             <div class="table-header">  
                 <button class="btn-dokter">Tambah Dokter</button>
-                <!-- Modal Form -->
+                <!-- Modal Form Tambah Dokter -->
                 <div class="modal-overlay modal-hidden"></div>
                 <div id="doctorFormModal" class="modal-hidden">
                     <div class="modal-content">
                         <h3>Tambah Dokter</h3>
-                        <form id="doctorForm">
-                            <label for="doctorName">Nama Dokter</label>
-                            <input type="text" id="doctorName" placeholder="Masukkan Nama Dokter" required />
+                        <form id="doctorForm" method="POST" action="/tambah-dokter">
+                            @csrf
+                            <label for="nama_dokter">Nama Dokter</label>
+                            <input type="text" id="nama_dokter" name="nama_dokter" placeholder="Masukkan Nama Dokter" required />
 
-                            <label for="specialist">Spesialis</label>
-                            <input type="text" id="specialist" placeholder="Masukkan Spesialis" required />
+                            <label for="id_spesialis">Spesialis</label>
+                            <select id="id_spesialis" name="id_spesialis" required>
+                                <option value="">Pilih Spesialis</option>
+                                <option value="1">Umum</option>
+                                <option value="2">Gigi</option>
+                            </select>
 
-                            <label for="jadwal">Jadwal Dokter</label>
-                            <input type="text" id="specialist" placeholder="Masukkan Jadwal Dokter" required />
+                            <label for="hari">Jadwal Dokter</label>
+                            <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal Dokter" required />
 
-                            <label for="phone">No Telepon</label>
-                            <input type="text" id="phone" placeholder="Masukkan No Telepon" required />
+                            <label for="no_telepon">No Telepon</label>
+                            <input type="text" id="no_telepon" name="no_telepon" placeholder="Masukkan No Telepon" required />
 
                             <button class="btn-dokter" type="submit">Simpan</button>
                             <button type="button" class="close-btn">Close</button>
@@ -66,6 +71,60 @@
                 <div class="search-bar">  
                     <input type="text" placeholder="Cari Dokter" class="search-input" id="searchInput">  
                 </div>
+
+                <!-- form modal tambah jadwal dokter -->
+                <div id="doctorFormModal" class="modal-hidden">
+                    <div class="modal-content">
+                        <h3>Tambah Jadwal Dokter</h3>
+                        <form id="jadwalForm" method="POST" action="/tambah-jadwal">
+                            @csrf
+                            <label for="hari">Hari</label>
+                            <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal" required />
+
+                            <label for="jam_mulai">Jam Mulai</label>
+                            <input type="text" id="jam_mulai" name="jam_mulai" placeholder="Masukkan Jam Mulai" required />
+
+                            <label for="jam_selesai">Jam Selesai</label>
+                            <input type="text" id="jam_selesai" name="jam_selesai" placeholder="Masukkan Jam Selesai" required />
+
+                            <label for="durasi_tindakan">Durasi Tindakan</label>
+                            <input type="text" id="durasi_tindakan" name="durasi_tindakan" placeholder="Masukkan Durasi Tindakan" required />
+
+                            <button class="btn-dokter" type="submit">Simpan</button>
+                            <button type="button" class="close-btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Modal Edit Dokter -->
+                <div class="modal-overlay modal-hidden"></div>
+                <div id="doctorFormModal" class="modal-hidden">
+                    <div class="modal-content">
+                        <h3>Edit Dokter</h3>
+                        <form id="editDokterForm" method="POST" action="/tambah-dokter">
+                            @csrf
+                            <label for="nama_dokter">Nama Dokter</label>
+                            <input type="text" id="nama_dokter" name="nama_dokter" placeholder="Masukkan Nama Dokter" required />
+
+                            <label for="id_spesialis">Spesialis</label>
+                            <select id="id_spesialis" name="id_spesialis" required>
+                                <option value="">Pilih Spesialis</option>
+                                <option value="1">Umum</option>
+                                <option value="2">Gigi</option>
+                            </select>
+
+                            <label for="hari">Jadwal Dokter</label>
+                            <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal Dokter" required />
+
+                            <label for="no_telepon">No Telepon</label>
+                            <input type="text" id="no_telepon" name="no_telepon" placeholder="Masukkan No Telepon" required />
+
+                            <button class="btn-dokter" type="submit">Simpan</button>
+                            <button type="button" class="close-btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
             <div id="dokterTableContainer">  
                 @include('partials.dokter_table', ['dokters' => $dokters])

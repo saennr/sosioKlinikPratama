@@ -23,7 +23,7 @@
         </div>
     </div> 
     </div>  
-    <div class="schedule-container hidden"> <!-- Kontainer untuk jadwal dokter -->  
+    <div class="schedule-row hidden"> <!-- Kontainer untuk jadwal dokter -->  
         <div class="schedule-table">  
             <div class="schedule-row header">  
                 <div class="schedule-cell">Hari</div>  
@@ -34,20 +34,21 @@
             </div>  
             @foreach($dokter->jadwalDokter as $jadwal)  
             <div class="schedule-row">  
-                <div class="schedule-cell">{{ $jadwal->hari }}</div>  
+                <div class="schedule-cell">{{ $jadwal->hari }}</div> 
                 <div class="schedule-cell">{{ $jadwal->jam_mulai }}</div>  
                 <div class="schedule-cell">{{ $jadwal->jam_selesai }}</div>  
-                <div class="schedule-cell">{{ $jadwal->durasi_tindakan }} Menit</div> 
+                <div class="schedule-cell">{{ $jadwal->durasi_tindakan }} Menit</div>
                 <div class="schedule-cell">
                             <button class="dropdown-btn">⋮</button>
                             <div class="dropdown-menu">
                                 <button class="dropdown-item">Edit</button>
-                                <a href="#" class="dropdown-delete delete">Hapus</a>
+                                <button class="dropdown-item">Hapus</button>
                             </div>
-                        </div> 
+                        </div>
             </div>
             @endforeach
-        </div>  
+        </div>
+        <button class="btn-dokter" id="btn-tambahJadwal" >Tambah Jadwal</button>
     </div>  
     @endforeach
 </div>

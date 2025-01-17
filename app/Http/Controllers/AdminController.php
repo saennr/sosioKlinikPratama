@@ -273,6 +273,40 @@ public function deleteUser($id_user)
     }
 }
 
+public function tambahDokter(Request $request)
+{
+    \Log::info('Tambah Dokter Request:', $request->all());
+
+    // dd($request->all());
+
+    try {
+        $validatedData = $request->validate([
+            'nama_dokter' => 'required|string|max:255',
+            'id_spesialis' => 'required|in:1,2',
+            'hari' => 'required|string|max:255',
+            'no_telepon' => 'required|string|max:20'
+        ]);
+
+        $dokter = new Dokter();
+        $dokter->nama_dokter = $validatedData['nama_dokter'];
+        $dokter->id_spesialis = $validatedData['id_spesialis'];
+        $dokter->hari = $validatedData['hari'];
+        $dokter->no_telepon = $validatedData['no_telepon'];
+        $dokter->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Dokter berhasil ditambahkan'
+        ], 200);
+    } catch (\Exception $e) {
+        \Log::error('Tambah Dokter Error: ' . $e->getMessage());
+        return response()->json([
+            'success' => false,
+            'message' => 'Gagal menambahkan dokter: ' . $e->getMessage()
+        ], 500);
+    }
+}
+
     public function halamanUtama() {
         return view('halamanutama');
     }

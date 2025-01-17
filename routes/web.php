@@ -71,5 +71,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/datauser/cari', [AdminController::class, 'cariUser'])->name('cariUser');
     Route::delete('/admin/user/{id_user}', [AdminController::class, 'deleteUser'])->name('deleteUser');
     Route::get('/cari-dokter', [AdminController::class, 'cariDokter'])->name('cariDokter');  
+    Route::post('/tambah-dokter', [AdminController::class, 'tambahDokter'])->name('tambah.dokter');
     Route::delete('/admin/dokter/{id_dokter}', [AdminController::class, 'destroy'])->name('dokter.destroy');
 });

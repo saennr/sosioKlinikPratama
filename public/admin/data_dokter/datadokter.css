@@ -196,6 +196,8 @@ body {
     overflow: hidden;
 }
 
+
+
 .modal-content {
     display: flex;
     flex-direction: column;
