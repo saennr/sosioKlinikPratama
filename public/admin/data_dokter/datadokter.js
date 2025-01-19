@@ -69,9 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (dropdownEditItem) {
         dropdownEditItem.addEventListener('click', function(e) {
             e.preventDefault();
-            
-
-
 
             // Change modal title
             document.querySelector("#doctorFormModal h3").textContent = "Edit Dokter";
@@ -415,6 +412,108 @@ document.addEventListener("DOMContentLoaded", function () {
             button.textContent = 'Jadwal Dokter';
         }
     }
+
+    // Tambah Jadwal Dokter Form Submission
+if (jadwalForm) {
+    jadwalForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Collect form data
+        const formData = new FormData(jadwalForm);
+
+        // Validate form data
+        const id_dokter = formData.get('id_dokter');
+        const nama_jadwal = formData.get('nama_jadwal');
+        const hari = formData.get('hari');
+        const jam_mulai = formData.get('jam_mulai');
+        const durasi_tindakan = formData.get('durasi_tindakan');
+
+        // Basic client-side validation
+        if (!id_dokter || !nama_jadwal || !hari || !jam_mulai || !durasi_tindakan) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Validasi Gagal',
+                text: 'Mohon isi semua field yang diperlukan'
+            });
+            return;
+        }
+
+         // Debugging: log data yang akan dikirim
+         console.log('Data yang dikirim:', {
+            id_dokter,
+            nama_jadwal,
+            hari,
+            jam_mulai,
+            durasi_tindakan
+        });
+
+        // AJAX Submission
+        $.ajax({
+            url: "/tambah-jadwal",
+            method: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                // Success Handling
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: response.message || 'Jadwal dokter berhasil ditambahkan',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Reset form and close modal
+                        jadwalForm.reset();
+                        closeJadwalModal(); // Pastikan Anda memiliki fungsi ini
+                        
+                        // Reload or update table
+                        location.reload();
+                    }
+                });
+            },
+            error: function (xhr) {
+                // Error Handling
+                console.error("Error Response:", xhr);
+                
+                let errorMessage = 'Terjadi kesalahan saat menambahkan jadwal dokter';
+                
+                // Check for specific error messages
+                if (xhr.responseJSON) {
+                    if (xhr.responseJSON.errors) {
+                        // Validation errors
+                        errorMessage = Object.values(xhr.responseJSON.errors)
+                            .flat()
+                            .join('\n');
+                    } else if (xhr.responseJSON.message) {
+                        // Server-specific error message
+                        errorMessage = xhr.responseJSON.message;
+                    }
+                }
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: errorMessage
+                });
+            }
+        });
+    });
+}
+
+// Fungsi untuk menutup modal jadwal (pastikan sudah didefinisikan)
+function closeJadwalModal() {
+    const modal = document.querySelector("#doctorFormModal");
+    const modalOverlay = document.querySelector(".modal-overlay");
+    
+    if (modal && modalOverlay) {
+        modal.classList.add("modal-hidden");
+        modalOverlay.classList.add("modal-hidden");
+    }
+}
     
     // Optional: Add some CSS to support the animation
     document.addEventListener('DOMContentLoaded', () => {

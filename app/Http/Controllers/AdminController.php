@@ -143,6 +143,44 @@ class AdminController extends Controller
     
         return view('partials.reservasi_table', compact('reservasiAll'));
     }
+
+    //tambah jadwal dokter
+public function tambahJadwal(Request $request)
+{
+    $validatedData = $request->validate([
+        'id_dokter' => 'required|exists:dokters,id_dokter', // Validasi ID dokter
+        'nama_jadwal' => 'required|string',
+        'hari' => 'required|string',
+        'jam_mulai' => 'required|date_format:H:i',
+        'durasi_tindakan' => 'required|integer|min:1'
+    ]);
+
+    try {
+        // Hitung jam selesai
+        $jamMulai = Carbon::createFromFormat('H:i', $validatedData['jam_mulai']);
+        $jamSelesai = $jamMulai->copy()->addMinutes($validatedData['durasi_tindakan']);
+
+        // Buat jadwal dokter baru
+        $jadwal = JadwalDokter::create([
+            'id_dokter' => $validatedData['id_dokter'],
+            'nama_jadwal' => $validatedData['nama_jadwal'],
+            'hari' => $validatedData['hari'],
+            'jam_mulai' => $validatedData['jam_mulai'],
+            'jam_selesai' => $jamSelesai->format('H:i'),
+            'durasi_tindakan' => $validatedData['durasi_tindakan']
+        ]);
+
+        return response()->json([
+            'message' => 'Jadwal dokter berhasil ditambahkan',
+            'jadwal' => $jadwal
+        ], 201);
+    } catch (\Exception $e) {
+        return response()->json([
+            'message' => 'Gagal menambahkan jadwal dokter',
+            'error' => $e->getMessage()
+        ], 500);
+    }
+}
     
 
     public function dataUser(Request $request)

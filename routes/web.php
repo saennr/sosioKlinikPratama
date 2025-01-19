@@ -74,4 +74,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tambah-dokter', [AdminController::class, 'tambahDokter'])->name('tambah.dokter');
     Route::delete('/admin/dokter/{id_dokter}', [AdminController::class, 'destroy'])->name('dokter.destroy');
     Route::delete('/admin/jadwal-dokter/{id_jadwal_dokter}', [AdminController::class, 'destroyJadwal']);
+    Route::post('/tambah-jadwal', [AdminController::class, 'tambahJadwal'])->name('tambah.jadwal');
 });

@@ -75,17 +75,19 @@
                 <!-- form modal tambah jadwal dokter -->
                 <div id="doctorFormModal" class="modal-hidden">
                     <div class="modal-content">
-                        <h3>Tambah Jadwal Dokter</h3>
                         <form id="jadwalForm" method="POST" action="/tambah-jadwal">
                             @csrf
+                            <label for="id_dokter">Id Dokter</label>
+                            <input type="text" id="id_dokter" name="id_dokter" placeholder="Masukkan Id Dokter" required />
+
+                            <label for="nama_jadwal">Sesi</label>
+                            <input type="text" id="nama_jadwal" name="nama_jadwal" placeholder="Masukkan Sesi: 'Senin Pagi'" required />
+
                             <label for="hari">Hari</label>
                             <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal" required />
 
                             <label for="jam_mulai">Jam Mulai</label>
                             <input type="text" id="jam_mulai" name="jam_mulai" placeholder="Masukkan Jam Mulai" required />
-
-                            <label for="jam_selesai">Jam Selesai</label>
-                            <input type="text" id="jam_selesai" name="jam_selesai" placeholder="Masukkan Jam Selesai" required />
 
                             <label for="durasi_tindakan">Durasi Tindakan</label>
                             <input type="text" id="durasi_tindakan" name="durasi_tindakan" placeholder="Masukkan Durasi Tindakan" required />
