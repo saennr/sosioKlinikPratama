@@ -307,6 +307,19 @@ public function tambahDokter(Request $request)
     }
 }
 
+//delete jadwal dokter
+public function destroyJadwal($id_jadwal_dokter)
+{
+    $jadwal = JadwalDokter::find($id_jadwal_dokter);
+    
+    if ($jadwal) {
+        $jadwal->delete();
+        return response()->json(['success' => 'Jadwal dokter berhasil dihapus.']);
+    } else {
+        return response()->json(['error' => 'Jadwal dokter tidak ditemukan.'], 404);
+    }
+}
+
     public function halamanUtama() {
         return view('halamanutama');
     }

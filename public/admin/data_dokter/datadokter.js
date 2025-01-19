@@ -529,3 +529,76 @@ function deleteDoctor(id_dokter) {
         }
     });
 }
+
+
+function deleteJadwalDokter(id_jadwal_dokter) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Anda tidak dapat mengembalikan jadwal ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!',
+        customClass: {
+            confirmButton: 'custom-ok-button'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/admin/jadwal-dokter/' + id_jadwal_dokter,
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Dihapus!',
+                        text: response.success || 'Jadwal dokter berhasil dihapus',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            confirmButton: 'custom-ok-button'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        }
+                    });
+                },
+                error: function (xhr) {
+                    Swal.fire(
+                        'Terjadi kesalahan!',
+                        xhr.responseJSON?.message || 'Gagal menghapus jadwal dokter',
+                        'error'
+                    );
+                }
+            });
+        }
+    });
+}
+
+// Event delegation untuk tombol hapus jadwal
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+        // Cari tombol hapus jadwal terdekat
+        const hapusJadwalBtn = e.target.closest('.dropdown-item');
+        
+        if (hapusJadwalBtn && hapusJadwalBtn.textContent.trim().toLowerCase() === 'hapus') {
+            e.preventDefault();
+            
+            // Temukan baris jadwal terdekat
+            const scheduleRow = hapusJadwalBtn.closest('.schedule-row');
+            
+            // Dapatkan ID jadwal dari atribut data atau metode lain
+            const id_jadwal_dokter = scheduleRow.dataset.jadwalId || 
+                              scheduleRow.querySelector('[data-jadwal-id]')?.dataset.jadwalId;
+            
+            if (id_jadwal_dokter) {
+                deleteJadwalDokter(id_jadwal_dokter);
+            } else {
+                console.error('ID Jadwal tidak ditemukan');
+            }
+        }
+    });
+});

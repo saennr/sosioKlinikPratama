@@ -23,32 +23,31 @@
         </div>
     </div> 
     </div>  
-    <div class="schedule-row hidden"> <!-- Kontainer untuk jadwal dokter -->  
-        <div class="schedule-table">  
-            <div class="schedule-row header">  
-                <div class="schedule-cell">Hari</div>  
-                <div class="schedule-cell">Jam Mulai</div>  
-                <div class="schedule-cell">Jam Selesai</div>  
-                <div class="schedule-cell">Durasi Tindakan</div>
-                <div class="schedule-cell"></div>
-            </div>  
-            @foreach($dokter->jadwalDokter as $jadwal)  
-            <div class="schedule-row">  
-                <div class="schedule-cell">{{ $jadwal->hari }}</div> 
-                <div class="schedule-cell">{{ $jadwal->jam_mulai }}</div>  
-                <div class="schedule-cell">{{ $jadwal->jam_selesai }}</div>  
-                <div class="schedule-cell">{{ $jadwal->durasi_tindakan }} Menit</div>
-                <div class="schedule-cell">
-                            <button class="dropdown-btn">⋮</button>
-                            <div class="dropdown-menu">
-                                <button class="dropdown-item">Edit</button>
-                                <button class="dropdown-item">Hapus</button>
-                            </div>
-                        </div>
+    <div class="schedule-row hidden"> 
+    <div class="schedule-table">  
+        <div class="schedule-row header">  
+            <div class="schedule-cell">Hari</div>  
+            <div class="schedule-cell">Jam Mulai</div>  
+            <div class="schedule-cell">Jam Selesai</div>  
+            <div class="schedule-cell">Durasi Tindakan</div>
+            <div class="schedule-cell"></div>
+        </div>  
+        @foreach($dokter->jadwalDokter as $jadwal)  
+        <div class="schedule-row" data-jadwal-id="{{ $jadwal->id_jadwal_dokter }}">  
+            <div class="schedule-cell">{{ $jadwal->hari }}</div> 
+            <div class="schedule-cell">{{ $jadwal->jam_mulai }}</div>  
+            <div class="schedule-cell">{{ $jadwal->jam_selesai }}</div>  
+            <div class="schedule-cell">{{ $jadwal->durasi_tindakan }} Menit</div>
+            <div class="schedule-cell">
+                <button class="dropdown-btn">⋮</button>
+                <div class="dropdown-menu">
+                    <button class="dropdown-item hapus-jadwal">Hapus</button>
+                </div>
             </div>
-            @endforeach
         </div>
-        <button class="btn-dokter" id="btn-tambahJadwal" >Tambah Jadwal</button>
-    </div>  
+        @endforeach
+    </div>
+    <button class="btn-dokter" id="btn-tambahJadwal">Tambah Jadwal</button>
+</div>
     @endforeach
 </div>
