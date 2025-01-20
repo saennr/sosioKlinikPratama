@@ -138,9 +138,9 @@
     
     <button id="cek-lab-button" style="all: unset; cursor: pointer;">
         <div class="service-box" id="cek-lab">
-            <img src="{{ asset('lg/img/ceklab.png') }}" alt="Cek Laboratorium">
+            <img src="{{ asset('lg/img/cek lab.png') }}" alt="Cek Laboratorium">
             <h3>Cek Laboratorium</h3>
-            <p>Cek lab tanpa ribet hanya dengan beberapa ketukan jari</p>
+            <p>Cek lab tanpa ribet</p>
         </div>
     </button>
 
