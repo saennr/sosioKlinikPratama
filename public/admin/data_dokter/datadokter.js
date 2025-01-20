@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Modal Handling
-    const modal = document.querySelector("#doctorFormModal");   
+    const modal = document.getElementById("doctorFormModal");  
     const modalOverlay = document.querySelector(".modal-overlay");
     const btnDokter = document.querySelector(".btn-dokter");
     const closeBtn = document.querySelector(".close-btn");
@@ -66,41 +66,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     // Event Listener for Dropdown Edit Item
-    if (dropdownEditItem) {
-        dropdownEditItem.addEventListener('click', function(e) {
-            e.preventDefault();
+    document.querySelectorAll('.dropdown-item[data-edit]').forEach(button => {  
+        button.addEventListener('click', function(event) {  
+            event.preventDefault();  
+  
+            // Find the parent row  
+            const row = this.closest('.row');  
+  
+            // Extract doctor data  
+            const doctorId = row.getAttribute('data-doctor-id');  
+            const doctorName = row.querySelector('.cell:nth-child(1)').textContent.trim();  
+            const doctorSpecialty = row.querySelector('.cell:nth-child(2)').textContent.trim();
+            const doctorDay = row.querySelector('.cell:nth-child(3)').textContent.trim();
+            const doctorPhone = row.querySelector('.cell:nth-child(4)').textContent.trim();  
+  
+            // Populate form fields  
+            document.getElementById('id_dokter').value = doctorId;  
+            document.getElementById('nama_dokter').value = doctorName;  
+            if (doctorSpecialty === 'Poli Umum') {  
+                document.getElementById('id_spesialis').value = '1'; // Umum  
+            } else if (doctorSpecialty === 'Poli Gigi') {  
+                document.getElementById('id_spesialis').value = '2'; // Gigi  
+            } else {  
+                document.getElementById('id_spesialis').value = ''; // Kosongkan jika tidak dikenali  
+            } 
+            document.getElementById('hari').value = doctorDay;
+            document.getElementById('no_telepon').value = doctorPhone;
 
-            // Change modal title
-            document.querySelector("#doctorFormModal h3").textContent = "Edit Dokter";
-            
-            // Hide other forms
-            document.querySelector("#doctorForm").style.display = 'none';
-            document.querySelector("#jadwalForm").style.display = 'none';
-            
-            // Show edit form
-            editForm.style.display = 'block';
-            
-            // Open modal
-            openEditModal();
-
-            // Find the closest row to extract current data
-            const row = this.closest('.row');
-            const dokterData = {
-                id: row.dataset.doctorId || row.querySelector('[name="id_dokter"]')?.value,
-                nama: row.querySelector('.nama-dokter')?.textContent,
-                spesialis: row.querySelector('.spesialis')?.textContent,
-                noTelepon: row.querySelector('.no-telepon')?.textContent,
-                hari: row.querySelector('.hari')?.textContent
-            };
-
-            // Fill edit form
-            editForm.querySelector("#edit_id_dokter").value = dokterData.id;
-            editForm.querySelector("#edit_nama_dokter").value = dokterData.nama;
-            editForm.querySelector("#edit_id_spesialis").value = dokterData.spesialis;
-            editForm.querySelector("#edit_no_telepon").value = dokterData.noTelepon;
-            editForm.querySelector("#edit_hari").value = dokterData.hari;
-        });
-    }
+            document.querySelector("#doctorFormModal h3").textContent = "Edit Data Dokter";
+  
+            // Show modal  
+            modal.classList.remove('modal-hidden');  
+            modalOverlay.classList.remove('modal-hidden');  
+        });  
+    });
 
     // Close button for Edit Modal
     const closeEditBtn = editForm.querySelector('.close-btn');
