@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalOverlay = document.querySelector(".modal-overlay");
     const btnDokter = document.querySelector(".btn-dokter");
     const closeBtn = document.querySelector(".close-btn");
-    const dropdownEditItem = document.querySelector(".dropdown-item");
+    const dropdownEditItem = document.querySelector(".dropdown-item[data-edit]");
     const editForm= document.querySelector("#editDokterForm");  
     const doctorForm = document.querySelector("#doctorForm");
     // Tambah Jadwal Modal Handling
@@ -73,7 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // Find the parent row  
             const row = this.closest('.row');  
   
-            // Extract doctor data  
+            // Extract doctor data
+            const isEdit = document.getElementById('is_edit').value;
             const doctorId = row.getAttribute('data-doctor-id');  
             const doctorName = row.querySelector('.cell:nth-child(1)').textContent.trim();  
             const doctorSpecialty = row.querySelector('.cell:nth-child(2)').textContent.trim();
@@ -94,6 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('no_telepon').value = doctorPhone;
 
             document.querySelector("#doctorFormModal h3").textContent = "Edit Data Dokter";
+
+            document.getElementById('doctorForm').action = `/update-dokter/${doctorId}`;
   
             // Show modal  
             modal.classList.remove('modal-hidden');  
@@ -114,80 +117,71 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Edit Form Submission
-    if (editForm) {
-        editForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Collect form data
-            const formData = new FormData(editForm);
-
-            // Validate form data
-            const nama_dokter = formData.get('edit_nama_dokter');
-            const id_spesialis = formData.get('edit_id_spesialis');
-            const no_telepon = formData.get('edit_no_telepon');
-            const hari = formData.get('edit_hari');
-
-            // Basic client-side validation
-            if (!nama_dokter || !id_spesialis || !no_telepon || !hari) {
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Validasi Gagal',
-                    text: 'Mohon isi semua field yang diperlukan'
-                });
-                return;
-            }
-
-            // AJAX Submission for Edit
-            $.ajax({
-                url: "/update-dokter", // Adjust to your update route
-                method: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (response) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Berhasil!',
-                        text: response.message || 'Dokter berhasil diupdate',
-                        confirmButtonText: 'OK'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            editForm.reset();
-                            closeEditModal();
-                            location.reload();
-                        }
-                    });
-                },
-                error: function (xhr) {
-                    console.error("Error Response:", xhr);
-                    
-                    let errorMessage = 'Terjadi kesalahan saat mengupdate dokter';
-                    
-                    if (xhr.responseJSON) {
-                        if (xhr.responseJSON.errors) {
-                            errorMessage = Object.values(xhr.responseJSON.errors)
-                                .flat()
-                                .join('\n');
-                        } else if (xhr.responseJSON.message) {
-                            errorMessage = xhr.responseJSON.message;
-                        }
-                    }
-
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Gagal!',
-                        text: errorMessage
-                    });
-                }
-            });
-        });
-    }
-    if (editForm) {
-        editForm.style.display = 'none';
-    }
+    if (editForm) {  
+        editForm.addEventListener('submit', function(event) {  
+            event.preventDefault(); // Mencegah pengiriman form default  
+      
+            const doctorId = document.getElementById('id_dokter').value; // Ambil ID dokter  
+            const doctorName = document.getElementById('nama_dokter').value;    
+            const doctorSpecialty = document.getElementById('id_spesialis').value;    
+            const doctorDay = document.getElementById('hari').value;    
+            const doctorPhone = document.getElementById('no_telepon').value;    
+      
+            // Data yang akan dikirim  
+            const data = {    
+                id_dokter: doctorId,    
+                nama_dokter: doctorName,    
+                id_spesialis: doctorSpecialty,    
+                hari: doctorDay,    
+                no_telepon: doctorPhone,    
+            };    
+      
+            // Validasi form data  
+            if (!doctorName || !doctorSpecialty || !doctorPhone || !doctorDay) {  
+                Swal.fire({  
+                    icon: 'warning',  
+                    title: 'Validasi Gagal',  
+                    text: 'Mohon isi semua field yang diperlukan'  
+                });  
+                return;  
+            }  
+      
+            // AJAX Submission for Edit  
+            fetch(`/update-dokter/${doctorId}`, {    
+                method: 'POST',    
+                headers: {    
+                    'Content-Type': 'application/json',    
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')    
+                },    
+                body: JSON.stringify(data)    
+            })    
+            .then(response => response.json())    
+            .then(data => {    
+                // Tangani respons dari server    
+                Swal.fire({  
+                    icon: 'success',  
+                    title: 'Berhasil!',  
+                    text: data.message || 'Dokter berhasil diupdate',  
+                    confirmButtonText: 'OK'  
+                }).then((result) => {  
+                    if (result.isConfirmed) {  
+                        editForm.reset();  
+                        closeEditModal();  
+                        location.reload();  
+                    }  
+                });  
+            })    
+            .catch((error) => {    
+                console.error('Error:', error);    
+                Swal.fire({  
+                    icon: 'error',  
+                    title: 'Gagal!',  
+                    text: 'Terjadi kesalahan saat mengupdate dokter'  
+                });  
+            });    
+        });  
+    }  
+    
 
 
     // Add click event to all "Tambah Jadwal" buttons

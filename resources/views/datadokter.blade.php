@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
 </head>
 <div class="sidebar">
     <div class="profile">
@@ -23,12 +23,12 @@
         <div class="green-line"></div>
     </div>
     <ul class="menu">
-    <li><a href="{{ route('dashboardAdmin') }}"> <i
-                        class="fas fa-home"></i>Dashboard</a></li>
-            <li><a href="{{ route('daftarAdmin') }}"> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
-            <li><a href="{{ route('dataUser') }}"> <i class="fas fa-users"></i>Data User</a></li>
-            <li><a href="{{ route('dataDokter') }}" class="active"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
-            <li><a href="{{ route('beranda') }}"> <i class="fas fa-home"></i>Beranda</a></li>
+        <li><a href="{{ route('dashboardAdmin') }}"> <i
+                    class="fas fa-home"></i>Dashboard</a></li>
+        <li><a href="{{ route('daftarAdmin') }}"> <i class="fas fa-user-plus"></i>Pendaftaran</a></li>
+        <li><a href="{{ route('dataUser') }}"> <i class="fas fa-users"></i>Data User</a></li>
+        <li><a href="{{ route('dataDokter') }}" class="active"> <i class="fas fa-user-md"></i>Data Dokter</a></li>
+        <li><a href="{{ route('beranda') }}"> <i class="fas fa-home"></i>Beranda</a></li>
         </li>
     </ul>
 </div>
@@ -37,101 +37,105 @@
         <h1>Klinik Pratama</h1>
     </div>
     <div class="gray-line"></div>
-    <div class="table-container">  
-            <div class="table-header">  
-                <button class="btn-dokter">Tambah Dokter</button>
-                <!-- Modal Form Tambah Dokter -->
-                <div class="modal-overlay modal-hidden"></div>
-                <div id="doctorFormModal" class="modal-hidden">
-                    <div class="modal-content">
-                        <h3>Tambah Dokter</h3>
-                        <form id="doctorForm" method="POST" action="/tambah-dokter">
-                            @csrf
-                            <label for="nama_dokter">Nama Dokter</label>
-                            <input type="text" id="nama_dokter" name="nama_dokter" placeholder="Masukkan Nama Dokter" required />
+    <div class="table-container">
+        <div class="table-header">
+            <button class="btn-dokter">Tambah Dokter</button>
+            <!-- Modal Form Tambah Dokter -->
+            <div class="modal-overlay modal-hidden"></div>
+            <div id="doctorFormModal" class="modal-hidden">
+                <div class="modal-content">
+                    <h3>Tambah Dokter</h3>
+                    <form id="doctorForm" method="POST" action="/tambah-dokter">
+                        @csrf
+                        <label for="nama_dokter">Nama Dokter</label>
+                        <input type="text" id="nama_dokter" name="nama_dokter" placeholder="Masukkan Nama Dokter" required />
 
-                            <label for="id_spesialis">Spesialis</label>
-                            <select id="id_spesialis" name="id_spesialis" required>
-                                <option value="">Pilih Spesialis</option>
-                                <option value="1">Umum</option>
-                                <option value="2">Gigi</option>
-                            </select>
+                        <label for="id_spesialis">Spesialis</label>
+                        <select id="id_spesialis" name="id_spesialis" required>
+                            <option value="">Pilih Spesialis</option>
+                            <option value="1">Umum</option>
+                            <option value="2">Gigi</option>
+                        </select>
 
-                            <label for="hari">Jadwal Dokter</label>
-                            <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal Dokter" required />
+                        <label for="hari">Jadwal Dokter</label>
+                        <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal Dokter" required />
 
-                            <label for="no_telepon">No Telepon</label>
-                            <input type="text" id="no_telepon" name="no_telepon" placeholder="Masukkan No Telepon" required />
+                        <label for="no_telepon">No Telepon</label>
+                        <input type="text" id="no_telepon" name="no_telepon" placeholder="Masukkan No Telepon" required />
 
-                            <button class="btn-dokter" type="submit">Simpan</button>
-                            <button type="button" class="close-btn">Close</button>
-                        </form>
-                    </div>
+                        <button class="btn-dokter" type="submit">Simpan</button>
+                        <button type="button" class="close-btn">Close</button>
+                    </form>
                 </div>
-                <div class="search-bar">  
-                    <input type="text" placeholder="Cari Dokter" class="search-input" id="searchInput">  
-                </div>
-
-                <!-- form modal tambah jadwal dokter -->
-                <div id="doctorFormModal" class="modal-hidden">
-                    <div class="modal-content">
-                        <form id="jadwalForm" method="POST" action="/tambah-jadwal">
-                            @csrf
-                            <label for="id_dokter">Id Dokter</label>
-                            <input type="text" id="id_dokter" name="id_dokter" placeholder="Masukkan Id Dokter" required />
-
-                            <label for="nama_jadwal">Sesi</label>
-                            <input type="text" id="nama_jadwal" name="nama_jadwal" placeholder="Masukkan Sesi: 'Senin Pagi'" required />
-
-                            <label for="hari">Hari</label>
-                            <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal" required />
-
-                            <label for="jam_mulai">Jam Mulai</label>
-                            <input type="text" id="jam_mulai" name="jam_mulai" placeholder="Masukkan Jam Mulai" required />
-
-                            <label for="durasi_tindakan">Durasi Tindakan</label>
-                            <input type="text" id="durasi_tindakan" name="durasi_tindakan" placeholder="Masukkan Durasi Tindakan" required />
-
-                            <button class="btn-dokter" type="submit">Simpan</button>
-                            <button type="button" class="close-btn">Close</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Modal Edit Dokter -->
-                <div class="modal-overlay modal-hidden"></div>
-                <div id="doctorFormModal" class="modal-hidden">
-                    <div class="modal-content">
-                        <h3>Edit Dokter</h3>
-                        <form id="editDokterForm" method="POST" action="/tambah-dokter">
-                            @csrf
-                            <label for="nama_dokter">Nama Dokter</label>
-                            <input type="text" id="nama_dokter" name="nama_dokter" placeholder="Masukkan Nama Dokter" required />
-
-                            <label for="id_spesialis">Spesialis</label>
-                            <select id="id_spesialis" name="id_spesialis" required>
-                                <option value="">Pilih Spesialis</option>
-                                <option value="1">Umum</option>
-                                <option value="2">Gigi</option>
-                            </select>
-
-                            <label for="hari">Jadwal Dokter</label>
-                            <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal Dokter" required />
-
-                            <label for="no_telepon">No Telepon</label>
-                            <input type="text" id="no_telepon" name="no_telepon" placeholder="Masukkan No Telepon" required />
-
-                            <button class="btn-dokter" type="submit">Simpan</button>
-                            <button type="button" class="close-btn">Close</button>
-                        </form>
-                    </div>
-                </div>
-
             </div>
-            <div id="dokterTableContainer">  
-                @include('partials.dokter_table', ['dokters' => $dokters])
+            <div class="search-bar">
+                <input type="text" placeholder="Cari Dokter" class="search-input" id="searchInput">
             </div>
+
+            <!-- form modal tambah jadwal dokter -->
+            <div id="doctorFormModal" class="modal-hidden">
+                <div class="modal-content">
+                    <form id="jadwalForm" method="POST" action="/tambah-jadwal">
+                        @csrf
+                        <label for="id_dokter">Id Dokter</label>
+                        <input type="text" id="id_dokter" name="id_dokter" placeholder="Masukkan Id Dokter" required />
+
+                        <label for="nama_jadwal">Sesi</label>
+                        <input type="text" id="nama_jadwal" name="nama_jadwal" placeholder="Masukkan Sesi: 'Senin Pagi'" required />
+
+                        <label for="hari">Hari</label>
+                        <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal" required />
+
+                        <label for="jam_mulai">Jam Mulai</label>
+                        <input type="text" id="jam_mulai" name="jam_mulai" placeholder="Masukkan Jam Mulai" required />
+
+                        <label for="durasi_tindakan">Durasi Tindakan</label>
+                        <input type="text" id="durasi_tindakan" name="durasi_tindakan" placeholder="Masukkan Durasi Tindakan" required />
+
+                        <button class="btn-dokter" type="submit">Simpan</button>
+                        <button type="button" class="close-btn">Close</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal Form Edit Dokter -->
+            <div class="modal-overlay modal-hidden"></div>
+            <div id="editDoctorForm" class="modal-hidden">
+                <div class="modal-content">
+                    <h3>Edit Data Dokter</h3>
+                    <form id="editDoctorForm" method="POST" action="/dokter/update">
+                        @csrf
+                        <input type="hidden" id="is_edit" name="is_edit" value="1">
+                        <input type="hidden" id="id_dokter" name="id_dokter" value="">
+
+                        <label for="nama_dokter">Nama Dokter</label>
+                        <input type="text" id="nama_dokter" name="nama_dokter" placeholder="Masukkan Nama Dokter" required />
+
+                        <label for="id_spesialis">Spesialis</label>
+                        <select id="id_spesialis" name="id_spesialis" required>
+                            <option value="">Pilih Spesialis</option>
+                            <option value="1">Umum</option>
+                            <option value="2">Gigi</option>
+                        </select>
+
+                        <label for="hari">Jadwal Dokter</label>
+                        <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal Dokter" required />
+
+                        <label for="no_telepon">No Telepon</label>
+                        <input type="text" id="no_telepon" name="no_telepon" placeholder="Masukkan No Telepon" required />
+
+                        <button class="btn-dokter" type="submit">Simpan</button>
+                        <button type="button" class="close-btn">Close</button>
+                    </form>
+                </div>
+            </div>
+
+
         </div>
+        <div id="dokterTableContainer">
+            @include('partials.dokter_table', ['dokters' => $dokters])
+        </div>
+    </div>
 </div>
 <script src="{{ asset('/admin/data_dokter/datadokter.js') }}"></script>
 </body>
