@@ -97,40 +97,6 @@
                     </form>
                 </div>
             </div>
-
-            <!-- Modal Form Edit Dokter -->
-            <div class="modal-overlay modal-hidden"></div>
-            <div id="editDoctorForm" class="modal-hidden">
-                <div class="modal-content">
-                    <h3>Edit Data Dokter</h3>
-                    <form id="editDoctorForm" method="POST" action="/dokter/update">
-                        @csrf
-                        <input type="hidden" id="is_edit" name="is_edit" value="1">
-                        <input type="hidden" id="id_dokter" name="id_dokter" value="">
-
-                        <label for="nama_dokter">Nama Dokter</label>
-                        <input type="text" id="nama_dokter" name="nama_dokter" placeholder="Masukkan Nama Dokter" required />
-
-                        <label for="id_spesialis">Spesialis</label>
-                        <select id="id_spesialis" name="id_spesialis" required>
-                            <option value="">Pilih Spesialis</option>
-                            <option value="1">Umum</option>
-                            <option value="2">Gigi</option>
-                        </select>
-
-                        <label for="hari">Jadwal Dokter</label>
-                        <input type="text" id="hari" name="hari" placeholder="Masukkan Jadwal Dokter" required />
-
-                        <label for="no_telepon">No Telepon</label>
-                        <input type="text" id="no_telepon" name="no_telepon" placeholder="Masukkan No Telepon" required />
-
-                        <button class="btn-dokter" type="submit">Simpan</button>
-                        <button type="button" class="close-btn">Close</button>
-                    </form>
-                </div>
-            </div>
-
-
         </div>
         <div id="dokterTableContainer">
             @include('partials.dokter_table', ['dokters' => $dokters])

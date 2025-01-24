@@ -276,19 +276,15 @@ body {
     font-size: 14px;
 }
 
-
-.cell:nth-last-child(4) {
-    text-align: left;
-    margin-left: 20px;
-    flex: 0.5;
+.cell:nth-child(3){
+    flex:1;
+    min-width: 150px;
 }
-.cell:nth-last-child(3) {
-    flex: 1;
-    padding-left: 90px;
+.cell:nth-child(2){
+    flex:1;
 }
-
-.cell:nth-last-child(2) {
-    flex: 0.5;
+.cell:nth-child(1){
+    flex:1.5;
 }
 
 .cell:last-child {
@@ -309,6 +305,56 @@ body {
 
 .btn-jadwal:hover {
     background-color: #0056b3;
+}
+
+
+/* css inline edit */
+/* Menyembunyikan input dan menampilkan span */
+.doctor-name-text, .doctor-specialty-text, .doctor-day-text, .doctor-phone-text {
+    display: block;
+}
+
+.doctor-name-input, .doctor-specialty-input, .doctor-day-input, .doctor-phone-input {
+    display: none;
+}
+
+/* Menampilkan input dan menyembunyikan span */
+.doctor-name-input:focus, .doctor-specialty-input:focus, .doctor-day-input:focus, .doctor-phone-input:focus {
+    display: block;
+    width: 100%;
+    padding: 5px;
+}
+
+.save-btn {
+    background-color: #63C4AB;
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 4px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+.save-btn:hover {
+    background-color: #097670;
+
+}
+.cancel-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 4px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover{
+    background-color: darkred; /* Warna merah tua saat hover */   
 }
 
 /* Schedule Section */

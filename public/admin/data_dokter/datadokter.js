@@ -4,19 +4,138 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalOverlay = document.querySelector(".modal-overlay");
     const btnDokter = document.querySelector(".btn-dokter");
     const closeBtn = document.querySelector(".close-btn");
-    const dropdownEditItem = document.querySelector(".dropdown-item[data-edit]");
-    const editForm= document.querySelector("#editDokterForm");  
     const doctorForm = document.querySelector("#doctorForm");
     // Tambah Jadwal Modal Handling
     const btnTambahJadwal = document.querySelectorAll('#btn-tambahJadwal');
     const jadwalForm = document.querySelector("#jadwalForm");
 
 
-    // dropdownEditItem.addEventListener("click", (event) => {
-    //         console.log("Edit button clicked!"); // Harus muncul di konsol
-    //         modal.classList.remove("modal-hidden");
-    //         modalOverlay.classList.remove("modal-hidden");
-    //     });
+    // edit funcitions
+        // Event listener untuk tombol Edit
+        document.querySelectorAll('.dropdown-item[data-edit]').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+    
+                // Temukan baris yang relevan
+                const row = this.closest('.row');
+                const doctorId = row.getAttribute('data-doctor-id');
+    
+                // Menampilkan input dan menyembunyikan span
+                const doctorNameSpan = row.querySelector('.doctor-name-text');
+                const doctorNameInput = row.querySelector('.doctor-name-input');
+                const doctorSpecialtySpan = row.querySelector('.doctor-specialty-text');
+                const doctorSpecialtyInput = row.querySelector('.doctor-specialty-input');
+                const doctorDaySpan = row.querySelector('.doctor-day-text');
+                const doctorDayInput = row.querySelector('.doctor-day-input');
+                const doctorPhoneSpan = row.querySelector('.doctor-phone-text');
+                const doctorPhoneInput = row.querySelector('.doctor-phone-input');
+    
+                // Mengganti span dengan input
+                doctorNameSpan.style.display = 'none';
+                doctorNameInput.style.display = 'block';
+    
+                doctorSpecialtySpan.style.display = 'none';
+                doctorSpecialtyInput.style.display = 'block';
+    
+                doctorDaySpan.style.display = 'none';
+                doctorDayInput.style.display = 'block';
+    
+                doctorPhoneSpan.style.display = 'none';
+                doctorPhoneInput.style.display = 'block';
+    
+                // Menampilkan tombol Save dan Cancel di bawah baris
+                const rowButtons = row.nextElementSibling;  // Menampilkan tombol di bawah row
+                rowButtons.style.display = 'block';
+    
+                // Event listener untuk tombol Save
+                const saveBtn = rowButtons.querySelector('.save-btn');
+                saveBtn.addEventListener('click', function () {
+                    const updatedDoctorName = doctorNameInput.value;
+                    const updatedDoctorSpecialty = doctorSpecialtyInput.value;
+                    const updatedDoctorDay = doctorDayInput.value;
+                    const updatedDoctorPhone = doctorPhoneInput.value;
+    
+                    // Lakukan AJAX request untuk menyimpan perubahan
+                    saveDoctorData(doctorId, updatedDoctorName, updatedDoctorSpecialty, updatedDoctorDay, updatedDoctorPhone);
+                });
+    
+                // Event listener untuk tombol Cancel
+                const cancelBtn = rowButtons.querySelector('.cancel-btn');
+                cancelBtn.addEventListener('click', function () {
+                    // Menyembunyikan input dan mengembalikan span
+                    doctorNameSpan.style.display = 'block';
+                    doctorNameInput.style.display = 'none';
+    
+                    doctorSpecialtySpan.style.display = 'block';
+                    doctorSpecialtyInput.style.display = 'none';
+    
+                    doctorDaySpan.style.display = 'block';
+                    doctorDayInput.style.display = 'none';
+    
+                    doctorPhoneSpan.style.display = 'block';
+                    doctorPhoneInput.style.display = 'none';
+    
+                    // Mengembalikan tombol Edit
+                    rowButtons.style.display = 'none';
+                });
+            });
+        });
+    
+        // Fungsi untuk menyimpan data dokter
+        function saveDoctorData(doctorId, updatedDoctorName, updatedDoctorSpecialty, updatedDoctorDay, updatedDoctorPhone) {
+            fetch(`/update-dokter/${doctorId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({
+                    nama_dokter: updatedDoctorName,
+                    id_spesialis: updatedDoctorSpecialty,
+                    hari: updatedDoctorDay,
+                    no_telepon: updatedDoctorPhone
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Menampilkan pesan sukses
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data berhasil diperbarui',
+                    text: data.message || 'Dokter berhasil diupdate'
+                });
+    
+                // Update tampilan
+                const row = document.querySelector(`.row[data-doctor-id="${doctorId}"]`);
+                row.querySelector('.doctor-name-text').textContent = updatedDoctorName;
+                row.querySelector('.doctor-specialty-text').textContent = updatedDoctorSpecialty;
+                row.querySelector('.doctor-day-text').textContent = updatedDoctorDay;
+                row.querySelector('.doctor-phone-text').textContent = updatedDoctorPhone;
+    
+                // Reset input dan tampilkan lagi span
+                row.querySelector('.doctor-name-input').style.display = 'none';
+                row.querySelector('.doctor-specialty-input').style.display = 'none';
+                row.querySelector('.doctor-day-input').style.display = 'none';
+                row.querySelector('.doctor-phone-input').style.display = 'none';
+    
+                row.querySelector('.doctor-name-text').style.display = 'block';
+                row.querySelector('.doctor-specialty-text').style.display = 'block';
+                row.querySelector('.doctor-day-text').style.display = 'block';
+                row.querySelector('.doctor-phone-text').style.display = 'block';
+    
+                // Reset tombol
+                row.nextElementSibling.style.display = 'none';  // Menyembunyikan tombol setelah selesai
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: 'Terjadi kesalahan saat menyimpan data.'
+                });
+            });
+        }
+    // end inline edit
     
     // Modal Open/Close Functions
     function openModal() {
@@ -48,142 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".modal-overlay").classList.add("modal-hidden");
         }
     }
-
-    // Function to open edit Modal
-    function openEditModal() {
-        if (editForm.closest('.modal-hidden')) {
-            editForm.closest('#doctorFormModal').classList.remove("modal-hidden");
-            document.querySelector(".modal-overlay").classList.remove("modal-hidden");
-        }
-    }
-    
-     // Function to close Edit Modal
-     function closeEditModal() {
-        if (editForm) {
-            editForm.closest('#doctorFormModal').classList.add("modal-hidden");
-            document.querySelector(".modal-overlay").classList.add("modal-hidden");
-        }
-    }
-    
-    // Event Listener for Dropdown Edit Item
-    document.querySelectorAll('.dropdown-item[data-edit]').forEach(button => {  
-        button.addEventListener('click', function(event) {  
-            event.preventDefault();  
-  
-            // Find the parent row  
-            const row = this.closest('.row');  
-  
-            // Extract doctor data
-            const isEdit = document.getElementById('is_edit').value;
-            const doctorId = row.getAttribute('data-doctor-id');  
-            const doctorName = row.querySelector('.cell:nth-child(1)').textContent.trim();  
-            const doctorSpecialty = row.querySelector('.cell:nth-child(2)').textContent.trim();
-            const doctorDay = row.querySelector('.cell:nth-child(3)').textContent.trim();
-            const doctorPhone = row.querySelector('.cell:nth-child(4)').textContent.trim();  
-  
-            // Populate form fields  
-            document.getElementById('id_dokter').value = doctorId;  
-            document.getElementById('nama_dokter').value = doctorName;  
-            if (doctorSpecialty === 'Poli Umum') {  
-                document.getElementById('id_spesialis').value = '1'; // Umum  
-            } else if (doctorSpecialty === 'Poli Gigi') {  
-                document.getElementById('id_spesialis').value = '2'; // Gigi  
-            } else {  
-                document.getElementById('id_spesialis').value = ''; // Kosongkan jika tidak dikenali  
-            } 
-            document.getElementById('hari').value = doctorDay;
-            document.getElementById('no_telepon').value = doctorPhone;
-
-            document.querySelector("#doctorFormModal h3").textContent = "Edit Data Dokter";
-
-            document.getElementById('doctorForm').action = `/update-dokter/${doctorId}`;
-  
-            // Show modal  
-            modal.classList.remove('modal-hidden');  
-            modalOverlay.classList.remove('modal-hidden');  
-        });  
-    });
-
-    // Close button for Edit Modal
-    const closeEditBtn = editForm.querySelector('.close-btn');
-    if (closeEditBtn) {
-        closeEditBtn.addEventListener('click', function() {
-            // Reset modal to original state
-            document.querySelector("#doctorFormModal h3").textContent = "Tambah Dokter";
-            document.querySelector("#doctorForm").style.display = 'block';
-            editForm.style.display = 'none';
-            closeEditModal();
-        });
-    }
-
-    // Edit Form Submission
-    if (editForm) {  
-        editForm.addEventListener('submit', function(event) {  
-            event.preventDefault(); // Mencegah pengiriman form default  
-      
-            const doctorId = document.getElementById('id_dokter').value; // Ambil ID dokter  
-            const doctorName = document.getElementById('nama_dokter').value;    
-            const doctorSpecialty = document.getElementById('id_spesialis').value;    
-            const doctorDay = document.getElementById('hari').value;    
-            const doctorPhone = document.getElementById('no_telepon').value;    
-      
-            // Data yang akan dikirim  
-            const data = {    
-                id_dokter: doctorId,    
-                nama_dokter: doctorName,    
-                id_spesialis: doctorSpecialty,    
-                hari: doctorDay,    
-                no_telepon: doctorPhone,    
-            };    
-      
-            // Validasi form data  
-            if (!doctorName || !doctorSpecialty || !doctorPhone || !doctorDay) {  
-                Swal.fire({  
-                    icon: 'warning',  
-                    title: 'Validasi Gagal',  
-                    text: 'Mohon isi semua field yang diperlukan'  
-                });  
-                return;  
-            }  
-      
-            // AJAX Submission for Edit  
-            fetch(`/update-dokter/${doctorId}`, {    
-                method: 'POST',    
-                headers: {    
-                    'Content-Type': 'application/json',    
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')    
-                },    
-                body: JSON.stringify(data)    
-            })    
-            .then(response => response.json())    
-            .then(data => {    
-                // Tangani respons dari server    
-                Swal.fire({  
-                    icon: 'success',  
-                    title: 'Berhasil!',  
-                    text: data.message || 'Dokter berhasil diupdate',  
-                    confirmButtonText: 'OK'  
-                }).then((result) => {  
-                    if (result.isConfirmed) {  
-                        editForm.reset();  
-                        closeEditModal();  
-                        location.reload();  
-                    }  
-                });  
-            })    
-            .catch((error) => {    
-                console.error('Error:', error);    
-                Swal.fire({  
-                    icon: 'error',  
-                    title: 'Gagal!',  
-                    text: 'Terjadi kesalahan saat mengupdate dokter'  
-                });  
-            });    
-        });  
-    }  
-    
-
-
     // Add click event to all "Tambah Jadwal" buttons
     btnTambahJadwal.forEach(btn => {
         btn.addEventListener('click', function(e) {
