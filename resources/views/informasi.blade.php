@@ -8,38 +8,28 @@
   <section id="artikel">
     <div class="container-artikel">
         <!-- Section Title and Description -->
-        <h1 class="section-title">What’s New On Medicaly</h1>
+        <h1 class="section-title">Activities at the Pratama Clinic</h1>
         <p class="section-description">
-            Baca Berita Terbaru mengenai informasi medis, atau cari informasi yang anda butuhkan
+            Baca Informasi kegiatan apa saja yang ada di KLINIK PRATAMA UIN SGD Bandung.
         </p>
-        <p>Kategori Informasi</p>
-        
-        <!-- Category Buttons -->
-        <div class="category-buttons">
-            <button class="category-btn">Artikel</button>
-            <button class="category-btn">Informasi Umum</button>
-            <button class="category-btn">Paket</button>
-            <button class="category-btn">Testimoni</button>
-            <button class="category-btn">Update</button>
-        </div>
         
         <!-- Information Articles -->
         <div class="row">
             <!-- Section 1 -->
             <div class="col-md-4 info-section">
-                <img src="{{ asset('lg/img/Rectangle 18.png') }}" class="info-image" alt="Info 1">
+                <img src="{{ asset('lg/img/peresmianklinik.JPG') }}" class="info-image" alt="Info 1">
                 <div class="info-content">
-                    <h5 class="info-title">Patah Tulang Panggul pada Lanjut Usia akibat Osteoporosis</h5>
-                    <p class="info-text">Seiring bertambahnya usia, jumlah orang yang mengalami patah tulang panggul semakin meningkat. Patah tulang panggul...</p>
+                    <h5 class="info-title">Peresmian Gedung Baru KLINIK PRATAMA</h5>
+                    <p class="info-text">Peresmian Gedung Baru KLINIK PRATAMA UIN SGD Bandung dilaksanakan pada hari Selasa, 7 Januari 2025. Diresmikan langsung oleh...</p>
                     <a href="#" class="btn-read-more">Baca lebih lanjut</a>
                 </div>
             </div>
             <!-- Section 2 -->
             <div class="col-md-4 info-section">
-                <img src="{{ asset('lg/img/Rectangle 19.png') }}" class="info-image" alt="Info 2">
+                <img src="{{ asset('lg/img/mcu.JPG') }}" class="info-image" alt="Info 2">
                 <div class="info-content">
-                    <h5 class="info-title">Flu Singapura</h5>
-                    <p class="info-text">Flu Singapura atau Hand Foot and Mouth Disease (HFMD) adalah penyakit yang disebabkan oleh virus dari genus Enterovirus...</p>
+                    <h5 class="info-title">Klinik Pratama UIN SGD Bandung Sukses Gelar Medical Check-Up untuk Civitas Akademika</h5>
+                    <p class="info-text">Bandung, 7 Januari 2025 – Klinik Pratama UIN Sunan Gunung Djati Bandung telah sukses melaksanakan kegiatan Medical Check-Up (MCU) bagi civitas akademika. Kegiatan ini berlangsung...</p>
                     <a href="#" class="btn-read-more">Baca lebih lanjut</a>
                 </div>
             </div>
@@ -47,37 +37,8 @@
             <div class="col-md-4 info-section">
                 <img src="{{ asset('lg/img/Rectangle 20.png') }}" class="info-image" alt="Info 3">
                 <div class="info-content">
-                    <h5 class="info-title">Ambulatory Blood Pressure Monitoring</h5>
-                    <p class="info-text">Ambulatory Blood Pressure Monitoring atau ABPM adalah suatu metoda pengukuran tekanan darah selama 24 jam termasuk saat tidur...</p>
-                    <a href="#" class="btn-read-more">Baca lebih lanjut</a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <!-- Section 1 -->
-            <div class="col-md-4 info-section">
-                <img src="{{ asset('lg/img/Rectangle 18.png') }}" class="info-image" alt="Info 1">
-                <div class="info-content">
-                    <h5 class="info-title">Patah Tulang Panggul pada Lanjut Usia akibat Osteoporosis</h5>
-                    <p class="info-text">Seiring bertambahnya usia, jumlah orang yang mengalami patah tulang panggul semakin meningkat. Patah tulang panggul...</p>
-                    <a href="#" class="btn-read-more">Baca lebih lanjut</a>
-                </div>
-            </div>
-            <!-- Section 2 -->
-            <div class="col-md-4 info-section">
-                <img src="{{ asset('lg/img/Rectangle 19.png') }}" class="info-image" alt="Info 2">
-                <div class="info-content">
-                    <h5 class="info-title">Flu Singapura</h5>
-                    <p class="info-text">Flu Singapura atau Hand Foot and Mouth Disease (HFMD) adalah penyakit yang disebabkan oleh virus dari genus Enterovirus...</p>
-                    <a href="#" class="btn-read-more">Baca lebih lanjut</a>
-                </div>
-            </div>
-            <!-- Section 3 -->
-            <div class="col-md-4 info-section">
-                <img src="{{ asset('lg/img/Rectangle 20.png') }}" class="info-image" alt="Info 3">
-                <div class="info-content">
-                    <h5 class="info-title">Ambulatory Blood Pressure Monitoring</h5>
-                    <p class="info-text">Ambulatory Blood Pressure Monitoring atau ABPM adalah suatu metoda pengukuran tekanan darah selama 24 jam termasuk saat tidur...</p>
+                    <h5 class="info-title">Klinik Pratama UIN SGD Bandung Gelar Pemeriksaan Kesehatan bagi Mahasiswa Baru</h5>
+                    <p class="info-text">Bandung, [Tanggal] – Klinik Pratama UIN Sunan Gunung Djati Bandung telah sukses menyelenggarakan kegiatan pemeriksaan kesehatan bagi...</p>
                     <a href="#" class="btn-read-more">Baca lebih lanjut</a>
                 </div>
             </div>
