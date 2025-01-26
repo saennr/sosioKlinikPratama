@@ -352,8 +352,9 @@ class AdminController extends Controller
         }
     }
 
-    public function update(Request $request, $id)  
+    public function updateDokter(Request $request, $id)  
     {  
+        \Log::info('Update request received', $request->all());
         // Validasi input  
         $request->validate([  
             'nama_dokter' => 'required|string|max:255',  
@@ -374,7 +375,7 @@ class AdminController extends Controller
         ]);  
   
         // Redirect atau kembali dengan pesan sukses  
-        return redirect()->back()->with('success', 'Data dokter berhasil diperbarui.');  
+        return response()->json(['message' => 'Data dokter berhasil diperbarui.']);
     }
 
     //delete jadwal dokter

@@ -49,14 +49,29 @@ document.addEventListener("DOMContentLoaded", function () {
     
                 // Event listener untuk tombol Save
                 const saveBtn = rowButtons.querySelector('.save-btn');
+
+                let isSaveListenerAdded = false;
                 saveBtn.addEventListener('click', function () {
-                    const updatedDoctorName = doctorNameInput.value;
-                    const updatedDoctorSpecialty = doctorSpecialtyInput.value;
-                    const updatedDoctorDay = doctorDayInput.value;
-                    const updatedDoctorPhone = doctorPhoneInput.value;
-    
-                    // Lakukan AJAX request untuk menyimpan perubahan
-                    saveDoctorData(doctorId, updatedDoctorName, updatedDoctorSpecialty, updatedDoctorDay, updatedDoctorPhone);
+                    if (!isSaveListenerAdded) {
+                        isSaveListenerAdded = true;
+                        const updatedDoctorName = doctorNameInput.value;
+                        const updatedDoctorSpecialtyString = doctorSpecialtyInput.value;
+                        const updatedDoctorDay = doctorDayInput.value;
+                        const updatedDoctorPhone = doctorPhoneInput.value;
+                        
+                        let updatedDoctorSpecialty;
+
+                        if (updatedDoctorSpecialtyString.includes('Umum')) {
+                            updatedDoctorSpecialty = 1; // Umum corresponds to ID 1
+                        } else if (updatedDoctorSpecialtyString.includes('Gigi')) {
+                            updatedDoctorSpecialty = 2; // Gigi corresponds to ID 2
+                        } else {
+                            updatedDoctorSpecialty = null; // Handle case where specialty is not recognized
+                        }
+        
+                        // Lakukan AJAX request untuk menyimpan perubahan
+                        saveDoctorData(doctorId, updatedDoctorName, updatedDoctorSpecialty, updatedDoctorDay, updatedDoctorPhone);
+                    }
                 });
     
                 // Event listener untuk tombol Cancel
@@ -108,7 +123,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Update tampilan
                 const row = document.querySelector(`.row[data-doctor-id="${doctorId}"]`);
                 row.querySelector('.doctor-name-text').textContent = updatedDoctorName;
-                row.querySelector('.doctor-specialty-text').textContent = updatedDoctorSpecialty;
+
+                let specialtyText;
+                if (updatedDoctorSpecialty === 1) {
+                    specialtyText = 'Poli Umum'; // ID 1 corresponds to Poli Umum
+                } else if (updatedDoctorSpecialty === 2) {
+                    specialtyText = 'Poli Gigi'; // ID 2 corresponds to Poli Gigi
+                } else {
+                    specialtyText = 'Tidak Diketahui'; // Handle case where specialty is not recognized
+                }
+                row.querySelector('.doctor-specialty-text').textContent = specialtyText;
                 row.querySelector('.doctor-day-text').textContent = updatedDoctorDay;
                 row.querySelector('.doctor-phone-text').textContent = updatedDoctorPhone;
     
@@ -128,6 +152,13 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => {
                 console.error('Error:', error);
+                if (error.response) {  
+                    console.error('Response:', error.response);  
+                    console.error('Status:', error.response.status);  
+                    console.error('Data:', error.response.data);  
+                } else {  
+                    console.error('Error Message:', error.message);  
+                } 
                 Swal.fire({
                     icon: 'error',
                     title: 'Gagal!',
