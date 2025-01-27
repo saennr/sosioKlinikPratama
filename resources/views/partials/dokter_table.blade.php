@@ -16,7 +16,11 @@
         </div>  
         <div class="cell" id="doctor-specialty">
             <span class="doctor-specialty-text">Poli {{ $dokter->spesialis->nama_spesialis ?? 'Tidak Diketahui' }}</span>
-            <input type="text" class="doctor-specialty-input" value="Poli {{ $dokter->spesialis->nama_spesialis ?? 'Tidak Diketahui' }}" style="display:none;">
+            <select id="id_spesialis" name="id_spesialis" class="doctor-specialty-input" required style="display:none;">
+                <option value="">Pilih Spesialis</option>
+                <option value="1">Umum</option>
+                <option value="2">Gigi</option>
+            </select>
         </div>  
         <div class="cell" id="doctor-day">
             <span class="doctor-day-text">{{ $dokter->hari }}</span>

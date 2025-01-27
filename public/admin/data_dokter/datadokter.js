@@ -15,87 +15,77 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.dropdown-item[data-edit]').forEach(button => {
             button.addEventListener('click', function (event) {
                 event.preventDefault();
-    
+        
                 // Temukan baris yang relevan
                 const row = this.closest('.row');
                 const doctorId = row.getAttribute('data-doctor-id');
-    
+        
                 // Menampilkan input dan menyembunyikan span
                 const doctorNameSpan = row.querySelector('.doctor-name-text');
                 const doctorNameInput = row.querySelector('.doctor-name-input');
                 const doctorSpecialtySpan = row.querySelector('.doctor-specialty-text');
-                const doctorSpecialtyInput = row.querySelector('.doctor-specialty-input');
+                const doctorSpecialtyInput = row.querySelector('#id_spesialis'); // Menggunakan ID dropdown
                 const doctorDaySpan = row.querySelector('.doctor-day-text');
                 const doctorDayInput = row.querySelector('.doctor-day-input');
                 const doctorPhoneSpan = row.querySelector('.doctor-phone-text');
                 const doctorPhoneInput = row.querySelector('.doctor-phone-input');
-    
+        
                 // Mengganti span dengan input
                 doctorNameSpan.style.display = 'none';
                 doctorNameInput.style.display = 'block';
-    
+        
                 doctorSpecialtySpan.style.display = 'none';
                 doctorSpecialtyInput.style.display = 'block';
-    
+        
                 doctorDaySpan.style.display = 'none';
                 doctorDayInput.style.display = 'block';
-    
+        
                 doctorPhoneSpan.style.display = 'none';
                 doctorPhoneInput.style.display = 'block';
-    
+        
                 // Menampilkan tombol Save dan Cancel di bawah baris
                 const rowButtons = row.nextElementSibling;  // Menampilkan tombol di bawah row
                 rowButtons.style.display = 'block';
-    
+        
                 // Event listener untuk tombol Save
                 const saveBtn = rowButtons.querySelector('.save-btn');
-
+        
                 let isSaveListenerAdded = false;
                 saveBtn.addEventListener('click', function () {
                     if (!isSaveListenerAdded) {
                         isSaveListenerAdded = true;
                         const updatedDoctorName = doctorNameInput.value;
-                        const updatedDoctorSpecialtyString = doctorSpecialtyInput.value;
+                        const updatedDoctorSpecialty = doctorSpecialtyInput.value; // Ambil value dari dropdown
                         const updatedDoctorDay = doctorDayInput.value;
                         const updatedDoctorPhone = doctorPhoneInput.value;
-                        
-                        let updatedDoctorSpecialty;
-
-                        if (updatedDoctorSpecialtyString.includes('Umum')) {
-                            updatedDoctorSpecialty = 1; // Umum corresponds to ID 1
-                        } else if (updatedDoctorSpecialtyString.includes('Gigi')) {
-                            updatedDoctorSpecialty = 2; // Gigi corresponds to ID 2
-                        } else {
-                            updatedDoctorSpecialty = null; // Handle case where specialty is not recognized
-                        }
         
                         // Lakukan AJAX request untuk menyimpan perubahan
                         saveDoctorData(doctorId, updatedDoctorName, updatedDoctorSpecialty, updatedDoctorDay, updatedDoctorPhone);
                     }
                 });
-    
+        
                 // Event listener untuk tombol Cancel
                 const cancelBtn = rowButtons.querySelector('.cancel-btn');
                 cancelBtn.addEventListener('click', function () {
                     // Menyembunyikan input dan mengembalikan span
                     doctorNameSpan.style.display = 'block';
                     doctorNameInput.style.display = 'none';
-    
+        
                     doctorSpecialtySpan.style.display = 'block';
                     doctorSpecialtyInput.style.display = 'none';
-    
+        
                     doctorDaySpan.style.display = 'block';
                     doctorDayInput.style.display = 'none';
-    
+        
                     doctorPhoneSpan.style.display = 'block';
                     doctorPhoneInput.style.display = 'none';
-    
+        
                     // Mengembalikan tombol Edit
                     rowButtons.style.display = 'none';
                 });
             });
         });
-    
+
         // Fungsi untuk menyimpan data dokter
         function saveDoctorData(doctorId, updatedDoctorName, updatedDoctorSpecialty, updatedDoctorDay, updatedDoctorPhone) {
             fetch(`/update-dokter/${doctorId}`, {
@@ -130,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else if (updatedDoctorSpecialty === 2) {
                     specialtyText = 'Poli Gigi'; // ID 2 corresponds to Poli Gigi
                 } else {
-                    specialtyText = 'Tidak Diketahui'; // Handle case where specialty is not recognized
+                    specialtyText = 'Tidak Diketahui';
                 }
                 row.querySelector('.doctor-specialty-text').textContent = specialtyText;
                 row.querySelector('.doctor-day-text').textContent = updatedDoctorDay;
