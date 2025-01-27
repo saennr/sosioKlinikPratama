@@ -17,9 +17,9 @@
         <div class="cell" id="doctor-specialty">
             <span class="doctor-specialty-text">Poli {{ $dokter->spesialis->nama_spesialis ?? 'Tidak Diketahui' }}</span>
             <select id="id_spesialis" name="id_spesialis" class="doctor-specialty-input" required style="display:none;">
-                <option value="">Pilih Spesialis</option>
-                <option value="1">Umum</option>
-                <option value="2">Gigi</option>
+                <option value="" disabled selected>Pilih Spesialis</option>
+                <option value="1" {{ $dokter->spesialis->nama_spesialis == 'Umum' ? 'selected' : '' }}>Umum</option>
+                <option value="2" {{ $dokter->spesialis->nama_spesialis == 'Gigi' ? 'selected' : '' }}>Gigi</option>
             </select>
         </div>  
         <div class="cell" id="doctor-day">

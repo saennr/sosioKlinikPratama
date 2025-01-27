@@ -115,9 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.querySelector('.doctor-name-text').textContent = updatedDoctorName;
 
                 let specialtyText;
-                if (updatedDoctorSpecialty === 1) {
+                const specialtyId = Number(updatedDoctorSpecialty);
+                if (specialtyId === 1) {
                     specialtyText = 'Poli Umum'; // ID 1 corresponds to Poli Umum
-                } else if (updatedDoctorSpecialty === 2) {
+                } else if (specialtyId === 2) {
                     specialtyText = 'Poli Gigi'; // ID 2 corresponds to Poli Gigi
                 } else {
                     specialtyText = 'Tidak Diketahui';
