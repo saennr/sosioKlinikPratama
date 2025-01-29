@@ -35,10 +35,10 @@
             </div>
             <!-- Section 3 -->
             <div class="col-md-4 info-section">
-                <img src="{{ asset('lg/img/Rectangle 20.png') }}" class="info-image" alt="Info 3">
+                <img src="{{ asset('lg/img/cekkesehatan.jpg') }}" class="info-image" alt="Info 3">
                 <div class="info-content">
                     <h5 class="info-title">Klinik Pratama UIN SGD Bandung Gelar Pemeriksaan Kesehatan bagi Mahasiswa Baru</h5>
-                    <p class="info-text">Bandung, [Tanggal] – Klinik Pratama UIN Sunan Gunung Djati Bandung telah sukses menyelenggarakan kegiatan pemeriksaan kesehatan bagi...</p>
+                    <p class="info-text">Klinik Pratama UIN Sunan Gunung Djati Bandung telah sukses menyelenggarakan kegiatan pemeriksaan kesehatan bagi...</p>
                     <a href="#" class="btn-read-more">Baca lebih lanjut</a>
                 </div>
             </div>
