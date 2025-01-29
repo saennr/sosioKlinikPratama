@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('hari');
             $table->string('no_telepon');
             $table->timestamps();
+            $table->string('img_url');
 
             // Foreign key constraint
             $table->foreign('id_spesialis')->references('id_spesialis')->on('spesialis')->onDelete('cascade');

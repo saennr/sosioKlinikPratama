@@ -29,7 +29,7 @@
     <div id="spesialis" class="doctor-category" style="display: none;">
         @foreach ($dokterGigi as $dokter)
         <div class="doctor-card">
-            <img src="{{ asset('lg/img/persondokspes.png') }}" alt="Doctor Image">
+            <img src="{{ asset($dokter->img_url ? $dokter->img_url : 'lg/img/persondokspes.png') }}" alt="Doctor Image">
             <div class="doctor-info">
                 <h3>{{ $dokter->nama_dokter }}</h3>
                 <p>{{ $dokter->spesialis->nama_spesialis }}</p>
@@ -47,7 +47,7 @@
     <div id="umum" class="doctor-category" style="display: none;">
         @foreach ($dokterUmum as $dokter)
         <div class="doctor-card">
-            <img src="{{ asset('lg/img/persondokum.png') }}" alt="Doctor Image">
+            <img src="{{ asset($dokter->img_url ? $dokter->img_url : 'lg/img/persondokum.png') }}" alt="Doctor Image">
             <div class="doctor-info">
                 <h3>{{ $dokter->nama_dokter }}</h3>
                 <p>{{ $dokter->spesialis->nama_spesialis }}</p>

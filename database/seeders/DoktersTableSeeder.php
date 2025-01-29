@@ -22,6 +22,7 @@ class DoktersTableSeeder extends Seeder
                 'no_telepon' => '081122334455',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'img_url' => 'lg/img/dr. Suwando Ardi Nugroho.jpg',
             ],
             [
                 'nama_dokter' => 'dr. Yeni Mulyani, MMRS',
@@ -30,6 +31,7 @@ class DoktersTableSeeder extends Seeder
                 'no_telepon' => '081122334455',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'img_url' => 'lg/img/dr. yeni.jpg',
             ],
             [
                 'nama_dokter' => 'dr. Diny Febriany H, MMRS',
@@ -38,6 +40,7 @@ class DoktersTableSeeder extends Seeder
                 'no_telepon' => '081122334455',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'img_url' => 'lg/img/',
             ],
             [
                 'nama_dokter' => 'drg. Nina Ayu Pebriana',
@@ -46,6 +49,7 @@ class DoktersTableSeeder extends Seeder
                 'no_telepon' => '081133445566',
                 'created_at' => now(),
                 'updated_at' => now(),
+                'img_url' => 'lg/img/',
             ],
         ]);
     }

@@ -15,7 +15,8 @@ class Dokter extends Model
         'nama_dokter',
         'id_spesialis',
         'hari',
-        'no_telepon'
+        'no_telepon',
+        'img_url',
     ];
 
     // Relasi many-to-one dengan model Spesialis

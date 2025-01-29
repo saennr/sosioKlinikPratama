@@ -11,6 +11,7 @@ use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\RiwayatReservasiController;
 use App\Http\Controllers\ProfileStaffController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArtikelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/beranda', [HalamanUtamaController::class, 'beranda'])->name('beranda');
     Route::get('/profilestaf', [ProfileStaffController::class, 'profileStaff'])->name('profileStaff');
     Route::get('/layanan', [ServiceController::class, 'index'])->name('layanan');
+
+    Route::get('/artikel1', [ArtikelController::class, 'artikel1'])->name('artikel1');
+    Route::get('/artikel2', [ArtikelController::class, 'artikel2'])->name('artikel2');
+    Route::get('/artikel3', [ArtikelController::class, 'artikel3'])->name('artikel3');
 
     Route::get('/profileuser', [ProfileController::class, 'index'])->name('profileuser');
     Route::post('/profileuser', [ProfileController::class, 'update'])->name('profileUpdate');

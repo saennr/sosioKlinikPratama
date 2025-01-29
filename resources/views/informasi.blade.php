@@ -21,7 +21,7 @@
                 <div class="info-content">
                     <h5 class="info-title">Peresmian Gedung Baru KLINIK PRATAMA</h5>
                     <p class="info-text">Peresmian Gedung Baru KLINIK PRATAMA UIN SGD Bandung dilaksanakan pada hari Selasa, 7 Januari 2025. Diresmikan langsung oleh...</p>
-                    <a href="#" class="btn-read-more">Baca lebih lanjut</a>
+                    <a href="{{ route('artikel1') }}" class="btn-read-more">Baca lebih lanjut</a>
                 </div>
             </div>
             <!-- Section 2 -->
@@ -30,7 +30,7 @@
                 <div class="info-content">
                     <h5 class="info-title">Klinik Pratama UIN SGD Bandung Sukses Gelar Medical Check-Up untuk Civitas Akademika</h5>
                     <p class="info-text">Bandung, 7 Januari 2025 – Klinik Pratama UIN Sunan Gunung Djati Bandung telah sukses melaksanakan kegiatan Medical Check-Up (MCU) bagi civitas akademika. Kegiatan ini berlangsung...</p>
-                    <a href="#" class="btn-read-more">Baca lebih lanjut</a>
+                    <a href="{{ route('artikel2') }}" class="btn-read-more">Baca lebih lanjut</a>
                 </div>
             </div>
             <!-- Section 3 -->
@@ -39,7 +39,7 @@
                 <div class="info-content">
                     <h5 class="info-title">Klinik Pratama UIN SGD Bandung Gelar Pemeriksaan Kesehatan bagi Mahasiswa Baru</h5>
                     <p class="info-text">Klinik Pratama UIN Sunan Gunung Djati Bandung telah sukses menyelenggarakan kegiatan pemeriksaan kesehatan bagi...</p>
-                    <a href="#" class="btn-read-more">Baca lebih lanjut</a>
+                    <a href="{{ route('artikel3') }}" class="btn-read-more">Baca lebih lanjut</a>
                 </div>
             </div>
         </div>
