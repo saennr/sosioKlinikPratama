@@ -18,7 +18,7 @@
         <button id="btnReservasiAktif" class="btn btn-category mx-2">Reservasi Aktif</button>
         <button id="btnRiwayat" class="btn btn-category mx-2">Riwayat</button>
     </div>
-
+    
     <!-- Reservasi Aktif -->
     <div id="reservasi" class="riwayat-category" style="display: none;">
         @if($reservasiAktif->isEmpty())

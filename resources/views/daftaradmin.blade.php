@@ -43,7 +43,7 @@
             <div>
             <input type="date" id="filterDate" class="filter-date" onchange="filterByDate(this.value)" />
             </div>
-                <div class="dropdown-filter">
+                <!-- <div class="dropdown-filter">
                     <button class="dropdown-toggle" id="dropdownButton">
                         Pilih Opsi
                     </button>
@@ -52,7 +52,7 @@
                         <li><a href="#" onclick="selectOption('Reservasi Aktif')">Reservasi Aktif</a></li>
                         <li><a href="#" onclick="selectOption('Riwayat')">Riwayat</a></li>
                     </ul>
-                </div>
+                </div> -->
             <div class="search-bar">  
                 <input type="text" id="searchInput" placeholder="Cari Pasien" class="search-input">  
             </div> 

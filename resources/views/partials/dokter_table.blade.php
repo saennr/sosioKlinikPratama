@@ -17,9 +17,9 @@
         <div class="cell" id="doctor-specialty">
             <span class="doctor-specialty-text">Poli {{ $dokter->spesialis->nama_spesialis ?? 'Tidak Diketahui' }}</span>
             <select id="id_spesialis" name="id_spesialis" class="doctor-specialty-input" required style="display:none;">
-                <option value="" disabled selected>Pilih Spesialis</option>
-                <option value="1" {{ $dokter->spesialis->nama_spesialis == 'Umum' ? 'selected' : '' }}>Umum</option>
-                <option value="2" {{ $dokter->spesialis->nama_spesialis == 'Gigi' ? 'selected' : '' }}>Gigi</option>
+                <option value="">Pilih Spesialis</option>
+                <option value="1">Umum</option>
+                <option value="2">Gigi</option>
             </select>
         </div>  
         <div class="cell" id="doctor-day">
@@ -46,7 +46,7 @@
             <button class="save-btn">Save</button>
             <button class="cancel-btn">Cancel</button>
     </div>
-    <div class="schedule-row hidden"> 
+    <div class="schedule-row hidden" data-doctor-id="{{ $dokter->id_dokter }}"> 
     <div class="schedule-table">  
         <div class="schedule-row header">  
             <div class="schedule-cell">Hari</div>  
@@ -70,7 +70,6 @@
         </div>
         @endforeach
     </div>
-    <button class="btn-dokter" id="btn-tambahJadwal">Tambah Jadwal</button>
 </div>
     @endforeach
 </div>

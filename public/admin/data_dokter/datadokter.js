@@ -44,7 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 doctorPhoneInput.style.display = 'block';
         
                 // Menampilkan tombol Save dan Cancel di bawah baris
-                const rowButtons = row.nextElementSibling;  // Menampilkan tombol di bawah row
+                const rowButtons = row.nextElementSibling; 
+                // Menampilkan tombol di bawah row
                 rowButtons.style.display = 'block';
         
                 // Event listener untuk tombol Save
@@ -214,22 +215,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    function toggleSchedule(button) {
-        console.log('Button clicked'); 
-        const scheduleContainer = button.parentElement.parentElement.nextElementSibling;
-        console.log(scheduleContainer); 
-    
-        if (scheduleContainer && scheduleContainer.classList.contains('hidden')) {
-            scheduleContainer.classList.remove('hidden');
-            scheduleContainer.classList.add('visible'); 
-            button.textContent = 'Jadwal Dokter';
-        } else if (scheduleContainer) {
-            scheduleContainer.classList.remove('visible'); 
-            scheduleContainer.classList.add('hidden');
-            button.textContent = 'Jadwal Dokter';
-        }
-    }
-
     // Close button for Jadwal Modal
     const closeJadwalBtn = jadwalForm.querySelector('.close-btn');
     if (closeJadwalBtn) {
@@ -354,10 +339,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Jadwal Dokter Functionality
     function toggleSchedule(button) {
-        console.log('Button clicked');
-        
-        // Find the next sibling element (assuming the schedule is the next element)
-        const scheduleContainer = button.closest('.row').nextElementSibling;
+        const row = button.closest('.row');
+        const scheduleContainer = row.parentNode.querySelector(`.schedule-row[data-doctor-id="${row.dataset.doctorId}"]`);
+
         
         if (!scheduleContainer) {
             console.error('Schedule container not found');
@@ -414,6 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Tambah Jadwal Dokter Form Submission
 if (jadwalForm) {
     jadwalForm.addEventListener("submit", function (e) {
+        console.log('Form Submitted');
         e.preventDefault();
 
         // Collect form data
