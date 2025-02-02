@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalOverlay = document.querySelector(".modal-overlay");
   const btnDokter = document.querySelector(".btn-dokter");
   const closeBtn = document.querySelector(".close-btn");
-  const dropdownEditItem = document.querySelector(".dropdown-item");
+//   const dropdownEditItem = document.querySelector(".dropdown-item");
 
   // Pastikan elemen-elemen ada sebelum menambahkan event listener
-  if (modal && modalOverlay && btnDokter && closeBtn && dropdownEditItem) {
+  if (modal && modalOverlay && btnDokter && closeBtn) {
       // Klik tombol untuk membuka modal
       btnDokter.addEventListener("click", () => {
           modal.classList.remove("modal-hidden");
@@ -25,21 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
           modalOverlay.classList.add("modal-hidden");
       });
 
-      dropdownEditItem.addEventListener("click", (event) => {
-          console.log("Edit button clicked!"); // Harus muncul di konsol
-          modal.classList.remove("modal-hidden");
-          modalOverlay.classList.remove("modal-hidden");
-      });
+    //   dropdownEditItem.addEventListener("click", (event) => {
+    //       console.log("Edit button clicked!"); // Harus muncul di konsol
+    //       modal.classList.remove("modal-hidden");
+    //       modalOverlay.classList.remove("modal-hidden");
+    //   });
 
-  } else {
-      console.error("Salah satu elemen tidak ditemukan:", {
-          modal,
-          modalOverlay,
-          btnDokter,
-          closeBtn,
-          dropdownEditItem,
-      });
-  }
+  } 
 });
 
 // Ambil semua tombol dropdown
@@ -95,9 +87,9 @@ function filterByDate(selectedDate) {
 const dropdownButton = document.getElementById('dropdownButton');  
 const dropdownContainer = document.querySelector('.dropdown-filter');  
 
-dropdownButton.addEventListener('click', () => {  
-  dropdownContainer.classList.toggle('open');  
-});  
+// dropdownButton.addEventListener('click', () => {  
+//   dropdownContainer.classList.toggle('open');  
+// });  
 
 function selectOption(option) {  
   dropdownButton.textContent = option; // Ubah teks tombol menjadi opsi yang dipilih  
@@ -149,48 +141,56 @@ $.ajaxSetup({
 
 // Fungsi untuk menghapus reservasi  
 function deleteReservasi(id_reservasi) {    
+    const dropdownMenu = event.target.closest('.dropdown-menu');
   // Menggunakan SweetAlert2 untuk konfirmasi penghapusan    
-  Swal.fire({    
-      title: 'Apakah Anda yakin?',    
-      text: "Anda tidak dapat mengembalikan ini!",    
-      icon: 'warning',    
-      showCancelButton: true,    
-      confirmButtonColor: '#3085d6',    
-      cancelButtonColor: '#d33',    
-      confirmButtonText: 'Ya, hapus!',
-      customClass: {
-        confirmButton: 'custom-ok-button'
-      }
-  }).then((result) => {    
-      if (result.isConfirmed) {    
-          // Jika pengguna mengonfirmasi, lakukan penghapusan    
-          $.ajax({    
-              url: '/admin/reservasi/' + id_reservasi, // Sesuaikan dengan route penghapusan    
-              type: 'DELETE',    
-              success: function (response) {    
-                  // Tampilkan pesan sukses setelah penghapusan  
-                  Swal.fire({    
-                      title: 'Dihapus!',    
-                      text: response.success,    
-                      icon: 'success',    
-                      confirmButtonText: 'OK',
-                      customClass: {
-                        confirmButton: 'custom-ok-button'
-                      } 
-                  }).then((result) => {  
-                      if (result.isConfirmed) {  
-                          location.reload(); // Muat ulang halaman setelah mengklik OK  
-                      }  
-                  });  
-              },    
-              error: function (xhr) {    
-                  Swal.fire(    
-                      'Terjadi kesalahan!',    
-                      'Gagal menghapus reservasi.',    
-                      'error'    
-                  );    
-              }    
-          });    
-      }    
-  });    
+    Swal.fire({    
+        title: 'Apakah Anda yakin?',    
+        text: "Anda tidak dapat mengembalikan ini!",    
+        icon: 'warning',    
+        showCancelButton: true,    
+        confirmButtonColor: '#3085d6',    
+        cancelButtonColor: '#d33',    
+        confirmButtonText: 'Ya, hapus!',
+        customClass: {
+            confirmButton: 'custom-ok-button'
+        }
+    }).then((result) => {    
+        if (result.isConfirmed) {    
+            // Jika pengguna mengonfirmasi, lakukan penghapusan    
+            $.ajax({    
+                url: '/admin/reservasi/' + id_reservasi, // Sesuaikan dengan route penghapusan    
+                type: 'DELETE',
+                headers: {  
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')  
+                    },
+                success: function (response) {    
+                    // Tampilkan pesan sukses setelah penghapusan  
+                    Swal.fire({    
+                        title: 'Dihapus!',    
+                        text: response.success,    
+                        icon: 'success',    
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            confirmButton: 'custom-ok-button'
+                        } 
+                    }).then((result) => {  
+                        if (result.isConfirmed) {  
+                            location.reload(); // Muat ulang halaman setelah mengklik OK  
+                        }  
+                    });  
+                },    
+                error: function (xhr) {    
+                    Swal.fire(    
+                        'Terjadi kesalahan!',    
+                        'Gagal menghapus reservasi.',    
+                        'error'    
+                    );    
+                }    
+            });    
+        }    
+    });
+
+    if (dropdownMenu) {
+        dropdownMenu.classList.remove('show'); // Hide the dropdown menu
+    }  
 }  
